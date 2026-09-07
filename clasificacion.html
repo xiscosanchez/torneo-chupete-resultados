@@ -129,15 +129,17 @@
     const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 
     // "PEÑA DEPORTIVA "A"" → { name: 'Peña Deportiva', letra: 'A' }
-    const ABBR = new Set(['fc', 'cf', 'cd', 'ce', 'ue', 'ud', 'sd', 'sp', 'rcd', 'sad', 'cse', 'sc', 'at', 'atc', 'atco', 'rtvo', 'cfs', 'ad', 'ca', 'ee', 'ff']);
+    const ABBR = new Set(['fc', 'cf', 'cd', 'ce', 'ue', 'ud', 'sd', 'rcd', 'sad', 'cse', 'sc', 'cfs', 'ad', 'ca', 'ee', 'ff']);
+    const SMALL = new Set(['de', 'del', 'la', 'las', 'los', 'el', 'y', 'i', 'es', 'sa', 'ses', 'd']);
     function prettyName(raw) {
       let name = String(raw || '').trim();
       let letra = null;
       const m = name.match(/\s*["“”']\s*([A-Z])\s*["“”']\s*$/);
       if (m) { letra = m[1]; name = name.slice(0, m.index).trim(); }
-      const words = name.split(/\s+/).map((w) => {
+      const words = name.split(/\s+/).map((w, i) => {
         const bare = w.toLowerCase().replace(/[.º°]/g, '');
-        if (/^[a-z]$/.test(bare) || ABBR.has(bare)) return w.toUpperCase().replace(/º/g, 'º');
+        if (/^[a-z]$/.test(bare) || ABBR.has(bare)) return w.toUpperCase();
+        if (i > 0 && SMALL.has(bare)) return w.toLowerCase();
         return w.charAt(0).toUpperCase() + w.slice(1).toLowerCase();
       });
       return { name: words.join(' '), letra };

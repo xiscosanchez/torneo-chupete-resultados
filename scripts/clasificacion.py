@@ -278,9 +278,11 @@ def escudo_from_team_page(html: bytes, page_url: str) -> str | None:
             continue
         blob = " ".join([src, img.get("alt", ""), img.get("class") and " ".join(img.get("class")) or "", img.get("title", "")])
         score = 0
+        if re.search(r"/pimg/", src, re.I):
+            score += 20
         if re.search(r"escud|shield|logo_?equipo|club", blob, re.I):
             score += 10
-        if SITE_IMG_PAT.search(src.rsplit("/", 1)[-1]):
+        if SITE_IMG_PAT.search(src.rsplit("/", 1)[-1]) and not re.search(r"/pimg/", src, re.I):
             score -= 8
         if re.search(r"web_responsive|/img/web", src):
             score -= 5
@@ -291,6 +293,7 @@ def escudo_from_team_page(html: bytes, page_url: str) -> str | None:
     candidates.sort(reverse=True)
     if candidates and candidates[0][0] > 0:
         return candidates[0][1]
+    print(f"[debug] imágenes en {page_url}: {[c[1] for c in candidates]}", file=sys.stderr)
     return None
 
 
