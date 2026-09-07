@@ -130,7 +130,7 @@
 
     // "PEÑA DEPORTIVA "A"" → { name: 'Peña Deportiva', letra: 'A' }
     const ABBR = new Set(['fc', 'cf', 'cd', 'ce', 'ue', 'ud', 'sd', 'rcd', 'sad', 'cse', 'sc', 'cfs', 'ad', 'ca', 'ee', 'ff']);
-    const SMALL = new Set(['de', 'del', 'la', 'las', 'los', 'el', 'y', 'i', 'es', 'sa', 'ses', 'd']);
+    const SMALL = new Set(['de', 'del', 'y', 'i', "d'"]);
     function prettyName(raw) {
       let name = String(raw || '').trim();
       let letra = null;
