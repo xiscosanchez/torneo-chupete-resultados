@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-09-07T22:11:42+00:00",
+  "actualizado": "2026-09-07T22:17:09+00:00",
   "fuente": "https://www.ffib.es/Fed/NPcd/NFG_VisClasificacion?cod_primaria=1000110&codjornada=1&codcompeticion=23348373&codgrupo=23348374&codjornada=1",
   "competicion": "LIGA NACIONAL JUVENIL",
   "grupo": "LIGA",
@@ -38,7 +38,6 @@
         "G"
       ],
       "sancion": 0,
-      "escudo_url": "https://www.ffib.es/Fed/pimg/Clubes/00100_0000000981_escudo%20metacrilato%20de%2010%20mm.jpg",
       "escudo": "data/escudos/108710.jpg"
     },
     {
@@ -70,7 +69,6 @@
         "G"
       ],
       "sancion": 0,
-      "escudo_url": "https://www.ffib.es/Fed/pimg/Clubes/00100_0000076223_Escudo_color_sin_fondo.jpg",
       "escudo": "data/escudos/102322.jpg"
     },
     {
@@ -102,7 +100,6 @@
         "G"
       ],
       "sancion": 0,
-      "escudo_url": "https://www.ffib.es/Fed/pimg/Clubes/00100_0000215148_ESCUDO_RTVO_PENYA_ARRABAL.jpg",
       "escudo": "data/escudos/250822.jpg"
     },
     {
@@ -134,7 +131,6 @@
         "G"
       ],
       "sancion": 0,
-      "escudo_url": "https://www.ffib.es/Fed/pimg/Clubes/00100_0000155085_escud_ferre.jpg",
       "escudo": "data/escudos/789575.jpg"
     },
     {
@@ -166,7 +162,6 @@
         "G"
       ],
       "sancion": 0,
-      "escudo_url": "https://www.ffib.es/Fed/pimg/Clubes/00100_0000168135_escut_arta___2.jpg",
       "escudo": "data/escudos/102348.jpg"
     },
     {
@@ -198,7 +193,6 @@
         "G"
       ],
       "sancion": 0,
-      "escudo_url": "https://www.ffib.es/Fed/pimg/Clubes/00100_0000193862_palmafc.jpg",
       "escudo": "data/escudos/1878537.jpg"
     },
     {
@@ -230,7 +224,6 @@
         "G"
       ],
       "sancion": 0,
-      "escudo_url": "https://www.ffib.es/Fed/pimg/Clubes/00100_0000076494_Logo_para_Publicidad_CF_Platges.jpg",
       "escudo": "data/escudos/102430.jpg"
     },
     {
@@ -262,7 +255,6 @@
         "E"
       ],
       "sancion": 0,
-      "escudo_url": "https://www.ffib.es/Fed/pimg/Clubes/00100_0000285884_Constancia.png",
       "escudo": "data/escudos/738881.png"
     },
     {
@@ -294,7 +286,6 @@
         "E"
       ],
       "sancion": 0,
-      "escudo_url": "https://www.ffib.es/Fed/pimg/Clubes/00100_0000199852_23604025_IMG_20230814_WA0003__2_.jpg",
       "escudo": "data/escudos/102089.jpg"
     },
     {
@@ -325,7 +316,9 @@
       "forma": [
         "E"
       ],
-      "sancion": 0
+      "sancion": 0,
+      "escudo_url": "https://www.ffib.es/Fed/pimg/Clubes/00100_0000306100_ESCUDO_NUEVO.jpg",
+      "escudo": "data/escudos/130742.jpg"
     },
     {
       "pos": 11,
@@ -386,7 +379,9 @@
       "forma": [
         "P"
       ],
-      "sancion": 0
+      "sancion": 0,
+      "escudo_url": "https://www.ffib.es/Fed/pimg/Clubes/00100_0000400000_Escudo_nuevo.png",
+      "escudo": "data/escudos/5237858.png"
     },
     {
       "pos": 13,
@@ -416,7 +411,9 @@
       "forma": [
         "P"
       ],
-      "sancion": 0
+      "sancion": 0,
+      "escudo_url": "https://www.ffib.es/Fed/pimg/Clubes/00100_0000311306_IMG_7500.jpeg",
+      "escudo": "data/escudos/843912.jpg"
     },
     {
       "pos": 14,
@@ -446,7 +443,9 @@
       "forma": [
         "P"
       ],
-      "sancion": 0
+      "sancion": 0,
+      "escudo_url": "https://www.ffib.es/Fed/pimg/Clubes/00100_0000306448_RCDMALLORCA_ESCUDO.png",
+      "escudo": "data/escudos/102099.png"
     },
     {
       "pos": 15,
@@ -477,7 +476,6 @@
         "P"
       ],
       "sancion": 0,
-      "escudo_url": "https://www.ffib.es/Fed/pimg/Clubes/00100_0000000232_SDlogo.jpg",
       "escudo": "data/escudos/111456.jpg"
     },
     {
@@ -509,7 +507,6 @@
         "P"
       ],
       "sancion": 0,
-      "escudo_url": "https://www.ffib.es/Fed/pimg/Clubes/00100_0000156921_Escudo_UEAlc_dia_66px.jpg",
       "escudo": "data/escudos/102304.jpg"
     },
     {
@@ -541,7 +538,6 @@
         "P"
       ],
       "sancion": 0,
-      "escudo_url": "https://www.ffib.es/Fed/pimg/Clubes/00100_0000107731_UD_POBLENSE_01.jpg",
       "escudo": "data/escudos/102093.jpg"
     },
     {
@@ -573,7 +569,6 @@
         "P"
       ],
       "sancion": 0,
-      "escudo_url": "https://www.ffib.es/Fed/pimg/Clubes/00100_0000248703_logo_CiutadellaCE_png.png",
       "escudo": "data/escudos/110062.png"
     }
   ],
