@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-09-07T22:03:35+00:00",
+  "actualizado": "2026-09-07T22:11:42+00:00",
   "fuente": "https://www.ffib.es/Fed/NPcd/NFG_VisClasificacion?cod_primaria=1000110&codjornada=1&codcompeticion=23348373&codgrupo=23348374&codjornada=1",
   "competicion": "LIGA NACIONAL JUVENIL",
   "grupo": "LIGA",
@@ -477,7 +477,8 @@
         "P"
       ],
       "sancion": 0,
-      "escudo": "data/escudos/111456.png"
+      "escudo_url": "https://www.ffib.es/Fed/pimg/Clubes/00100_0000000232_SDlogo.jpg",
+      "escudo": "data/escudos/111456.jpg"
     },
     {
       "pos": 16,
@@ -507,7 +508,9 @@
       "forma": [
         "P"
       ],
-      "sancion": 0
+      "sancion": 0,
+      "escudo_url": "https://www.ffib.es/Fed/pimg/Clubes/00100_0000156921_Escudo_UEAlc_dia_66px.jpg",
+      "escudo": "data/escudos/102304.jpg"
     },
     {
       "pos": 17,
@@ -537,7 +540,9 @@
       "forma": [
         "P"
       ],
-      "sancion": 0
+      "sancion": 0,
+      "escudo_url": "https://www.ffib.es/Fed/pimg/Clubes/00100_0000107731_UD_POBLENSE_01.jpg",
+      "escudo": "data/escudos/102093.jpg"
     },
     {
       "pos": 18,
@@ -567,7 +572,9 @@
       "forma": [
         "P"
       ],
-      "sancion": 0
+      "sancion": 0,
+      "escudo_url": "https://www.ffib.es/Fed/pimg/Clubes/00100_0000248703_logo_CiutadellaCE_png.png",
+      "escudo": "data/escudos/110062.png"
     }
   ],
   "resultados": [
