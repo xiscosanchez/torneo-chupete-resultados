@@ -1,0 +1,59 @@
+name: Actualizar clasificación FFIB
+
+on:
+  schedule:
+    # Todos los días a las 21:00 UTC y los domingos también a las 14:00 y 17:00 UTC
+    - cron: '0 21 * * *'
+    - cron: '0 14,17 * * 0'
+  workflow_dispatch:
+    inputs:
+      url:
+        description: 'URL de la clasificación en ffib.es (vacío = la configurada)'
+        required: false
+        default: ''
+
+permissions:
+  contents: write
+
+concurrency:
+  group: clasificacion
+  cancel-in-progress: false
+
+env:
+  # Se puede sobrescribir con la variable de repositorio CLASIFICACION_URL
+  # (Settings → Secrets and variables → Actions → Variables).
+  DEFAULT_URL: 'https://www.ffib.es/Fed/NPcd/NFG_VisClasificacion?cod_primaria=1000110&codjornada=1&codcompeticion=23348373&codgrupo=23348374&codjornada=1'
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Instalar dependencias
+        run: pip install --quiet requests beautifulsoup4
+
+      - name: Descargar clasificación y escudos
+        env:
+          INPUT_URL: ${{ inputs.url }}
+          VAR_URL: ${{ vars.CLASIFICACION_URL }}
+        run: |
+          URL="${INPUT_URL:-${VAR_URL:-$DEFAULT_URL}}"
+          echo "URL: $URL"
+          python3 scripts/clasificacion.py --url "$URL" --out data/clasificacion.json --escudos data/escudos
+
+      - name: Publicar cambios
+        run: |
+          git config user.name  'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add data/
+          if git diff --cached --quiet; then
+            echo "Sin cambios en la clasificación"
+            exit 0
+          fi
+          git commit -m "Actualizar clasificación FFIB ($(date -u +'%Y-%m-%d %H:%M UTC'))"
+          git push

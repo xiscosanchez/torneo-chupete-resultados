@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#075985">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Clasificación">
+  <title>Clasificación · Sporting Ciutat de Palma</title>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f8fafc; --card: #ffffff; --line: #e2e8f0; --line-soft: #f1f5f9;
+      --text: #0f172a; --muted: #64748b; --faint: #94a3b8;
+      --brand1: #075985; --brand2: #14b8a6;
+      --mine-bg: #ecfeff; --mine-line: #14b8a6;
+      --gold: #fef3c7; --gold-line: #f59e0b;
+      --up: #059669; --down: #dc2626;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0b1220; --card: #111a2c; --line: #1f2b40; --line-soft: #172238;
+        --text: #e5edf7; --muted: #9fb0c7; --faint: #6b7d97;
+        --mine-bg: #0e2a2e; --gold: #2b2410; --gold-line: #b7791f;
+      }
+    }
+    * { box-sizing: border-box; }
+    [hidden] { display: none !important; }
+    html, body { margin: 0; background: var(--bg); color: var(--text); }
+    body { font-family: 'Nunito', -apple-system, BlinkMacSystemFont, sans-serif; -webkit-tap-highlight-color: transparent; padding-bottom: 3rem; }
+    a { color: inherit; }
+
+    header { position: sticky; top: 0; z-index: 10; color: #fff; background: linear-gradient(90deg, var(--brand1), var(--brand2)); box-shadow: 0 4px 14px rgba(2, 6, 23, .18); }
+    .wrap { max-width: 760px; margin: 0 auto; padding: 0 .85rem; }
+    .head { display: flex; align-items: center; justify-content: space-between; gap: .75rem; padding: .8rem 0; }
+    .head h1 { margin: 0; font-size: 1.1rem; font-weight: 800; letter-spacing: .02em; line-height: 1.2; }
+    .head p { margin: .15rem 0 0; font-size: .75rem; color: #ccfbf1; }
+    .head .back { font-size: .8rem; font-weight: 700; color: #ccfbf1; text-decoration: none; padding: .45rem .7rem; border-radius: 999px; background: rgba(255,255,255,.12); white-space: nowrap; }
+    .head .back:hover { background: rgba(255,255,255,.22); color: #fff; }
+
+    .meta { display: flex; flex-wrap: wrap; gap: .4rem .6rem; align-items: center; margin: 1rem 0 .75rem; font-size: .75rem; color: var(--muted); }
+    .chip { display: inline-flex; align-items: center; gap: .3rem; padding: .25rem .6rem; border-radius: 999px; background: var(--card); border: 1px solid var(--line); font-weight: 700; color: var(--text); }
+    .chip.j { background: var(--brand1); border-color: var(--brand1); color: #fff; }
+    .meta .src { margin-left: auto; }
+    .meta .src a { color: var(--muted); text-decoration: underline dotted; }
+
+    .card { background: var(--card); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; box-shadow: 0 1px 2px rgba(2, 6, 23, .05); }
+    .scroll { overflow-x: auto; }
+    table { width: 100%; border-collapse: collapse; font-size: .84rem; min-width: 420px; }
+    thead th { font-size: .68rem; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); font-weight: 700; padding: .65rem .35rem; border-bottom: 1px solid var(--line); text-align: center; white-space: nowrap; }
+    thead th.team { text-align: left; padding-left: .5rem; }
+    tbody td { padding: .5rem .35rem; text-align: center; border-bottom: 1px solid var(--line-soft); font-variant-numeric: tabular-nums; }
+    tbody tr:last-child td { border-bottom: 0; }
+    tbody tr { transition: background .15s; }
+    tbody tr:hover { background: var(--line-soft); }
+    td.pos { width: 2.2rem; font-weight: 800; color: var(--faint); }
+    td.pos .n { display: inline-flex; width: 1.6rem; height: 1.6rem; align-items: center; justify-content: center; border-radius: 999px; }
+    tr.first td.pos .n { background: var(--gold); color: #b45309; border: 1px solid var(--gold-line); }
+    td.team { text-align: left; font-weight: 700; padding-left: .5rem; white-space: nowrap; max-width: 0; width: 44%; overflow: hidden; }
+    td.team a, td.team > span { text-decoration: none; display: flex; align-items: center; gap: .55rem; width: 100%; }
+    td.team .name { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    td.team a:hover .name { text-decoration: underline; }
+    .shield { width: 30px; height: 30px; object-fit: contain; flex: 0 0 30px; filter: drop-shadow(0 1px 1px rgba(0,0,0,.15)); }
+    .initials { width: 30px; height: 30px; flex: 0 0 30px; border-radius: 999px; background: var(--line); color: var(--muted); font-size: .65rem; font-weight: 800; display: inline-flex; align-items: center; justify-content: center; letter-spacing: .02em; }
+    td.pts { font-weight: 800; font-size: .95rem; }
+    td.dg.up { color: var(--up); font-weight: 700; }
+    td.dg.down { color: var(--down); font-weight: 700; }
+    tr.mine td { background: var(--mine-bg); }
+    tr.mine td:first-child { box-shadow: inset 4px 0 0 var(--mine-line); }
+    tr.mine td.team { color: var(--brand1); }
+    @media (prefers-color-scheme: dark) { tr.mine td.team { color: #5eead4; } }
+    @media (max-width: 480px) {
+      table { min-width: 0; font-size: .8rem; }
+      .col-gf, .col-gc { display: none; }
+      .shield, .initials { width: 26px; height: 26px; flex-basis: 26px; }
+    }
+
+    .legend { display: flex; flex-wrap: wrap; gap: .6rem 1rem; padding: .7rem .85rem; font-size: .7rem; color: var(--muted); border-top: 1px solid var(--line); }
+    .legend b { color: var(--text); font-weight: 700; }
+
+    .empty { padding: 2.2rem 1.2rem; text-align: center; color: var(--muted); font-size: .9rem; line-height: 1.55; }
+    .empty h2 { margin: 0 0 .4rem; color: var(--text); font-size: 1.05rem; }
+    .empty code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: .78rem; background: var(--line-soft); padding: .1rem .35rem; border-radius: 4px; }
+
+    .foot { margin-top: .9rem; font-size: .7rem; color: var(--faint); text-align: center; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap head">
+      <div>
+        <h1 id="titulo">Clasificación</h1>
+        <p id="subtitulo">Liga · Sporting Ciutat de Palma</p>
+      </div>
+      <a class="back" href="index.html">← Torneo Chupete</a>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <div class="meta" id="meta" hidden></div>
+    <div class="card" id="card">
+      <div class="empty" id="loading">Cargando clasificación…</div>
+    </div>
+    <p class="foot" id="foot"></p>
+  </main>
+
+  <script>
+    // Equipo a destacar en la tabla (expresión regular sobre el nombre en minúsculas).
+    const MI_EQUIPO = /sporting.*ciutat|ciutat.*palma/i;
+    const DATA_URL = 'data/clasificacion.json';
+
+    const $ = (id) => document.getElementById(id);
+    const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+
+    function initials(name) {
+      const stop = new Set(['cd', 'cf', 'ce', 'ue', 'sd', 'ud', 'at', 'atc', 'atco', 'c', 'd', 'f', 'e', 'de', 'la', 'el', 'del', 'los', 'las', 'club', 'rtvo', 'cse', 'sc']);
+      const parts = name.toLowerCase().replace(/[.,]/g, ' ').split(/\s+/).filter((w) => w && !stop.has(w));
+      return (parts.length ? parts : [name]).slice(0, 2).map((w) => w[0]).join('').toUpperCase();
+    }
+
+    function shieldHtml(t) {
+      const src = t.escudo || t.escudo_url;
+      const fallback = `<span class="initials" title="${esc(t.equipo)}">${esc(initials(t.equipo))}</span>`;
+      if (!src) return fallback;
+      return `<img class="shield" src="${esc(src)}" alt="" loading="lazy" onerror="this.nextElementSibling.hidden=false;this.remove()">${fallback.replace('<span', '<span hidden')}`;
+    }
+
+    function fmtDate(iso) {
+      if (!iso) return null;
+      const d = new Date(iso);
+      if (isNaN(d)) return iso;
+      return d.toLocaleString('es-ES', { day: '2-digit', month: 'short', hour: '2-digit', minute: '2-digit' });
+    }
+
+    function render(data) {
+      const equipos = (data.equipos || []).slice().sort((a, b) => a.pos - b.pos);
+      if (data.competicion) {
+        $('titulo').textContent = data.competicion;
+        document.title = `${data.competicion} · Clasificación`;
+      }
+      const temporada = data.temporada && !(data.grupo || '').includes(data.temporada) ? `Temporada ${data.temporada}` : null;
+      const sub = [data.grupo, temporada].filter(Boolean).join(' · ');
+      if (sub) $('subtitulo').textContent = sub;
+
+      const meta = [];
+      if (data.jornada) meta.push(`<span class="chip j">Jornada ${esc(data.jornada)}</span>`);
+      meta.push(`<span class="chip">${equipos.length} equipos</span>`);
+      if (data.fuente) meta.push(`<span class="src">Fuente: <a href="${esc(data.fuente)}" target="_blank" rel="noopener">ffib.es</a></span>`);
+      $('meta').innerHTML = meta.join('');
+      $('meta').hidden = false;
+
+      const upd = fmtDate(data.actualizado);
+      $('foot').textContent = upd ? `Actualizado el ${upd} · Se actualiza automáticamente desde la web de la FFIB.` : '';
+
+      if (!equipos.length) {
+        $('card').innerHTML = `<div class="empty">
+          <h2>Todavía no hay datos</h2>
+          La clasificación se descarga automáticamente desde <a href="${esc(data.fuente || '#')}" target="_blank" rel="noopener">ffib.es</a> con GitHub Actions.<br>
+          Lanza el workflow <code>Actualizar clasificación FFIB</code> desde la pestaña <b>Actions</b> del repositorio para cargarla ahora.
+        </div>`;
+        return;
+      }
+
+      const rows = equipos.map((t, i) => {
+        const mine = MI_EQUIPO.test(t.equipo);
+        const dg = t.dg ?? ((t.gf ?? 0) - (t.gc ?? 0));
+        const dgCls = dg > 0 ? 'up' : dg < 0 ? 'down' : '';
+        const name = t.url ? `<a href="${esc(t.url)}" target="_blank" rel="noopener">${shieldHtml(t)}<span class="name">${esc(t.equipo)}</span></a>`
+                           : `<span>${shieldHtml(t)}<span class="name">${esc(t.equipo)}</span></span>`;
+        return `<tr class="${mine ? 'mine' : ''} ${i === 0 ? 'first' : ''}">
+          <td class="pos"><span class="n">${esc(t.pos)}</span></td>
+          <td class="team">${name}</td>
+          <td class="pts">${esc(t.pts)}</td>
+          <td>${esc(t.pj)}</td>
+          <td>${esc(t.pg)}</td>
+          <td>${esc(t.pe)}</td>
+          <td>${esc(t.pp)}</td>
+          <td class="col-gf">${esc(t.gf)}</td>
+          <td class="col-gc">${esc(t.gc)}</td>
+          <td class="dg ${dgCls}">${dg > 0 ? '+' : ''}${esc(dg)}</td>
+        </tr>`;
+      }).join('');
+
+      $('card').innerHTML = `<div class="scroll"><table>
+        <thead><tr>
+          <th>#</th><th class="team">Equipo</th><th title="Puntos">Pts</th><th title="Partidos jugados">PJ</th>
+          <th title="Ganados">G</th><th title="Empatados">E</th><th title="Perdidos">P</th>
+          <th class="col-gf" title="Goles a favor">GF</th><th class="col-gc" title="Goles en contra">GC</th><th title="Diferencia de goles">DG</th>
+        </tr></thead>
+        <tbody>${rows}</tbody>
+      </table></div>
+      <div class="legend">
+        <span><b>Pts</b> puntos</span><span><b>PJ</b> jugados</span><span><b>G/E/P</b> ganados / empatados / perdidos</span>
+        <span><b>GF/GC</b> goles a favor / en contra</span><span><b>DG</b> diferencia</span>
+      </div>`;
+    }
+
+    fetch(DATA_URL, { cache: 'no-store' })
+      .then((r) => { if (!r.ok) throw new Error(`HTTP ${r.status}`); return r.json(); })
+      .then(render)
+      .catch((err) => {
+        $('card').innerHTML = `<div class="empty"><h2>No se pudo cargar la clasificación</h2>${esc(err.message)}<br>Comprueba que existe <code>data/clasificacion.json</code>.</div>`;
+      });
+  </script>
+</body>
+</html>
