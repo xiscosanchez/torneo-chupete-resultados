@@ -72,8 +72,12 @@ def cells_of(tr):
     return tr.find_all(["td", "th"])
 
 
+LAST_FETCH = {}
+
+
 def fetch(url: str) -> bytes:
     r = SESSION.get(url, timeout=40)
+    LAST_FETCH[url] = (r.status_code, len(r.content), r.url)
     r.raise_for_status()
     return r.content
 
@@ -293,7 +297,6 @@ def escudo_from_team_page(html: bytes, page_url: str) -> str | None:
     candidates.sort(reverse=True)
     if candidates and candidates[0][0] > 0:
         return candidates[0][1]
-    print(f"[debug] imágenes en {page_url}: {[c[1] for c in candidates]}", file=sys.stderr)
     return None
 
 
@@ -351,6 +354,7 @@ def download_escudos(teams, folder, soup, base_url, debug_dir=None):
                 src = escudo_from_team_page(html, page)
                 if src:
                     break
+                print(f"[debug] {t['equipo']}: {page} -> {LAST_FETCH.get(page)}", file=sys.stderr)
             if not src:
                 manual = existing_escudo(folder, t)
                 if manual:
