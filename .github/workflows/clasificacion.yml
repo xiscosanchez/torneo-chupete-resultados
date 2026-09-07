@@ -48,7 +48,7 @@ jobs:
         run: |
           URL="${INPUT_URL:-${VAR_URL:-$DEFAULT_URL}}"
           echo "URL: $URL"
-          python3 scripts/clasificacion.py --url "$URL" --out data/clasificacion.json --escudos data/escudos
+          python3 scripts/clasificacion.py --url "$URL" --out data/clasificacion.json --escudos data/escudos --save-html data/debug/fuente.html
 
       - name: Publicar cambios
         run: |

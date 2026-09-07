@@ -242,9 +242,14 @@ def main() -> int:
     ap.add_argument("--no-download", action="store_true", help="No descargar escudos")
     ap.add_argument("--competicion", help="Nombre de la competición (sobrescribe el detectado)")
     ap.add_argument("--grupo", help="Nombre del grupo (sobrescribe el detectado)")
+    ap.add_argument("--save-html", help="Guardar el HTML descargado en este fichero (depuración)")
     args = ap.parse_args()
 
     raw = open(args.html, "rb").read() if args.html else fetch(args.url)
+    if args.save_html:
+        os.makedirs(os.path.dirname(args.save_html) or ".", exist_ok=True)
+        with open(args.save_html, "wb") as fh:
+            fh.write(raw)
     soup = BeautifulSoup(raw, "html.parser")
 
     best = (0, [], {})
