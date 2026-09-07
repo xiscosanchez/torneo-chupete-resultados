@@ -19,6 +19,13 @@ solo si hay cambios. Para lanzarlo a mano: pestaña *Actions → Actualizar clas
   `CLASIFICACION_URL` (*Settings → Secrets and variables → Actions → Variables*) con la URL de
   ffib.es, o pásala como *input* al lanzar el workflow a mano.
 - El equipo que se resalta en la tabla se configura con la constante `MI_EQUIPO` en `clasificacion.html`.
+- El scraper avanza automáticamente con el botón «Jornada Siguiente» hasta la última jornada con
+  resultados, así que no hace falta cambiar `codjornada` cada semana.
+- Los escudos se toman de la ficha de cada equipo en ffib.es y se guardan como `data/escudos/<codequipo>.*`.
+  Si a un equipo le falta, basta con dejar un `data/escudos/<codequipo>.png` a mano: el scraper lo respeta y
+  no vuelve a pedirlo.
+- El workflow también se ejecuta al hacer push de cambios en el scraper o en el propio workflow. El disparo
+  manual y el programado solo funcionan cuando el workflow está en la rama por defecto (`main`).
 
 Ejecución local:
 
