@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-09-07T21:57:58+00:00",
+  "actualizado": "2026-09-07T22:01:19+00:00",
   "fuente": "https://www.ffib.es/Fed/NPcd/NFG_VisClasificacion?cod_primaria=1000110&codjornada=1&codcompeticion=23348373&codgrupo=23348374&codjornada=1",
   "competicion": "LIGA NACIONAL JUVENIL",
   "grupo": "LIGA",
@@ -355,7 +355,8 @@
       "forma": [
         "E"
       ],
-      "sancion": 0
+      "sancion": 0,
+      "escudo": "data/escudos/202615.png"
     },
     {
       "pos": 12,
@@ -475,7 +476,8 @@
       "forma": [
         "P"
       ],
-      "sancion": 0
+      "sancion": 0,
+      "escudo": "data/escudos/111456.png"
     },
     {
       "pos": 16,
