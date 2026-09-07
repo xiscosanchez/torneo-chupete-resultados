@@ -346,6 +346,10 @@ def download_escudos(teams, folder, soup, base_url, debug_dir=None):
     os.makedirs(folder, exist_ok=True)
     saved = set()
     for t in teams:
+        local = existing_escudo(folder, t)
+        if local:
+            t["escudo"] = local  # ya descargado o colocado a mano: no volver a pedirlo
+            continue
         try:
             src = None
             html = b""
