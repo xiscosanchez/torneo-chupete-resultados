@@ -320,12 +320,23 @@ def team_card_urls(soup, base_url, team):
     return urls
 
 
+def existing_escudo(folder, team):
+    """Escudo ya presente en disco (descargado antes o colocado a mano como <codequipo>.png/jpg/...)."""
+    for base in filter(None, (team.get("codequipo"), slug(team["equipo"]))):
+        for ext in (".png", ".jpg", ".jpeg", ".gif", ".svg", ".webp"):
+            path = os.path.join(folder, base + ext)
+            if os.path.exists(path) and os.path.getsize(path) > 0:
+                return path.replace(os.sep, "/")
+    return None
+
+
 def download_escudos(teams, folder, soup, base_url, debug_dir=None):
     os.makedirs(folder, exist_ok=True)
     saved = set()
     for t in teams:
         try:
             src = None
+            html = b""
             for i, page in enumerate(team_card_urls(soup, base_url, t)):
                 try:
                     html = fetch(page)
@@ -341,7 +352,16 @@ def download_escudos(teams, folder, soup, base_url, debug_dir=None):
                 if src:
                     break
             if not src:
+                manual = existing_escudo(folder, t)
+                if manual:
+                    t["escudo"] = manual
+                    print(f"[info] {t['equipo']}: usando escudo local {manual}", file=sys.stderr)
+                    continue
                 print(f"[aviso] sin escudo detectado para {t['equipo']}", file=sys.stderr)
+                if debug_dir and "fail" not in saved and t.get("codequipo"):
+                    with open(os.path.join(debug_dir, f"sin_escudo_{t['codequipo']}.html"), "wb") as fh:
+                        fh.write(html)
+                    saved.add("fail")
                 continue
             t["escudo_url"] = src
             r = SESSION.get(src, timeout=30, headers={"Referer": t["url"]})
