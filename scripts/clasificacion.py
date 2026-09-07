@@ -6,41 +6,43 @@ Uso:
       --out data/clasificacion.json --escudos data/escudos
 
 Para probar con un HTML ya descargado:
-  python3 scripts/clasificacion.py --html pagina.html --url "<url original>" --no-download
+  python3 scripts/clasificacion.py --html pagina.html --url "<url original>" --no-download --jornada fija
 """
 from __future__ import annotations
 
 import argparse
+import copy
 import datetime as dt
 import json
 import os
 import re
 import sys
 import unicodedata
-from urllib.parse import parse_qs, urljoin, urlparse
+from urllib.parse import parse_qs, urlencode, urljoin, urlparse, urlunparse
 
 import requests
 from bs4 import BeautifulSoup
 
 UA = ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
       "(KHTML, like Gecko) Chrome/124.0 Safari/537.36")
+SESSION = requests.Session()
+SESSION.headers.update({"User-Agent": UA, "Accept-Language": "es-ES,es;q=0.9"})
 
-# Palabras clave (ya normalizadas: minúsculas, sin acentos ni puntos) por columna.
-HEADER_KEYS = {
-    "equipo": ("equipo", "equipos", "club"),
-    "pts": ("pts", "ptos", "puntos", "pt", "p_tos"),
-    "pj": ("pj", "j", "jug", "jugados", "partidos"),
-    "pg": ("pg", "g", "gan", "ganados", "v", "victorias"),
-    "pe": ("pe", "e", "emp", "empatados", "empates"),
-    "pp": ("pp", "p", "perd", "perdidos", "derrotas"),
-    "gf": ("gf", "favor", "golesfavor", "gfavor"),
-    "gc": ("gc", "contra", "golescontra", "gcontra"),
-    "sancion": ("sancion", "sanc", "s", "pts_sancion"),
+# Etiquetas de columna (normalizadas) → clave. El título (atributo title) tiene prioridad.
+LABELS = {
+    "pts": "pts", "ptos": "pts", "puntos": "pts", "pt": "pts",
+    "j": "pj", "pj": "pj", "jugados": "pj", "partidos": "pj",
+    "g": "pg", "pg": "pg", "ganados": "pg", "v": "pg",
+    "e": "pe", "pe": "pe", "empatados": "pe",
+    "p": "pp", "pp": "pp", "perdidos": "pp",
+    "f": "gf", "gf": "gf", "goles a favor": "gf", "favor": "gf",
+    "c": "gc", "gc": "gc", "goles en contra": "gc", "contra": "gc",
 }
-# Orden típico de las columnas numéricas cuando no hay cabecera reconocible.
-FALLBACK_ORDER = ["pts", "pj", "pg", "pe", "pp", "gf", "gc"]
+NUM_KEYS = ("pts", "pj", "pg", "pe", "pp", "gf", "gc")
+SITE_IMG_PAT = re.compile(r"logo|sello|pie|banner|icon|flag|bandera|fondo|background|pixel|spacer", re.I)
 
 
+# ---------------------------------------------------------------- utilidades
 def norm(text: str) -> str:
     text = unicodedata.normalize("NFKD", text or "")
     text = "".join(c for c in text if not unicodedata.combining(c))
@@ -49,188 +51,294 @@ def norm(text: str) -> str:
 
 
 def slug(text: str) -> str:
-    s = norm(text)
-    s = re.sub(r"[^a-z0-9]+", "-", s).strip("-")
+    s = re.sub(r"[^a-z0-9]+", "-", norm(text)).strip("-")
     return s or "equipo"
 
 
-def to_int(text: str):
+def to_int(text):
     m = re.search(r"-?\d+", text or "")
     return int(m.group()) if m else None
 
 
-def cell_text(td) -> str:
-    return re.sub(r"\s+", " ", td.get_text(" ", strip=True)).strip()
+def own_text(cell) -> str:
+    """Texto de una celda sin las celdas anidadas (Fedintranet deja <th> sin cerrar)."""
+    c = copy.copy(cell)
+    for nested in c.find_all(["td", "th"]):
+        nested.decompose()
+    return re.sub(r"\s+", " ", c.get_text(" ", strip=True)).strip()
+
+
+def cells_of(tr):
+    return tr.find_all(["td", "th"])
 
 
 def fetch(url: str) -> bytes:
-    r = requests.get(url, headers={"User-Agent": UA, "Accept-Language": "es-ES,es;q=0.9"}, timeout=40)
+    r = SESSION.get(url, timeout=40)
     r.raise_for_status()
     return r.content
 
 
-def header_map(cells) -> dict:
-    """Devuelve {clave: índice} a partir de una fila de cabecera. Toma la primera aparición
-    de cada clave (en Fedintranet suele ir Total antes que Casa/Fuera)."""
-    mapping = {}
-    for idx, td in enumerate(cells):
-        t = norm(cell_text(td)).replace(" ", "")
-        for key, words in HEADER_KEYS.items():
-            if key in mapping:
+def with_jornada(url: str, jornada: int) -> str:
+    parts = urlparse(url)
+    q = [(k, v) for k, v in parse_qs(parts.query, keep_blank_values=True).items()]
+    flat = [(k, vals[0]) for k, vals in q if k != "codjornada"]
+    flat.append(("codjornada", str(jornada)))
+    return urlunparse(parts._replace(query=urlencode(flat)))
+
+
+# ---------------------------------------------------------------- clasificación
+def expand_headers(tr) -> list[str]:
+    labels = []
+    for th in cells_of(tr):
+        label = th.get("title") or own_text(th)
+        span = to_int(th.get("colspan")) or 1
+        labels.extend([label] * span)
+    return labels
+
+
+def find_standings_table(soup):
+    """Devuelve (filas_de_equipos, etiquetas_por_columna, grupos_por_columna)."""
+    best = None
+    for table in soup.find_all("table"):
+        rows = table.find_all("tr")
+        header_rows, body = [], []
+        for tr in rows:
+            cells = cells_of(tr)
+            if not cells:
                 continue
-            if t in words:
-                mapping[key] = idx
-                break
-    return mapping
-
-
-def score_table(table) -> tuple[int, list, dict]:
-    rows = table.find_all("tr")
-    body_rows, mapping = [], {}
-    for tr in rows:
-        cells = tr.find_all(["td", "th"])
-        if len(cells) < 6:
+            texts = [own_text(c) for c in cells]
+            nums = sum(1 for t in texts if re.fullmatch(r"-?\d+", t))
+            if tr.find("th") and nums < 3:
+                header_rows.append(tr)
+            elif nums >= 5 and any(re.search(r"[A-Za-zÁÉÍÓÚÑÜáéíóúñü]{3,}", t) for t in texts):
+                body.append(cells)
+        if len(body) < 2:
             continue
-        hm = header_map(cells)
-        if not mapping and len(hm) >= 3:
-            mapping = hm
-            continue
-        nums = sum(1 for c in cells if to_int(cell_text(c)) is not None and re.fullmatch(r"-?\d+", cell_text(c)))
-        has_text = any(re.search(r"[A-Za-zÁÉÍÓÚÑáéíóúñ]{3,}", cell_text(c)) for c in cells)
-        if nums >= 5 and has_text:
-            body_rows.append(cells)
-    score = len(body_rows) * (2 if mapping else 1)
-    return score, body_rows, mapping
+        score = len(body) * 100 + max(len(c) for c in body)
+        if best is None or score > best[0]:
+            best = (score, body, header_rows)
+    if best is None:
+        return [], [], []
+    _, body, header_rows = best
+    ncols = max(len(c) for c in body)
+    labels = groups = []
+    for tr in reversed(header_rows):
+        exp = expand_headers(tr)
+        if len(exp) >= ncols - 1 and not labels:
+            labels = exp
+        elif labels:
+            groups = exp
+            break
+    return body, labels, groups
 
 
-def parse_row(cells, mapping: dict, base_url: str, idx: int) -> dict | None:
-    texts = [cell_text(c) for c in cells]
-    # Equipo: columna mapeada o la primera celda con texto alfabético.
-    team_idx = mapping.get("equipo")
-    if team_idx is None or team_idx >= len(cells):
-        team_idx = next((i for i, t in enumerate(texts) if re.search(r"[A-Za-zÁÉÍÓÚÑáéíóúñ]{3,}", t)), None)
+def parse_team_row(cells, labels, groups, base_url, idx):
+    texts = [own_text(c) for c in cells]
+    team_idx = next((i for i, t in enumerate(texts) if re.search(r"[A-Za-zÁÉÍÓÚÑÜáéíóúñü]{3,}", t)), None)
     if team_idx is None:
         return None
-    team_cell = cells[team_idx]
     name = re.sub(r"^\d+\s*[\.\-º]?\s*", "", texts[team_idx]).strip()
-    if not name:
-        return None
-
-    # Posición: primera celda numérica antes del equipo, si no, el orden.
-    pos = None
-    for t in texts[:team_idx]:
-        v = to_int(t)
-        if v is not None:
-            pos = v
-            break
-    if pos is None:
-        pos = idx + 1
-
+    pos = next((to_int(t) for t in texts[:team_idx] if to_int(t) is not None), idx + 1)
     row = {"pos": pos, "equipo": name}
 
-    a = team_cell.find("a", href=True) or cells[0].find("a", href=True)
+    a = cells[team_idx].find("a", href=True)
     if a:
         row["url"] = urljoin(base_url, a["href"])
-        q = parse_qs(urlparse(row["url"]).query)
+        q = {k.lower(): v for k, v in parse_qs(urlparse(row["url"]).query).items()}
         cod = q.get("codequipo") or q.get("codigo_equipo")
         if cod:
             row["codequipo"] = cod[0]
-    img = None
-    for c in cells:
-        img = c.find("img")
-        if img:
-            break
-    if img and img.get("src"):
-        row["escudo_url"] = urljoin(base_url, img["src"])
 
-    if mapping and all(k in mapping for k in ("pts", "pj")):
-        for key in FALLBACK_ORDER + ["sancion"]:
-            i = mapping.get(key)
-            if i is not None and i < len(texts):
-                v = to_int(texts[i])
-                if v is not None:
-                    row[key] = v
-    else:
-        nums = [to_int(t) for i, t in enumerate(texts) if i > team_idx and re.fullmatch(r"-?\d+", t)]
-        for key, v in zip(FALLBACK_ORDER, nums):
-            row[key] = v
+    casa, fuera, total = {}, {}, {}
+    for i, t in enumerate(texts):
+        if i <= team_idx or i >= len(labels):
+            continue
+        key = LABELS.get(norm(labels[i]))
+        if not key:
+            continue
+        grp = norm(groups[i]) if i < len(groups) else ""
+        v = to_int(t)
+        if v is None:
+            continue
+        if "casa" in grp or "local" in grp:
+            casa.setdefault(key, v)
+        elif "fuera" in grp or "visit" in grp:
+            fuera.setdefault(key, v)
+        else:
+            total.setdefault(key, v)
+    for key in NUM_KEYS:
+        if key in total:
+            row[key] = total[key]
+        elif key in casa or key in fuera:
+            row[key] = casa.get(key, 0) + fuera.get(key, 0)
+    if "pts" not in row or "pj" not in row:
+        # Sin cabecera reconocible: orden habitual Pts, J, G, E, P, GF, GC tras el nombre.
+        nums = [to_int(t) for t in texts[team_idx + 1:] if re.fullmatch(r"-?\d+", t)]
+        for key, v in zip(NUM_KEYS, nums):
+            row.setdefault(key, v)
+    if casa:
+        row["casa"] = casa
+    if fuera:
+        row["fuera"] = fuera
     if "gf" in row and "gc" in row:
         row["dg"] = row["gf"] - row["gc"]
+
+    # Últimos resultados (spans con title Ganado/Empatado/Perdido) y puntos de sanción.
+    forma = []
+    for c in cells[team_idx + 1:]:
+        for sp in c.find_all("span", title=True):
+            t = norm(sp["title"])
+            if t.startswith("gan"):
+                forma.append("G")
+            elif t.startswith("emp"):
+                forma.append("E")
+            elif t.startswith("perd"):
+                forma.append("P")
+    if forma:
+        row["forma"] = forma
+    for i, lab in enumerate(labels):
+        if i < len(texts) and i > team_idx and re.search(r"sanci|descuento", norm(lab) + " " + (norm(groups[i]) if i < len(groups) else "")):
+            v = to_int(texts[i])
+            if v is not None:
+                row["sancion"] = v
+                break
     return row
 
 
-def find_meta(soup: BeautifulSoup, url: str) -> dict:
+# ---------------------------------------------------------------- resultados de la jornada
+def parse_results(soup, base_url):
+    out = []
+    for table in soup.find_all("table"):
+        rows = []
+        for tr in table.find_all("tr"):
+            cells = cells_of(tr)
+            if len(cells) != 3:
+                continue
+            m = re.fullmatch(r"(\d+)\s*-\s*(\d+)", own_text(cells[1]))
+            local, visit = own_text(cells[0]), own_text(cells[2])
+            if not local or not visit:
+                continue
+            item = {"local": local, "visitante": visit}
+            if m:
+                item["goles_local"], item["goles_visitante"] = int(m.group(1)), int(m.group(2))
+            for side, cell in (("local", cells[0]), ("visitante", cells[2])):
+                a = cell.find("a", href=True)
+                if a:
+                    q = {k.lower(): v for k, v in parse_qs(urlparse(a["href"]).query).items()}
+                    cod = q.get("codigo_equipo") or q.get("codequipo")
+                    if cod:
+                        item[f"cod_{side}"] = cod[0]
+            rows.append(item)
+        if len(rows) >= 2 and len(rows) > len(out):
+            out = rows
+    return out
+
+
+def has_played_results(soup) -> bool:
+    return any("goles_local" in r for r in parse_results(soup, ""))
+
+
+# ---------------------------------------------------------------- metadatos
+def find_meta(soup, url):
     meta = {}
     q = parse_qs(urlparse(url).query)
-    if q.get("codjornada"):
-        meta["jornada"] = to_int(q["codjornada"][-1])
-    if q.get("codcompeticion"):
-        meta["codcompeticion"] = q["codcompeticion"][0]
-    if q.get("codgrupo"):
-        meta["codgrupo"] = q["codgrupo"][0]
-
-    texts = []
-    for el in soup.find_all(["h1", "h2", "h3", "h4", "caption", "b", "strong", "span", "div", "td", "option"]):
-        t = cell_text(el)
-        if 3 < len(t) < 140:
-            texts.append((el, t))
-
-    for el, t in texts:
-        if el.name == "option" and el.has_attr("selected") and re.search(r"jornada", t, re.I):
-            j = to_int(t)
-            if j:
-                meta["jornada"] = j
-    for _, t in texts:
+    for key in ("codcompeticion", "codgrupo"):
+        if q.get(key):
+            meta[key] = q[key][0]
+    heads = [(h.name, re.sub(r"\s+", " ", h.get_text(" ", strip=True))) for h in soup.find_all(["h1", "h2", "h3", "h4", "h5"])]
+    for name, t in heads:
+        m = re.search(r"jornada\s*(\d+)\s*(?:\(([^)]*)\))?", t, re.I)
+        if m and "jornada" not in meta:
+            meta["jornada"] = int(m.group(1))
+            if m.group(2):
+                meta["fecha_jornada"] = m.group(2).strip()
         m = re.search(r"temporada\s*([0-9]{2,4}\s*[/\-]\s*[0-9]{2,4})", t, re.I)
         if m and "temporada" not in meta:
             meta["temporada"] = m.group(1).replace(" ", "")
-        m = re.search(r"\bjornada\s*(\d+)", t, re.I)
-        if m and "jornada_texto" not in meta:
-            meta["jornada_texto"] = m.group(0)
-            meta.setdefault("jornada", int(m.group(1)))
-    grupos = [t for _, t in texts if re.search(r"\bgrupo\b", t, re.I) and len(t) < 80]
-    if grupos:
-        g = re.sub(r"temporada\s*[0-9]{2,4}\s*[/\-]\s*[0-9]{2,4}", "", min(grupos, key=len), flags=re.I)
-        meta["grupo"] = re.sub(r"\s+", " ", g).strip(" ·-|")
-    for el, t in texts:
-        if el.name in ("h1", "h2", "h3", "h4", "caption") and not re.search(r"jornada|grupo|clasificaci", t, re.I):
+    for name, t in heads:
+        if name in ("h1", "h2", "h4") and 3 < len(t) < 90 and not re.search(r"jornada|temporada|\d+\s*-\s*\d+", t, re.I):
             meta["competicion"] = t
             break
-    if "competicion" not in meta:
-        title = soup.title.get_text(strip=True) if soup.title else ""
-        if title:
-            meta["competicion"] = title
+    for name, t in heads:
+        if name == "h5" and 1 < len(t) < 60:
+            meta["grupo"] = t
+            break
+    if "competicion" not in meta and soup.title:
+        meta["competicion"] = soup.title.get_text(strip=True)
     return meta
 
 
-def download_escudos(teams: list, folder: str, base_url: str) -> None:
+# ---------------------------------------------------------------- escudos
+def escudo_from_team_page(html: bytes, page_url: str) -> str | None:
+    soup = BeautifulSoup(html, "html.parser")
+    candidates = []
+    for img in soup.find_all("img", src=True):
+        src = img["src"].strip()
+        if not src or src.startswith("data:"):
+            continue
+        blob = " ".join([src, img.get("alt", ""), img.get("class") and " ".join(img.get("class")) or "", img.get("title", "")])
+        score = 0
+        if re.search(r"escud|shield|logo_?equipo|club", blob, re.I):
+            score += 10
+        if SITE_IMG_PAT.search(src.rsplit("/", 1)[-1]):
+            score -= 8
+        if re.search(r"web_responsive|/img/web", src):
+            score -= 5
+        w = to_int(img.get("width")) or 0
+        if 40 <= w <= 400:
+            score += 2
+        candidates.append((score, urljoin(page_url, src)))
+    candidates.sort(reverse=True)
+    if candidates and candidates[0][0] > 0:
+        return candidates[0][1]
+    return None
+
+
+def download_escudos(teams, folder, debug_dir=None):
     os.makedirs(folder, exist_ok=True)
-    session = requests.Session()
-    session.headers["User-Agent"] = UA
-    session.headers["Referer"] = base_url
+    existing = {}
     for t in teams:
-        url = t.get("escudo_url")
-        if not url:
+        if not t.get("url"):
             continue
         try:
-            r = session.get(url, timeout=30)
+            html = fetch(t["url"])
+            if debug_dir and not existing.get("_saved"):
+                os.makedirs(debug_dir, exist_ok=True)
+                with open(os.path.join(debug_dir, "equipo.html"), "wb") as fh:
+                    fh.write(html)
+                existing["_saved"] = True
+            src = escudo_from_team_page(html, t["url"])
+            if not src:
+                print(f"[aviso] sin escudo detectado para {t['equipo']}", file=sys.stderr)
+                continue
+            t["escudo_url"] = src
+            r = SESSION.get(src, timeout=30, headers={"Referer": t["url"]})
             r.raise_for_status()
             ctype = r.headers.get("Content-Type", "")
-            ext = ".png"
-            if "jpeg" in ctype or "jpg" in ctype or url.lower().endswith((".jpg", ".jpeg")):
-                ext = ".jpg"
-            elif "gif" in ctype or url.lower().endswith(".gif"):
-                ext = ".gif"
-            elif "svg" in ctype or url.lower().endswith(".svg"):
-                ext = ".svg"
+            ext = ".jpg" if ("jpeg" in ctype or "jpg" in ctype) else ".gif" if "gif" in ctype else ".svg" if "svg" in ctype else ".png"
             name = slug(t.get("codequipo") or t["equipo"]) + ext
             path = os.path.join(folder, name)
             if not os.path.exists(path) or open(path, "rb").read() != r.content:
                 with open(path, "wb") as fh:
                     fh.write(r.content)
-            t["escudo"] = os.path.join(folder, name).replace(os.sep, "/")
+            t["escudo"] = path.replace(os.sep, "/")
         except Exception as exc:  # noqa: BLE001
             print(f"[aviso] no se pudo bajar el escudo de {t['equipo']}: {exc}", file=sys.stderr)
+
+
+# ---------------------------------------------------------------- principal
+def load_page(url, html_path=None):
+    raw = open(html_path, "rb").read() if html_path else fetch(url)
+    return raw, BeautifulSoup(raw, "html.parser")
+
+
+def next_jornada(soup):
+    for a in soup.find_all("a", href=True):
+        if re.search(r"siguiente", a.get_text(" ", strip=True), re.I):
+            m = re.search(r"IrA\((\d+)\)", a["href"])
+            if m:
+                return int(m.group(1))
+    return None
 
 
 def main() -> int:
@@ -240,31 +348,44 @@ def main() -> int:
     ap.add_argument("--out", default="data/clasificacion.json")
     ap.add_argument("--escudos", default="data/escudos")
     ap.add_argument("--no-download", action="store_true", help="No descargar escudos")
+    ap.add_argument("--jornada", default="auto", help="'auto' avanza hasta la última jornada con resultados; 'fija' usa la URL tal cual; o un número")
     ap.add_argument("--competicion", help="Nombre de la competición (sobrescribe el detectado)")
     ap.add_argument("--grupo", help="Nombre del grupo (sobrescribe el detectado)")
     ap.add_argument("--save-html", help="Guardar el HTML descargado en este fichero (depuración)")
+    ap.add_argument("--debug-dir", help="Guardar también la ficha de un equipo en este directorio")
     args = ap.parse_args()
 
-    raw = open(args.html, "rb").read() if args.html else fetch(args.url)
+    url = args.url
+    if args.jornada.isdigit():
+        url = with_jornada(url, int(args.jornada))
+    raw, soup = load_page(url, args.html)
+
+    if args.jornada == "auto" and not args.html:
+        for _ in range(60):
+            nxt = next_jornada(soup)
+            if not nxt:
+                break
+            nurl = with_jornada(url, nxt)
+            try:
+                nraw, nsoup = load_page(nurl)
+            except Exception as exc:  # noqa: BLE001
+                print(f"[aviso] no se pudo cargar la jornada {nxt}: {exc}", file=sys.stderr)
+                break
+            if not has_played_results(nsoup):
+                break
+            url, raw, soup = nurl, nraw, nsoup
     if args.save_html:
         os.makedirs(os.path.dirname(args.save_html) or ".", exist_ok=True)
         with open(args.save_html, "wb") as fh:
             fh.write(raw)
-    soup = BeautifulSoup(raw, "html.parser")
 
-    best = (0, [], {})
-    for table in soup.find_all("table"):
-        cand = score_table(table)
-        if cand[0] > best[0]:
-            best = cand
-    _, rows, mapping = best
-    if len(rows) < 2:
+    body, labels, groups = find_standings_table(soup)
+    if len(body) < 2:
         print("ERROR: no se encontró ninguna tabla de clasificación en la página", file=sys.stderr)
         return 2
-
     teams = []
-    for i, cells in enumerate(rows):
-        row = parse_row(cells, mapping, args.url, i)
+    for i, cells in enumerate(body):
+        row = parse_team_row(cells, labels, groups, url, i)
         if row and "pts" in row:
             teams.append(row)
     if len(teams) < 2:
@@ -272,10 +393,25 @@ def main() -> int:
         return 2
     teams.sort(key=lambda r: r["pos"])
 
-    if not args.no_download:
-        download_escudos(teams, args.escudos, args.url)
+    # Conservar escudos ya descargados si no se vuelven a bajar.
+    previous = {}
+    if os.path.exists(args.out):
+        try:
+            for t in json.load(open(args.out, encoding="utf-8")).get("equipos", []):
+                previous[t.get("codequipo") or t["equipo"]] = t
+        except Exception:  # noqa: BLE001
+            pass
+    if args.no_download:
+        for t in teams:
+            old = previous.get(t.get("codequipo") or t["equipo"])
+            if old and old.get("escudo"):
+                t["escudo"] = old["escudo"]
+                if old.get("escudo_url"):
+                    t["escudo_url"] = old["escudo_url"]
+    else:
+        download_escudos(teams, args.escudos, args.debug_dir)
 
-    meta = find_meta(soup, args.url)
+    meta = find_meta(soup, url)
     if args.competicion:
         meta["competicion"] = args.competicion
     if args.grupo:
@@ -283,17 +419,18 @@ def main() -> int:
 
     out = {
         "actualizado": dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds"),
-        "fuente": args.url,
-        **{k: meta[k] for k in ("competicion", "grupo", "temporada", "jornada", "codcompeticion", "codgrupo") if k in meta},
+        "fuente": url,
+        **{k: meta[k] for k in ("competicion", "grupo", "temporada", "jornada", "fecha_jornada", "codcompeticion", "codgrupo") if k in meta},
         "equipos": teams,
+        "resultados": parse_results(soup, url),
     }
     os.makedirs(os.path.dirname(args.out) or ".", exist_ok=True)
     with open(args.out, "w", encoding="utf-8") as fh:
         json.dump(out, fh, ensure_ascii=False, indent=2)
         fh.write("\n")
-    print(f"OK: {len(teams)} equipos -> {args.out}")
+    print(f"OK: {len(teams)} equipos, jornada {meta.get('jornada', '?')} -> {args.out}")
     for t in teams:
-        print(f"  {t['pos']:>2}. {t['equipo']:<35} {t.get('pts','?'):>3} pts  {t.get('pj','?')}J")
+        print(f"  {t['pos']:>2}. {t['equipo']:<32} {t.get('pts', '?'):>3} pts  {t.get('pj', '?')}J {t.get('gf', '?')}-{t.get('gc', '?')}  {''.join(t.get('forma', []))}")
     return 0
 
 
