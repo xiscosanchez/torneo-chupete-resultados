@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-09-07T21:52:05+00:00",
+  "actualizado": "2026-09-07T21:54:37+00:00",
   "fuente": "https://www.ffib.es/Fed/NPcd/NFG_VisClasificacion?cod_primaria=1000110&codjornada=1&codcompeticion=23348373&codgrupo=23348374&codjornada=1",
   "competicion": "LIGA NACIONAL JUVENIL",
   "grupo": "LIGA",
@@ -37,7 +37,9 @@
       "forma": [
         "G"
       ],
-      "sancion": 0
+      "sancion": 0,
+      "escudo_url": "https://www.ffib.es/Fed/pimg/Clubes/00100_0000000981_escudo%20metacrilato%20de%2010%20mm.jpg",
+      "escudo": "data/escudos/108710.jpg"
     },
     {
       "pos": 2,
@@ -67,7 +69,9 @@
       "forma": [
         "G"
       ],
-      "sancion": 0
+      "sancion": 0,
+      "escudo_url": "https://www.ffib.es/Fed/pimg/Clubes/00100_0000076223_Escudo_color_sin_fondo.jpg",
+      "escudo": "data/escudos/102322.jpg"
     },
     {
       "pos": 3,
@@ -97,7 +101,9 @@
       "forma": [
         "G"
       ],
-      "sancion": 0
+      "sancion": 0,
+      "escudo_url": "https://www.ffib.es/Fed/pimg/Clubes/00100_0000215148_ESCUDO_RTVO_PENYA_ARRABAL.jpg",
+      "escudo": "data/escudos/250822.jpg"
     },
     {
       "pos": 4,
@@ -127,7 +133,9 @@
       "forma": [
         "G"
       ],
-      "sancion": 0
+      "sancion": 0,
+      "escudo_url": "https://www.ffib.es/Fed/pimg/Clubes/00100_0000155085_escud_ferre.jpg",
+      "escudo": "data/escudos/789575.jpg"
     },
     {
       "pos": 5,
@@ -157,7 +165,9 @@
       "forma": [
         "G"
       ],
-      "sancion": 0
+      "sancion": 0,
+      "escudo_url": "https://www.ffib.es/Fed/pimg/Clubes/00100_0000168135_escut_arta___2.jpg",
+      "escudo": "data/escudos/102348.jpg"
     },
     {
       "pos": 6,
@@ -187,7 +197,9 @@
       "forma": [
         "G"
       ],
-      "sancion": 0
+      "sancion": 0,
+      "escudo_url": "https://www.ffib.es/Fed/pimg/Clubes/00100_0000193862_palmafc.jpg",
+      "escudo": "data/escudos/1878537.jpg"
     },
     {
       "pos": 7,
@@ -217,7 +229,9 @@
       "forma": [
         "G"
       ],
-      "sancion": 0
+      "sancion": 0,
+      "escudo_url": "https://www.ffib.es/Fed/pimg/Clubes/00100_0000076494_Logo_para_Publicidad_CF_Platges.jpg",
+      "escudo": "data/escudos/102430.jpg"
     },
     {
       "pos": 8,
@@ -247,7 +261,9 @@
       "forma": [
         "E"
       ],
-      "sancion": 0
+      "sancion": 0,
+      "escudo_url": "https://www.ffib.es/Fed/pimg/Clubes/00100_0000285884_Constancia.png",
+      "escudo": "data/escudos/738881.png"
     },
     {
       "pos": 9,
@@ -277,7 +293,9 @@
       "forma": [
         "E"
       ],
-      "sancion": 0
+      "sancion": 0,
+      "escudo_url": "https://www.ffib.es/Fed/pimg/Clubes/00100_0000199852_23604025_IMG_20230814_WA0003__2_.jpg",
+      "escudo": "data/escudos/102089.jpg"
     },
     {
       "pos": 10,
