@@ -1,5 +1,191 @@
 {
-  "actualizado": null,
+  "actualizado": "2026-09-07T21:45:12+00:00",
   "fuente": "https://www.ffib.es/Fed/NPcd/NFG_VisClasificacion?cod_primaria=1000110&codjornada=1&codcompeticion=23348373&codgrupo=23348374&codjornada=1",
-  "equipos": []
+  "competicion": "LIGA NACIONAL JUVENIL",
+  "temporada": "2026-2027",
+  "jornada": 1,
+  "codcompeticion": "23348373",
+  "codgrupo": "23348374",
+  "equipos": [
+    {
+      "pos": 1,
+      "equipo": "PEÑA DEPORTIVA \"A\"",
+      "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=108710&codgrupo=23348374",
+      "codequipo": "108710",
+      "pts": 1,
+      "pg": 3,
+      "pe": 1,
+      "pp": 1
+    },
+    {
+      "pos": 2,
+      "equipo": "ATº BALEARES \"A\"",
+      "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=102322&codgrupo=23348374",
+      "codequipo": "102322",
+      "pts": 2,
+      "pg": 3,
+      "pe": 1,
+      "pp": 1
+    },
+    {
+      "pos": 3,
+      "equipo": "RTVº PENYA ARRABAL",
+      "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=250822&codgrupo=23348374",
+      "codequipo": "250822",
+      "pts": 3,
+      "pg": 3,
+      "pe": 1,
+      "pp": 1
+    },
+    {
+      "pos": 4,
+      "equipo": "FERRERIES \"A\"",
+      "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=789575&codgrupo=23348374",
+      "codequipo": "789575",
+      "pts": 4,
+      "pg": 3,
+      "pe": 1,
+      "pp": 1
+    },
+    {
+      "pos": 5,
+      "equipo": "ARTA \"A\"",
+      "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=102348&codgrupo=23348374",
+      "codequipo": "102348",
+      "pts": 5,
+      "pg": 3,
+      "pe": 0,
+      "pp": 0
+    },
+    {
+      "pos": 6,
+      "equipo": "PALMA F.C. \"A\"",
+      "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=1878537&codgrupo=23348374",
+      "codequipo": "1878537",
+      "pts": 6,
+      "pg": 3,
+      "pe": 1,
+      "pp": 1
+    },
+    {
+      "pos": 7,
+      "equipo": "PLATGES DE CALVIA \"A\"",
+      "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=102430&codgrupo=23348374",
+      "codequipo": "102430",
+      "pts": 7,
+      "pg": 3,
+      "pe": 1,
+      "pp": 1
+    },
+    {
+      "pos": 8,
+      "equipo": "CONSTANCIA \"A\"",
+      "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=738881&codgrupo=23348374",
+      "codequipo": "738881",
+      "pts": 8,
+      "pg": 1,
+      "pe": 0,
+      "pp": 0
+    },
+    {
+      "pos": 9,
+      "equipo": "MANACOR",
+      "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=102089&codgrupo=23348374",
+      "codequipo": "102089",
+      "pts": 9,
+      "pg": 1,
+      "pe": 1,
+      "pp": 0
+    },
+    {
+      "pos": 10,
+      "equipo": "PORTMANY \"A\"",
+      "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=130742&codgrupo=23348374",
+      "codequipo": "130742",
+      "pts": 10,
+      "pg": 1,
+      "pe": 0,
+      "pp": 0
+    },
+    {
+      "pos": 11,
+      "equipo": "SP. ATº CIUTAT DE PALMA \"A\"",
+      "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=202615&codgrupo=23348374",
+      "codequipo": "202615",
+      "pts": 11,
+      "pg": 1,
+      "pe": 1,
+      "pp": 0
+    },
+    {
+      "pos": 12,
+      "equipo": "U D IBIZA \"A\"",
+      "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=5237858&codgrupo=23348374",
+      "codequipo": "5237858",
+      "pts": 12,
+      "pg": 0,
+      "pe": 0,
+      "pp": 0
+    },
+    {
+      "pos": 13,
+      "equipo": "ANDRATX \"A\"",
+      "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=843912&codgrupo=23348374",
+      "codequipo": "843912",
+      "pts": 13,
+      "pg": 0,
+      "pe": 1,
+      "pp": 0
+    },
+    {
+      "pos": 14,
+      "equipo": "R C D MALLORCA SAD \"B\"",
+      "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=102099&codgrupo=23348374",
+      "codequipo": "102099",
+      "pts": 14,
+      "pg": 0,
+      "pe": 0,
+      "pp": 0
+    },
+    {
+      "pos": 15,
+      "equipo": "SD LA SALLE \"A\"",
+      "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=111456&codgrupo=23348374",
+      "codequipo": "111456",
+      "pts": 15,
+      "pg": 0,
+      "pe": 0,
+      "pp": 0
+    },
+    {
+      "pos": 16,
+      "equipo": "ALCUDIA \"A\"",
+      "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=102304&codgrupo=23348374",
+      "codequipo": "102304",
+      "pts": 16,
+      "pg": 0,
+      "pe": 0,
+      "pp": 0
+    },
+    {
+      "pos": 17,
+      "equipo": "POBLENSE \"A\"",
+      "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=102093&codgrupo=23348374",
+      "codequipo": "102093",
+      "pts": 17,
+      "pg": 0,
+      "pe": 0,
+      "pp": 0
+    },
+    {
+      "pos": 18,
+      "equipo": "CIUTADELLA C.E. \"A\"",
+      "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=110062&codgrupo=23348374",
+      "codequipo": "110062",
+      "pts": 18,
+      "pg": 0,
+      "pe": 0,
+      "pp": 0
+    }
+  ]
 }
