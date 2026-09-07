@@ -294,20 +294,49 @@ def escudo_from_team_page(html: bytes, page_url: str) -> str | None:
     return None
 
 
-def download_escudos(teams, folder, debug_dir=None):
+def team_card_urls(soup, base_url, team):
+    """Páginas candidatas donde buscar el escudo: ficha del equipo (NFG_VisEquipos) y su calendario."""
+    urls = []
+    cod = team.get("codequipo")
+    if cod:
+        tmpl = None
+        for a in soup.find_all("a", href=re.compile(r"NFG_VisEquipos", re.I)):
+            tmpl = urljoin(base_url, a["href"])
+            break
+        if tmpl:
+            parts = urlparse(tmpl)
+            q = {k: v[0] for k, v in parse_qs(parts.query).items()}
+            for k in list(q):
+                if k.lower() in ("codigo_equipo", "codequipo"):
+                    q[k] = cod
+            urls.append(urlunparse(parts._replace(query=urlencode(q))))
+        else:
+            urls.append(urljoin(base_url, f"NFG_VisEquipos?cod_primaria=1000109&Codigo_Equipo={cod}"))
+    if team.get("url"):
+        urls.append(team["url"])
+    return urls
+
+
+def download_escudos(teams, folder, soup, base_url, debug_dir=None):
     os.makedirs(folder, exist_ok=True)
-    existing = {}
+    saved = set()
     for t in teams:
-        if not t.get("url"):
-            continue
         try:
-            html = fetch(t["url"])
-            if debug_dir and not existing.get("_saved"):
-                os.makedirs(debug_dir, exist_ok=True)
-                with open(os.path.join(debug_dir, "equipo.html"), "wb") as fh:
-                    fh.write(html)
-                existing["_saved"] = True
-            src = escudo_from_team_page(html, t["url"])
+            src = None
+            for i, page in enumerate(team_card_urls(soup, base_url, t)):
+                try:
+                    html = fetch(page)
+                except Exception as exc:  # noqa: BLE001
+                    print(f"[aviso] {t['equipo']}: no se pudo cargar {page}: {exc}", file=sys.stderr)
+                    continue
+                if debug_dir and i not in saved:
+                    os.makedirs(debug_dir, exist_ok=True)
+                    with open(os.path.join(debug_dir, f"equipo_{i}.html"), "wb") as fh:
+                        fh.write(html)
+                    saved.add(i)
+                src = escudo_from_team_page(html, page)
+                if src:
+                    break
             if not src:
                 print(f"[aviso] sin escudo detectado para {t['equipo']}", file=sys.stderr)
                 continue
@@ -409,7 +438,7 @@ def main() -> int:
                 if old.get("escudo_url"):
                     t["escudo_url"] = old["escudo_url"]
     else:
-        download_escudos(teams, args.escudos, args.debug_dir)
+        download_escudos(teams, args.escudos, soup, url, args.debug_dir)
 
     meta = find_meta(soup, url)
     if args.competicion:
