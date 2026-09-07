@@ -17,6 +17,7 @@ import json
 import os
 import re
 import sys
+import time
 import unicodedata
 from urllib.parse import parse_qs, urlencode, urljoin, urlparse, urlunparse
 
@@ -25,6 +26,7 @@ from bs4 import BeautifulSoup
 
 UA = ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
       "(KHTML, like Gecko) Chrome/124.0 Safari/537.36")
+PAUSE = 1.0  # segundos entre peticiones a ffib.es
 SESSION = requests.Session()
 SESSION.headers.update({"User-Agent": UA, "Accept-Language": "es-ES,es;q=0.9"})
 
@@ -75,11 +77,18 @@ def cells_of(tr):
 LAST_FETCH = {}
 
 
-def fetch(url: str) -> bytes:
-    r = SESSION.get(url, timeout=40)
-    LAST_FETCH[url] = (r.status_code, len(r.content), r.url)
-    r.raise_for_status()
-    return r.content
+def fetch(url: str, retries: int = 4) -> bytes:
+    """GET con reintentos: la web de la FFIB devuelve 200 con cuerpo vacío cuando se la
+    consulta demasiado deprisa, así que se espera y se repite."""
+    for attempt in range(retries):
+        r = SESSION.get(url, timeout=40)
+        LAST_FETCH[url] = (r.status_code, len(r.content), r.url)
+        r.raise_for_status()
+        if r.content.strip():
+            time.sleep(PAUSE)
+            return r.content
+        time.sleep(PAUSE * (2 ** (attempt + 1)))
+    return b""
 
 
 def with_jornada(url: str, jornada: int) -> str:
@@ -345,6 +354,9 @@ def download_escudos(teams, folder, soup, base_url, debug_dir=None):
                     html = fetch(page)
                 except Exception as exc:  # noqa: BLE001
                     print(f"[aviso] {t['equipo']}: no se pudo cargar {page}: {exc}", file=sys.stderr)
+                    continue
+                if not html.strip():
+                    print(f"[aviso] {t['equipo']}: respuesta vacía de {page}", file=sys.stderr)
                     continue
                 if debug_dir and i not in saved:
                     os.makedirs(debug_dir, exist_ok=True)
