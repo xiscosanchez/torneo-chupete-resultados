@@ -28,7 +28,11 @@ UA = ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
       "(KHTML, like Gecko) Chrome/124.0 Safari/537.36")
 PAUSE = 1.0  # segundos entre peticiones a ffib.es
 SESSION = requests.Session()
-SESSION.headers.update({"User-Agent": UA, "Accept-Language": "es-ES,es;q=0.9"})
+# La web de la FFIB cierra las conexiones keep-alive sin avisar: la segunda
+# petición sobre la misma conexión falla con "Remote end closed connection".
+# Se pide una conexión nueva en cada petición.
+SESSION.headers.update({"User-Agent": UA, "Accept-Language": "es-ES,es;q=0.9", "Connection": "close"})
+RETRYABLE = (requests.exceptions.ConnectionError, requests.exceptions.Timeout, requests.exceptions.ChunkedEncodingError)
 
 # Etiquetas de columna (normalizadas) → clave. El título (atributo title) tiene prioridad.
 LABELS = {
@@ -77,17 +81,28 @@ def cells_of(tr):
 LAST_FETCH = {}
 
 
-def fetch(url: str, retries: int = 4) -> bytes:
+def fetch(url: str, retries: int = 5) -> bytes:
     """GET con reintentos: la web de la FFIB devuelve 200 con cuerpo vacío cuando se la
-    consulta demasiado deprisa, así que se espera y se repite."""
+    consulta demasiado deprisa y a veces corta la conexión sin responder, así que se
+    espera y se repite. Si tras todos los intentos sigue fallando, se lanza el error."""
+    last_exc = None
     for attempt in range(retries):
-        r = SESSION.get(url, timeout=40)
-        LAST_FETCH[url] = (r.status_code, len(r.content), r.url)
-        r.raise_for_status()
-        if r.content.strip():
-            time.sleep(PAUSE)
-            return r.content
+        try:
+            r = SESSION.get(url, timeout=40)
+        except RETRYABLE as exc:
+            last_exc = exc
+            print(f"[aviso] {url}: {exc} (intento {attempt + 1}/{retries})", file=sys.stderr)
+            SESSION.close()  # descarta cualquier conexión a medio cerrar
+        else:
+            LAST_FETCH[url] = (r.status_code, len(r.content), r.url)
+            r.raise_for_status()
+            if r.content.strip():
+                time.sleep(PAUSE)
+                return r.content
+            last_exc = None
         time.sleep(PAUSE * (2 ** (attempt + 1)))
+    if last_exc:
+        raise last_exc
     return b""
 
 
@@ -399,6 +414,15 @@ def download_escudos(teams, folder, soup, base_url, debug_dir=None):
 
 
 # ---------------------------------------------------------------- principal
+def previous_meta(path: str) -> dict:
+    """Jornada y grupo del JSON ya publicado, o {} si no hay o no se puede leer."""
+    try:
+        data = json.load(open(path, encoding="utf-8"))
+        return {k: data.get(k) for k in ("jornada", "codgrupo")}
+    except Exception:  # noqa: BLE001
+        return {}
+
+
 def load_page(url, html_path=None):
     raw = open(html_path, "rb").read() if html_path else fetch(url)
     return raw, BeautifulSoup(raw, "html.parser")
@@ -441,8 +465,9 @@ def main() -> int:
             try:
                 nraw, nsoup = load_page(nurl)
             except Exception as exc:  # noqa: BLE001
-                print(f"[aviso] no se pudo cargar la jornada {nxt}: {exc}", file=sys.stderr)
-                break
+                # Mejor fallar que publicar una jornada atrasada como si fuera la última
+                print(f"ERROR: no se pudo cargar la jornada {nxt} tras varios intentos: {exc}", file=sys.stderr)
+                return 3
             if not has_played_results(nsoup):
                 break
             url, raw, soup = nurl, nraw, nsoup
@@ -488,6 +513,24 @@ def main() -> int:
         meta["competicion"] = args.competicion
     if args.grupo:
         meta["grupo"] = args.grupo
+
+    # Freno: en modo automático nunca se sustituye el JSON publicado por una
+    # jornada anterior (misma competición y grupo). Con --jornada fija o un
+    # número se respeta lo que pide quien lo lanza.
+    if args.jornada == "auto":
+        anterior = previous_meta(args.out)
+        if (
+            anterior.get("jornada") is not None
+            and meta.get("jornada") is not None
+            and anterior.get("codgrupo") == meta.get("codgrupo")
+            and int(meta["jornada"]) < int(anterior["jornada"])
+        ):
+            print(
+                f"ERROR: la página devuelve la jornada {meta['jornada']} pero ya está publicada la "
+                f"{anterior['jornada']}; no se sobrescribe. Revisa la URL o lanza con --jornada {anterior['jornada']}.",
+                file=sys.stderr,
+            )
+            return 4
 
     out = {
         "actualizado": dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds"),
