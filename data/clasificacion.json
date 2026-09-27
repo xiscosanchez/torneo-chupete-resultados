@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-09-26T23:24:02+00:00",
+  "actualizado": "2026-09-27T18:01:36+00:00",
   "fuente": "https://www.ffib.es/Fed/NPcd/NFG_VisClasificacion?cod_primaria=1000110&codcompeticion=23348373&codgrupo=23348374&codjornada=4",
   "competicion": "LIGA NACIONAL JUVENIL",
   "grupo": "LIGA",
@@ -112,6 +112,40 @@
     },
     {
       "pos": 4,
+      "equipo": "MANACOR",
+      "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=102089&codgrupo=23348374",
+      "codequipo": "102089",
+      "pts": 8,
+      "pj": 4,
+      "pg": 2,
+      "pe": 2,
+      "pp": 0,
+      "gf": 13,
+      "gc": 6,
+      "casa": {
+        "pj": 2,
+        "pg": 0,
+        "pe": 2,
+        "pp": 0
+      },
+      "fuera": {
+        "pj": 2,
+        "pg": 2,
+        "pe": 0,
+        "pp": 0
+      },
+      "dg": 7,
+      "forma": [
+        "E",
+        "G",
+        "E",
+        "G"
+      ],
+      "sancion": 0,
+      "escudo": "data/escudos/102089.jpg"
+    },
+    {
+      "pos": 5,
       "equipo": "SP. ATº CIUTAT DE PALMA \"A\"",
       "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=202615&codgrupo=23348374",
       "codequipo": "202615",
@@ -145,7 +179,7 @@
       "escudo": "data/escudos/202615.png"
     },
     {
-      "pos": 5,
+      "pos": 6,
       "equipo": "FERRERIES \"A\"",
       "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=789575&codgrupo=23348374",
       "codequipo": "789575",
@@ -179,7 +213,7 @@
       "escudo": "data/escudos/789575.jpg"
     },
     {
-      "pos": 6,
+      "pos": 7,
       "equipo": "ALCUDIA \"A\"",
       "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=102304&codgrupo=23348374",
       "codequipo": "102304",
@@ -213,7 +247,7 @@
       "escudo": "data/escudos/102304.jpg"
     },
     {
-      "pos": 7,
+      "pos": 8,
       "equipo": "R C D MALLORCA SAD \"B\"",
       "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=102099&codgrupo=23348374",
       "codequipo": "102099",
@@ -246,7 +280,7 @@
       "escudo": "data/escudos/102099.png"
     },
     {
-      "pos": 8,
+      "pos": 9,
       "equipo": "POBLENSE \"A\"",
       "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=102093&codgrupo=23348374",
       "codequipo": "102093",
@@ -278,39 +312,6 @@
       ],
       "sancion": 0,
       "escudo": "data/escudos/102093.jpg"
-    },
-    {
-      "pos": 9,
-      "equipo": "ARTA \"A\"",
-      "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=102348&codgrupo=23348374",
-      "codequipo": "102348",
-      "pts": 6,
-      "pj": 3,
-      "pg": 2,
-      "pe": 0,
-      "pp": 1,
-      "gf": 5,
-      "gc": 3,
-      "casa": {
-        "pj": 1,
-        "pg": 0,
-        "pe": 0,
-        "pp": 1
-      },
-      "fuera": {
-        "pj": 2,
-        "pg": 2,
-        "pe": 0,
-        "pp": 0
-      },
-      "dg": 2,
-      "forma": [
-        "G",
-        "P",
-        "G"
-      ],
-      "sancion": 0,
-      "escudo": "data/escudos/102348.jpg"
     },
     {
       "pos": 10,
@@ -348,36 +349,37 @@
     },
     {
       "pos": 11,
-      "equipo": "MANACOR",
-      "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=102089&codgrupo=23348374",
-      "codequipo": "102089",
-      "pts": 5,
-      "pj": 3,
-      "pg": 1,
-      "pe": 2,
-      "pp": 0,
-      "gf": 8,
-      "gc": 5,
+      "equipo": "ARTA \"A\"",
+      "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=102348&codgrupo=23348374",
+      "codequipo": "102348",
+      "pts": 6,
+      "pj": 4,
+      "pg": 2,
+      "pe": 0,
+      "pp": 2,
+      "gf": 6,
+      "gc": 8,
       "casa": {
         "pj": 2,
         "pg": 0,
-        "pe": 2,
-        "pp": 0
+        "pe": 0,
+        "pp": 2
       },
       "fuera": {
-        "pj": 1,
-        "pg": 1,
+        "pj": 2,
+        "pg": 2,
         "pe": 0,
         "pp": 0
       },
-      "dg": 3,
+      "dg": -2,
       "forma": [
-        "E",
         "G",
-        "E"
+        "P",
+        "G",
+        "P"
       ],
       "sancion": 0,
-      "escudo": "data/escudos/102089.jpg"
+      "escudo": "data/escudos/102348.jpg"
     },
     {
       "pos": 12,
@@ -452,17 +454,17 @@
       "equipo": "U D IBIZA \"A\"",
       "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=5237858&codgrupo=23348374",
       "codequipo": "5237858",
-      "pts": 3,
-      "pj": 3,
+      "pts": 4,
+      "pj": 4,
       "pg": 1,
-      "pe": 0,
+      "pe": 1,
       "pp": 2,
-      "gf": 2,
-      "gc": 4,
+      "gf": 7,
+      "gc": 9,
       "casa": {
-        "pj": 1,
+        "pj": 2,
         "pg": 1,
-        "pe": 0,
+        "pe": 1,
         "pp": 0
       },
       "fuera": {
@@ -475,7 +477,8 @@
       "forma": [
         "P",
         "G",
-        "P"
+        "P",
+        "E"
       ],
       "sancion": 0,
       "escudo": "data/escudos/5237858.png"
@@ -550,6 +553,40 @@
     },
     {
       "pos": 17,
+      "equipo": "ANDRATX \"A\"",
+      "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=843912&codgrupo=23348374",
+      "codequipo": "843912",
+      "pts": 1,
+      "pj": 4,
+      "pg": 0,
+      "pe": 1,
+      "pp": 3,
+      "gf": 7,
+      "gc": 12,
+      "casa": {
+        "pj": 2,
+        "pg": 0,
+        "pe": 0,
+        "pp": 2
+      },
+      "fuera": {
+        "pj": 2,
+        "pg": 0,
+        "pe": 1,
+        "pp": 1
+      },
+      "dg": -5,
+      "forma": [
+        "P",
+        "P",
+        "P",
+        "E"
+      ],
+      "sancion": 0,
+      "escudo": "data/escudos/843912.jpg"
+    },
+    {
+      "pos": 18,
       "equipo": "CIUTADELLA C.E. \"A\"",
       "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=110062&codgrupo=23348374",
       "codequipo": "110062",
@@ -581,39 +618,6 @@
       ],
       "sancion": 0,
       "escudo": "data/escudos/110062.png"
-    },
-    {
-      "pos": 18,
-      "equipo": "ANDRATX \"A\"",
-      "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=843912&codgrupo=23348374",
-      "codequipo": "843912",
-      "pts": 0,
-      "pj": 3,
-      "pg": 0,
-      "pe": 0,
-      "pp": 3,
-      "gf": 2,
-      "gc": 7,
-      "casa": {
-        "pj": 2,
-        "pg": 0,
-        "pe": 0,
-        "pp": 2
-      },
-      "fuera": {
-        "pj": 1,
-        "pg": 0,
-        "pe": 0,
-        "pp": 1
-      },
-      "dg": -5,
-      "forma": [
-        "P",
-        "P",
-        "P"
-      ],
-      "sancion": 0,
-      "escudo": "data/escudos/843912.jpg"
     }
   ],
   "resultados": [
@@ -636,6 +640,8 @@
     {
       "local": "ARTA \"A\"",
       "visitante": "MANACOR",
+      "goles_local": 1,
+      "goles_visitante": 5,
       "cod_local": "102348",
       "cod_visitante": "102089"
     },
@@ -658,6 +664,8 @@
     {
       "local": "U D IBIZA \"A\"",
       "visitante": "ANDRATX \"A\"",
+      "goles_local": 5,
+      "goles_visitante": 5,
       "cod_local": "5237858",
       "cod_visitante": "843912"
     },
