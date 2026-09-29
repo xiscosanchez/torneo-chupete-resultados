@@ -6,9 +6,14 @@ on:
       - 'scripts/clasificacion.py'
       - '.github/workflows/clasificacion.yml'
   schedule:
-    # Todos los días a las 21:00 UTC y los domingos también a las 14:00 y 17:00 UTC
-    - cron: '0 21 * * *'
-    - cron: '0 14,17 * * 0'
+    # Hora española: sábado 23:30, domingo 15:00 y domingo 23:30. GitHub
+    # programa en UTC y España va a UTC+2 en verano y UTC+1 en invierno, así
+    # que cada hora lleva sus dos versiones: una cae exacta y la otra una hora
+    # antes o después, según la época. La pasada de más no publica nada si no
+    # ha cambiado la clasificación.
+    - cron: '30 21,22 * * 6'   # sábado 23:30
+    - cron: '0 13,14 * * 0'    # domingo 15:00
+    - cron: '30 21,22 * * 0'   # domingo 23:30
   workflow_dispatch:
     inputs:
       url:
