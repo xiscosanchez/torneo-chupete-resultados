@@ -243,7 +243,7 @@ def v(*vals):
     return "(" + ", ".join(out) + ")"
 
 
-def generar(equipo_patron, nosotros, calendario, actas):
+def generar(equipo_patron, nosotros, calendario, actas, duracion=90):
     out = []
     w = out.append
     w("-- Generado por scripts/acta_a_sql.py (repo torneo-chupete-resultados) a partir del")
@@ -302,7 +302,7 @@ def generar(equipo_patron, nosotros, calendario, actas):
         w(f"  if m is null then raise exception 'Falta el partido de la jornada {a['jornada']}.'; end if;")
         fecha = f"'{a['fecha']}'::timestamp at time zone 'Europe/Madrid'" if a["fecha"] else "fecha"
         lugar = sql_str(titulo(a["estadio"]) if a["estadio"] else None)
-        w(f"  update public.matches set fecha = {fecha}, lugar = coalesce({lugar}, lugar), es_local = {str(a['es_local']).lower()}, estado = 'finalizado', goles_favor = {a['goles_favor']}, goles_contra = {a['goles_contra']}, duracion_min = 90 where id = m;")
+        w(f"  update public.matches set fecha = {fecha}, lugar = coalesce({lugar}, lugar), es_local = {str(a['es_local']).lower()}, estado = 'finalizado', goles_favor = {a['goles_favor']}, goles_contra = {a['goles_contra']}, duracion_min = {duracion} where id = m;")
         w("  insert into public.lineups (match_id, formacion, published_at) values (m, '4-3-3', now()) on conflict (match_id) do update set published_at = coalesce(public.lineups.published_at, now()) returning id into l;")
         w("  delete from public.lineup_players where lineup_id = l;")
         w("  insert into public.lineup_players (lineup_id, player_id, titular)")
@@ -366,12 +366,13 @@ def main():
     ap.add_argument("--nosotros", required=True, help="cómo escribe la FFIB nuestro equipo (o parte)")
     ap.add_argument("--calendario")
     ap.add_argument("--actas", nargs="*", default=[])
+    ap.add_argument("--duracion", type=int, default=90, help="minutos del partido (80 en infantiles, 90 en juveniles)")
     args = ap.parse_args()
     cal = leer_calendario(args.calendario, args.nosotros) if args.calendario else []
     actas = [leer_acta(p, args.nosotros) for p in args.actas]
     for a in actas:
         print(f"[info] jornada {a['jornada']}: {a['local']} vs {a['visitante']} → {a['goles_favor']}-{a['goles_contra']} (nuestros), {len(a['goles'])} goles, {a['fecha']}, {a['estadio']}", file=sys.stderr)
-    sys.stdout.write(generar(args.equipo, args.nosotros, cal, actas))
+    sys.stdout.write(generar(args.equipo, args.nosotros, cal, actas, args.duracion))
 
 
 if __name__ == "__main__":
