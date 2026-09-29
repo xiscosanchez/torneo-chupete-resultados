@@ -1,0 +1,46 @@
+name: Descargar páginas de la FFIB
+
+# Lanzado a mano: baja las páginas indicadas (calendario, actas…) y las deja
+# en data/raw/ para poder leerlas fuera de la web de la Federación.
+on:
+  workflow_dispatch:
+    inputs:
+      paginas:
+        description: 'Una por línea: nombre=URL'
+        required: true
+        type: string
+
+permissions:
+  contents: write
+
+concurrency:
+  group: clasificacion
+  cancel-in-progress: false
+
+jobs:
+  descargar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install --quiet requests
+      - name: Bajar páginas
+        env:
+          PAGINAS: ${{ inputs.paginas }}
+        run: |
+          args=()
+          while IFS= read -r linea; do
+            linea="${linea//$'\r'/}"
+            [ -n "$linea" ] && args+=("$linea")
+          done <<< "$PAGINAS"
+          python3 scripts/descargar.py --out data/raw "${args[@]}"
+      - name: Guardar
+        run: |
+          git config user.name  'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add data/raw
+          git diff --cached --quiet && { echo "Sin cambios"; exit 0; }
+          git commit -m "Páginas FFIB descargadas ($(date -u +'%Y-%m-%d %H:%M UTC'))"
+          git push
