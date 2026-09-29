@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-09-29T18:14:55+00:00",
+  "actualizado": "2026-09-29T18:21:04+00:00",
   "fuente": "https://www.ffib.es/Fed/NPcd/NFG_VisClasificacion?cod_primaria=1000110&codjornada=2&codcompeticion=23348375&codgrupo=23348376&codjornada=2",
   "competicion": "JUVENIL PREFERENTE MALLORCA",
   "grupo": "GRUPO A",
@@ -38,7 +38,6 @@
         "G"
       ],
       "sancion": 0,
-      "escudo_url": "https://www.ffib.es/Fed/pimg/Clubes/00100_0000007900_1499_SANTA_MONICA.JPG",
       "escudo": "data/juvenil-b/escudos/102819.jpg"
     },
     {
@@ -71,7 +70,6 @@
         "G"
       ],
       "sancion": 0,
-      "escudo_url": "https://www.ffib.es/Fed/pimg/Clubes/00100_0000424733_U_D_ALARO__769__NEGRO.png",
       "escudo": "data/juvenil-b/escudos/102610.png"
     },
     {
@@ -104,7 +102,6 @@
         "E"
       ],
       "sancion": 0,
-      "escudo_url": "https://www.ffib.es/Fed/pimg/Clubes/00100_0000193862_palmafc.jpg",
       "escudo": "data/juvenil-b/escudos/7017755.jpg"
     },
     {
@@ -137,7 +134,6 @@
         "E"
       ],
       "sancion": 0,
-      "escudo_url": "https://www.ffib.es/Fed/pimg/Clubes/00100_0000037650_LOGO.jpg",
       "escudo": "data/juvenil-b/escudos/102277.jpg"
     },
     {
@@ -170,7 +166,6 @@
         "G"
       ],
       "sancion": 0,
-      "escudo_url": "https://www.ffib.es/Fed/pimg/Clubes/00100_0000013720_escutvermell.jpg",
       "escudo": "data/juvenil-b/escudos/102259.jpg"
     },
     {
@@ -203,7 +198,6 @@
         "G"
       ],
       "sancion": 0,
-      "escudo_url": "https://www.ffib.es/Fed/pimg/Clubes/00100_0000106696_Escudo_Pla_de_Na_Tesa_page_0001.jpg",
       "escudo": "data/juvenil-b/escudos/101733.jpg"
     },
     {
@@ -236,7 +230,6 @@
         "G"
       ],
       "sancion": 0,
-      "escudo_url": "https://www.ffib.es/Fed/pimg/Clubes/00100_0000064266_jv.jpg",
       "escudo": "data/juvenil-b/escudos/102698.jpg"
     },
     {
@@ -269,7 +262,6 @@
         "P"
       ],
       "sancion": 0,
-      "escudo_url": "https://www.ffib.es/Fed/pimg/Clubes/00100_0000065813_1034_calvia.jpg",
       "escudo": "data/juvenil-b/escudos/202488.jpg"
     },
     {
@@ -302,7 +294,6 @@
         "G"
       ],
       "sancion": 0,
-      "escudo_url": "https://www.ffib.es/Fed/pimg/Clubes/00100_0000000507_1-%20SPORTING.jpg",
       "escudo": "data/juvenil-b/escudos/7014451.jpg"
     },
     {
@@ -334,7 +325,9 @@
         "G",
         "P"
       ],
-      "sancion": 0
+      "sancion": 0,
+      "escudo_url": "https://www.ffib.es/Fed/pimg/Clubes/00100_0000076437_EscutCEA.jpg",
+      "escudo": "data/juvenil-b/escudos/202473.jpg"
     },
     {
       "pos": 11,
@@ -365,7 +358,9 @@
         "P",
         "G"
       ],
-      "sancion": 0
+      "sancion": 0,
+      "escudo_url": "https://www.ffib.es/Fed/pimg/Clubes/00100_0000400863_escut.png",
+      "escudo": "data/juvenil-b/escudos/102602.png"
     },
     {
       "pos": 12,
@@ -396,7 +391,9 @@
         "E",
         "P"
       ],
-      "sancion": 0
+      "sancion": 0,
+      "escudo_url": "https://www.ffib.es/Fed/pimg/Clubes/00100_0000303129_MIN_ESC_C.E._CARDASSAR.png",
+      "escudo": "data/juvenil-b/escudos/102331.png"
     },
     {
       "pos": 13,
@@ -427,7 +424,6 @@
         "P"
       ],
       "sancion": 0,
-      "escudo_url": "https://www.ffib.es/Fed/pimg/Clubes/00100_0000000232_SDlogo.jpg",
       "escudo": "data/juvenil-b/escudos/102216.jpg"
     },
     {
@@ -459,7 +455,6 @@
         "P"
       ],
       "sancion": 0,
-      "escudo_url": "https://www.ffib.es/Fed/pimg/Clubes/00100_0000184384_C._D._LLOSETENSE_CENTENARIO.jpg",
       "escudo": "data/juvenil-b/escudos/102572.jpg"
     },
     {
@@ -492,7 +487,6 @@
         "P"
       ],
       "sancion": 0,
-      "escudo_url": "https://www.ffib.es/Fed/pimg/Clubes/00100_0000000320_ESCUT%20AD%20SONSARDINA.jpg",
       "escudo": "data/juvenil-b/escudos/106479.jpg"
     },
     {
@@ -525,7 +519,6 @@
         "P"
       ],
       "sancion": 0,
-      "escudo_url": "https://www.ffib.es/Fed/pimg/Clubes/00100_0000053470_20882084_1768475006515623_6803093018079824292_n.png",
       "escudo": "data/juvenil-b/escudos/102349.png"
     }
   ],
