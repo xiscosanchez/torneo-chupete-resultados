@@ -1,0 +1,512 @@
+{
+  "actualizado": "2026-09-29T19:14:21+00:00",
+  "fuente": "https://www.ffib.es/Fed/NPcd/NFG_VisClasificacion?cod_primaria=1000110&codjornada=1&codcompeticion=23348419&codgrupo=23460647&codjornada=1",
+  "competicion": "INFANTIL DIVISIÓN DE HONOR MALLORCA",
+  "grupo": "LIGA",
+  "jornada": 1,
+  "fecha_jornada": "27-09-2026",
+  "codcompeticion": "23348419",
+  "codgrupo": "23460647",
+  "equipos": [
+    {
+      "pos": 1,
+      "equipo": "R C D MALLORCA SAD \"A\"",
+      "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=104019&codgrupo=23460647",
+      "codequipo": "104019",
+      "pts": 3,
+      "pj": 1,
+      "pg": 1,
+      "pe": 0,
+      "pp": 0,
+      "gf": 5,
+      "gc": 0,
+      "casa": {
+        "pj": 1,
+        "pg": 1,
+        "pe": 0,
+        "pp": 0
+      },
+      "fuera": {
+        "pj": 0,
+        "pg": 0,
+        "pe": 0,
+        "pp": 0
+      },
+      "dg": 5,
+      "forma": [
+        "G"
+      ],
+      "sancion": 0,
+      "escudo_url": "https://www.ffib.es/Fed/pimg/Clubes/00100_0000306448_RCDMALLORCA_ESCUDO.png",
+      "escudo": "data/infantil-dh/escudos/104019.png"
+    },
+    {
+      "pos": 2,
+      "equipo": "ATº BALEARES \"A\"",
+      "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=130629&codgrupo=23460647",
+      "codequipo": "130629",
+      "pts": 3,
+      "pj": 1,
+      "pg": 1,
+      "pe": 0,
+      "pp": 0,
+      "gf": 5,
+      "gc": 1,
+      "casa": {
+        "pj": 1,
+        "pg": 1,
+        "pe": 0,
+        "pp": 0
+      },
+      "fuera": {
+        "pj": 0,
+        "pg": 0,
+        "pe": 0,
+        "pp": 0
+      },
+      "dg": 4,
+      "forma": [
+        "G"
+      ],
+      "sancion": 0,
+      "escudo_url": "https://www.ffib.es/Fed/pimg/Clubes/00100_0000076223_Escudo_color_sin_fondo.jpg",
+      "escudo": "data/infantil-dh/escudos/130629.jpg"
+    },
+    {
+      "pos": 3,
+      "equipo": "FERRIOLENSE \"A\"",
+      "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=104073&codgrupo=23460647",
+      "codequipo": "104073",
+      "pts": 3,
+      "pj": 1,
+      "pg": 1,
+      "pe": 0,
+      "pp": 0,
+      "gf": 4,
+      "gc": 1,
+      "casa": {
+        "pj": 1,
+        "pg": 1,
+        "pe": 0,
+        "pp": 0
+      },
+      "fuera": {
+        "pj": 0,
+        "pg": 0,
+        "pe": 0,
+        "pp": 0
+      },
+      "dg": 3,
+      "forma": [
+        "G"
+      ],
+      "sancion": 0,
+      "escudo_url": "https://www.ffib.es/Fed/pimg/Clubes/00100_0000002219_LOGO_FERRIO.jpg",
+      "escudo": "data/infantil-dh/escudos/104073.jpg"
+    },
+    {
+      "pos": 4,
+      "equipo": "SP. CIUTAT DE PALMA \"A\"",
+      "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=202607&codgrupo=23460647",
+      "codequipo": "202607",
+      "pts": 3,
+      "pj": 1,
+      "pg": 1,
+      "pe": 0,
+      "pp": 0,
+      "gf": 4,
+      "gc": 2,
+      "casa": {
+        "pj": 1,
+        "pg": 1,
+        "pe": 0,
+        "pp": 0
+      },
+      "fuera": {
+        "pj": 0,
+        "pg": 0,
+        "pe": 0,
+        "pp": 0
+      },
+      "dg": 2,
+      "forma": [
+        "G"
+      ],
+      "sancion": 0,
+      "escudo_url": "https://www.ffib.es/Fed/pimg/Clubes/00100_0000000465_1-%20SPORTING.jpg",
+      "escudo": "data/infantil-dh/escudos/202607.jpg"
+    },
+    {
+      "pos": 5,
+      "equipo": "S D LA SALLE ATº \"A\"",
+      "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=104155&codgrupo=23460647",
+      "codequipo": "104155",
+      "pts": 3,
+      "pj": 1,
+      "pg": 1,
+      "pe": 0,
+      "pp": 0,
+      "gf": 4,
+      "gc": 3,
+      "casa": {
+        "pj": 1,
+        "pg": 1,
+        "pe": 0,
+        "pp": 0
+      },
+      "fuera": {
+        "pj": 0,
+        "pg": 0,
+        "pe": 0,
+        "pp": 0
+      },
+      "dg": 1,
+      "forma": [
+        "G"
+      ],
+      "sancion": 0,
+      "escudo_url": "https://www.ffib.es/Fed/pimg/Clubes/00100_0000198330_escudo_s.d._la_salle_ATLO.png",
+      "escudo": "data/infantil-dh/escudos/104155.png"
+    },
+    {
+      "pos": 6,
+      "equipo": "RTVº LA VICTORIA \"A\"",
+      "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=104076&codgrupo=23460647",
+      "codequipo": "104076",
+      "pts": 3,
+      "pj": 1,
+      "pg": 1,
+      "pe": 0,
+      "pp": 0,
+      "gf": 1,
+      "gc": 0,
+      "casa": {
+        "pj": 0,
+        "pg": 0,
+        "pe": 0,
+        "pp": 0
+      },
+      "fuera": {
+        "pj": 1,
+        "pg": 1,
+        "pe": 0,
+        "pp": 0
+      },
+      "dg": 1,
+      "forma": [
+        "G"
+      ],
+      "sancion": 0,
+      "escudo_url": "https://www.ffib.es/Fed/pimg/Clubes/00100_0000001350_ESCCUDOVICTORIA.jpg",
+      "escudo": "data/infantil-dh/escudos/104076.jpg"
+    },
+    {
+      "pos": 7,
+      "equipo": "PENYA ARRABAL \"A\"",
+      "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=104291&codgrupo=23460647",
+      "codequipo": "104291",
+      "pts": 1,
+      "pj": 1,
+      "pg": 0,
+      "pe": 1,
+      "pp": 0,
+      "gf": 1,
+      "gc": 1,
+      "casa": {
+        "pj": 1,
+        "pg": 0,
+        "pe": 1,
+        "pp": 0
+      },
+      "fuera": {
+        "pj": 0,
+        "pg": 0,
+        "pe": 0,
+        "pp": 0
+      },
+      "dg": 0,
+      "forma": [
+        "E"
+      ],
+      "sancion": 0,
+      "escudo_url": "https://www.ffib.es/Fed/pimg/Clubes/00100_0000000752_escudo%20penya.png",
+      "escudo": "data/infantil-dh/escudos/104291.png"
+    },
+    {
+      "pos": 8,
+      "equipo": "POBLENSE",
+      "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=104013&codgrupo=23460647",
+      "codequipo": "104013",
+      "pts": 1,
+      "pj": 1,
+      "pg": 0,
+      "pe": 1,
+      "pp": 0,
+      "gf": 1,
+      "gc": 1,
+      "casa": {
+        "pj": 0,
+        "pg": 0,
+        "pe": 0,
+        "pp": 0
+      },
+      "fuera": {
+        "pj": 1,
+        "pg": 0,
+        "pe": 1,
+        "pp": 0
+      },
+      "dg": 0,
+      "forma": [
+        "E"
+      ],
+      "sancion": 0,
+      "escudo_url": "https://www.ffib.es/Fed/pimg/Clubes/00100_0000107731_UD_POBLENSE_01.jpg",
+      "escudo": "data/infantil-dh/escudos/104013.jpg"
+    },
+    {
+      "pos": 9,
+      "equipo": "MADRE ALBERTA",
+      "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=250738&codgrupo=23460647",
+      "codequipo": "250738",
+      "pts": 0,
+      "pj": 1,
+      "pg": 0,
+      "pe": 0,
+      "pp": 1,
+      "gf": 3,
+      "gc": 4,
+      "casa": {
+        "pj": 0,
+        "pg": 0,
+        "pe": 0,
+        "pp": 0
+      },
+      "fuera": {
+        "pj": 1,
+        "pg": 0,
+        "pe": 0,
+        "pp": 1
+      },
+      "dg": -1,
+      "forma": [
+        "P"
+      ],
+      "sancion": 0,
+      "escudo_url": "https://www.ffib.es/Fed/pimg/Clubes/00100_0000235163_cdma.jpg",
+      "escudo": "data/infantil-dh/escudos/250738.jpg"
+    },
+    {
+      "pos": 10,
+      "equipo": "MANACOR \"A\"",
+      "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=104009&codgrupo=23460647",
+      "codequipo": "104009",
+      "pts": 0,
+      "pj": 1,
+      "pg": 0,
+      "pe": 0,
+      "pp": 1,
+      "gf": 0,
+      "gc": 1,
+      "casa": {
+        "pj": 1,
+        "pg": 0,
+        "pe": 0,
+        "pp": 1
+      },
+      "fuera": {
+        "pj": 0,
+        "pg": 0,
+        "pe": 0,
+        "pp": 0
+      },
+      "dg": -1,
+      "forma": [
+        "P"
+      ],
+      "sancion": 0
+    },
+    {
+      "pos": 11,
+      "equipo": "CONSTANCIA \"A\"",
+      "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=738884&codgrupo=23460647",
+      "codequipo": "738884",
+      "pts": 0,
+      "pj": 1,
+      "pg": 0,
+      "pe": 0,
+      "pp": 1,
+      "gf": 2,
+      "gc": 4,
+      "casa": {
+        "pj": 0,
+        "pg": 0,
+        "pe": 0,
+        "pp": 0
+      },
+      "fuera": {
+        "pj": 1,
+        "pg": 0,
+        "pe": 0,
+        "pp": 1
+      },
+      "dg": -2,
+      "forma": [
+        "P"
+      ],
+      "sancion": 0
+    },
+    {
+      "pos": 12,
+      "equipo": "SAN CAYETANO \"A\"",
+      "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=22600602&codgrupo=23460647",
+      "codequipo": "22600602",
+      "pts": 0,
+      "pj": 1,
+      "pg": 0,
+      "pe": 0,
+      "pp": 1,
+      "gf": 1,
+      "gc": 4,
+      "casa": {
+        "pj": 0,
+        "pg": 0,
+        "pe": 0,
+        "pp": 0
+      },
+      "fuera": {
+        "pj": 1,
+        "pg": 0,
+        "pe": 0,
+        "pp": 1
+      },
+      "dg": -3,
+      "forma": [
+        "P"
+      ],
+      "sancion": 0
+    },
+    {
+      "pos": 13,
+      "equipo": "ESTUDIANTES DEL CIDE \"A\"",
+      "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=103124&codgrupo=23460647",
+      "codequipo": "103124",
+      "pts": 0,
+      "pj": 1,
+      "pg": 0,
+      "pe": 0,
+      "pp": 1,
+      "gf": 1,
+      "gc": 5,
+      "casa": {
+        "pj": 0,
+        "pg": 0,
+        "pe": 0,
+        "pp": 0
+      },
+      "fuera": {
+        "pj": 1,
+        "pg": 0,
+        "pe": 0,
+        "pp": 1
+      },
+      "dg": -4,
+      "forma": [
+        "P"
+      ],
+      "sancion": 0,
+      "escudo_url": "https://www.ffib.es/Fed/pimg/Clubes/00100_0000196395_LOGO_CE_CIDE_page_0001.jpg",
+      "escudo": "data/infantil-dh/escudos/103124.jpg"
+    },
+    {
+      "pos": 14,
+      "equipo": "PALMA F.C. \"A\"",
+      "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=738873&codgrupo=23460647",
+      "codequipo": "738873",
+      "pts": 0,
+      "pj": 1,
+      "pg": 0,
+      "pe": 0,
+      "pp": 1,
+      "gf": 0,
+      "gc": 5,
+      "casa": {
+        "pj": 0,
+        "pg": 0,
+        "pe": 0,
+        "pp": 0
+      },
+      "fuera": {
+        "pj": 1,
+        "pg": 0,
+        "pe": 0,
+        "pp": 1
+      },
+      "dg": -5,
+      "forma": [
+        "P"
+      ],
+      "sancion": 0,
+      "escudo_url": "https://www.ffib.es/Fed/pimg/Clubes/00100_0000193862_palmafc.jpg",
+      "escudo": "data/infantil-dh/escudos/738873.jpg"
+    }
+  ],
+  "resultados": [
+    {
+      "local": "ATº BALEARES \"A\"",
+      "visitante": "ESTUDIANTES DEL CIDE \"A\"",
+      "goles_local": 5,
+      "goles_visitante": 1,
+      "cod_local": "130629",
+      "cod_visitante": "103124"
+    },
+    {
+      "local": "S D LA SALLE ATº \"A\"",
+      "visitante": "MADRE ALBERTA",
+      "goles_local": 4,
+      "goles_visitante": 3,
+      "cod_local": "104155",
+      "cod_visitante": "250738"
+    },
+    {
+      "local": "R C D MALLORCA SAD \"A\"",
+      "visitante": "PALMA F.C. \"A\"",
+      "goles_local": 5,
+      "goles_visitante": 0,
+      "cod_local": "104019",
+      "cod_visitante": "738873"
+    },
+    {
+      "local": "PENYA ARRABAL \"A\"",
+      "visitante": "POBLENSE",
+      "goles_local": 1,
+      "goles_visitante": 1,
+      "cod_local": "104291",
+      "cod_visitante": "104013"
+    },
+    {
+      "local": "MANACOR \"A\"",
+      "visitante": "RTVº LA VICTORIA \"A\"",
+      "goles_local": 0,
+      "goles_visitante": 1,
+      "cod_local": "104009",
+      "cod_visitante": "104076"
+    },
+    {
+      "local": "FERRIOLENSE \"A\"",
+      "visitante": "SAN CAYETANO \"A\"",
+      "goles_local": 4,
+      "goles_visitante": 1,
+      "cod_local": "104073",
+      "cod_visitante": "22600602"
+    },
+    {
+      "local": "SP. CIUTAT DE PALMA \"A\"",
+      "visitante": "CONSTANCIA \"A\"",
+      "goles_local": 4,
+      "goles_visitante": 2,
+      "cod_local": "202607",
+      "cod_visitante": "738884"
+    }
+  ]
+}
