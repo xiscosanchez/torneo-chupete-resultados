@@ -338,7 +338,8 @@ def generar(equipo_patron, nosotros, calendario, actas):
             ev.append((tj["minuto"], "contra", tj["tipo"], None, None, None, None, dorsal_de(tj["jugador"], rival_eq), None, False, False, False))
         if ev:
             w("  insert into public.match_events (match_id, minuto, equipo, tipo, player_id, player2_id, dorsal_rival, dorsal_rival2, penalti, propia, en_descanso, created_at)")
-            w("  select m, e.minuto, e.equipo::public.event_team, e.tipo::public.event_type, p.id, p2.id, e.dorsal_rival, e.dorsal_rival2, e.penalti, e.propia, e.en_descanso, now() + make_interval(secs => e.orden)")
+            # los casts: una columna toda a null en VALUES sale como text
+            w("  select m, e.minuto, e.equipo::public.event_team, e.tipo::public.event_type, p.id, p2.id, e.dorsal_rival::int, e.dorsal_rival2::int, e.penalti, e.propia, e.en_descanso, now() + make_interval(secs => e.orden)")
             w("  from (values")
             filas = []
             for i, e in enumerate(ev, 1):
@@ -347,8 +348,8 @@ def generar(equipo_patron, nosotros, calendario, actas):
             filas[0] = filas[0].replace("(", "(", 1)
             w("    " + ",\n    ".join(filas))
             w("  ) e(orden, minuto, equipo, tipo, nombre, apellidos, nombre2, apellidos2, dorsal_rival, dorsal_rival2, penalti, propia, en_descanso)")
-            w("  left join public.players p on p.team_id = t and lower(p.nombre) = lower(e.nombre) and lower(p.apellidos) = lower(e.apellidos)")
-            w("  left join public.players p2 on p2.team_id = t and lower(p2.nombre) = lower(e.nombre2) and lower(p2.apellidos) = lower(e.apellidos2);")
+            w("  left join public.players p on p.team_id = t and lower(p.nombre) = lower(e.nombre::text) and lower(p.apellidos) = lower(e.apellidos::text)")
+            w("  left join public.players p2 on p2.team_id = t and lower(p2.nombre) = lower(e.nombre2::text) and lower(p2.apellidos) = lower(e.apellidos2::text);")
         w(f"  raise notice 'Jornada {a['jornada']} grabada: {a['goles_favor']}-{a['goles_contra']}, % eventos.', (select count(*) from public.match_events where match_id = m);")
         w("")
     w("end $$;")
