@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-09-29T19:14:21+00:00",
+  "actualizado": "2026-09-29T19:15:15+00:00",
   "fuente": "https://www.ffib.es/Fed/NPcd/NFG_VisClasificacion?cod_primaria=1000110&codjornada=1&codcompeticion=23348419&codgrupo=23460647&codjornada=1",
   "competicion": "INFANTIL DIVISIÓN DE HONOR MALLORCA",
   "grupo": "LIGA",
@@ -37,7 +37,6 @@
         "G"
       ],
       "sancion": 0,
-      "escudo_url": "https://www.ffib.es/Fed/pimg/Clubes/00100_0000306448_RCDMALLORCA_ESCUDO.png",
       "escudo": "data/infantil-dh/escudos/104019.png"
     },
     {
@@ -69,7 +68,6 @@
         "G"
       ],
       "sancion": 0,
-      "escudo_url": "https://www.ffib.es/Fed/pimg/Clubes/00100_0000076223_Escudo_color_sin_fondo.jpg",
       "escudo": "data/infantil-dh/escudos/130629.jpg"
     },
     {
@@ -101,7 +99,6 @@
         "G"
       ],
       "sancion": 0,
-      "escudo_url": "https://www.ffib.es/Fed/pimg/Clubes/00100_0000002219_LOGO_FERRIO.jpg",
       "escudo": "data/infantil-dh/escudos/104073.jpg"
     },
     {
@@ -133,7 +130,6 @@
         "G"
       ],
       "sancion": 0,
-      "escudo_url": "https://www.ffib.es/Fed/pimg/Clubes/00100_0000000465_1-%20SPORTING.jpg",
       "escudo": "data/infantil-dh/escudos/202607.jpg"
     },
     {
@@ -165,7 +161,6 @@
         "G"
       ],
       "sancion": 0,
-      "escudo_url": "https://www.ffib.es/Fed/pimg/Clubes/00100_0000198330_escudo_s.d._la_salle_ATLO.png",
       "escudo": "data/infantil-dh/escudos/104155.png"
     },
     {
@@ -197,7 +192,6 @@
         "G"
       ],
       "sancion": 0,
-      "escudo_url": "https://www.ffib.es/Fed/pimg/Clubes/00100_0000001350_ESCCUDOVICTORIA.jpg",
       "escudo": "data/infantil-dh/escudos/104076.jpg"
     },
     {
@@ -229,7 +223,6 @@
         "E"
       ],
       "sancion": 0,
-      "escudo_url": "https://www.ffib.es/Fed/pimg/Clubes/00100_0000000752_escudo%20penya.png",
       "escudo": "data/infantil-dh/escudos/104291.png"
     },
     {
@@ -261,7 +254,6 @@
         "E"
       ],
       "sancion": 0,
-      "escudo_url": "https://www.ffib.es/Fed/pimg/Clubes/00100_0000107731_UD_POBLENSE_01.jpg",
       "escudo": "data/infantil-dh/escudos/104013.jpg"
     },
     {
@@ -293,7 +285,6 @@
         "P"
       ],
       "sancion": 0,
-      "escudo_url": "https://www.ffib.es/Fed/pimg/Clubes/00100_0000235163_cdma.jpg",
       "escudo": "data/infantil-dh/escudos/250738.jpg"
     },
     {
@@ -324,7 +315,9 @@
       "forma": [
         "P"
       ],
-      "sancion": 0
+      "sancion": 0,
+      "escudo_url": "https://www.ffib.es/Fed/pimg/Clubes/00100_0000199852_23604025_IMG_20230814_WA0003__2_.jpg",
+      "escudo": "data/infantil-dh/escudos/104009.jpg"
     },
     {
       "pos": 11,
@@ -354,7 +347,9 @@
       "forma": [
         "P"
       ],
-      "sancion": 0
+      "sancion": 0,
+      "escudo_url": "https://www.ffib.es/Fed/pimg/Clubes/00100_0000285884_Constancia.png",
+      "escudo": "data/infantil-dh/escudos/738884.png"
     },
     {
       "pos": 12,
@@ -384,7 +379,9 @@
       "forma": [
         "P"
       ],
-      "sancion": 0
+      "sancion": 0,
+      "escudo_url": "https://www.ffib.es/Fed/pimg/Clubes/00100_0000028538_sanca.png",
+      "escudo": "data/infantil-dh/escudos/22600602.png"
     },
     {
       "pos": 13,
@@ -415,7 +412,6 @@
         "P"
       ],
       "sancion": 0,
-      "escudo_url": "https://www.ffib.es/Fed/pimg/Clubes/00100_0000196395_LOGO_CE_CIDE_page_0001.jpg",
       "escudo": "data/infantil-dh/escudos/103124.jpg"
     },
     {
@@ -447,7 +443,6 @@
         "P"
       ],
       "sancion": 0,
-      "escudo_url": "https://www.ffib.es/Fed/pimg/Clubes/00100_0000193862_palmafc.jpg",
       "escudo": "data/infantil-dh/escudos/738873.jpg"
     }
   ],
