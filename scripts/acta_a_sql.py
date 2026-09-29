@@ -228,16 +228,31 @@ def dorsal_de(nombre, equipo):
 
 
 # ------------------------------------------------------------ SQL
+def v(*vals):
+    """Fila de un VALUES: str → literal, bool/int tal cual, None → null."""
+    out = []
+    for x in vals:
+        if x is None:
+            out.append("null")
+        elif isinstance(x, bool):
+            out.append("true" if x else "false")
+        elif isinstance(x, (int, float)):
+            out.append(str(x))
+        else:
+            out.append(sql_str(x))
+    return "(" + ", ".join(out) + ")"
+
+
 def generar(equipo_patron, nosotros, calendario, actas):
     out = []
     w = out.append
-    w("-- Generado por scripts/acta_a_sql.py a partir del calendario y las actas de la FFIB.")
-    w("-- Se puede repetir: los partidos se buscan por jornada, la plantilla por nombre y apellidos,")
-    w("-- y de cada acta se borran y regraban alineación y eventos.")
+    w("-- Generado por scripts/acta_a_sql.py (repo torneo-chupete-resultados) a partir del")
+    w("-- calendario y las actas de la FFIB. Se puede repetir: los partidos se buscan por")
+    w("-- jornada, la plantilla por nombre y apellidos, y de cada acta se borran y regraban")
+    w("-- alineación y eventos.")
     w("do $$")
     w("declare")
-    w("  t uuid; m uuid; l uuid; p uuid; p2 uuid;")
-    w("  function_creados int := 0;")
+    w("  t uuid; m uuid; l uuid; n int;")
     w("begin")
     w(f"  select id into t from public.teams where lower(coalesce(liga,'') || ' ' || coalesce(categoria,'') || ' ' || corto || ' ' || nombre) like '%{equipo_patron.lower()}%' order by created_at limit 1;")
     w(f"  if t is null then raise exception 'No encuentro ningún equipo con \"{equipo_patron}\" en su liga, categoría o nombre.'; end if;")
@@ -248,78 +263,98 @@ def generar(equipo_patron, nosotros, calendario, actas):
         for j in a["equipos"][a["nuestro"]]["titulares"] + a["equipos"][a["nuestro"]]["suplentes"]:
             nom, ape = nombre_persona(j["nombre"])
             plantilla.setdefault((nom, ape), j["dorsal"])
-    w("  -- ---- plantilla (los que salen en las actas) ----")
-    for (nom, ape), dorsal in sorted(plantilla.items(), key=lambda x: x[1]):
-        dem = "'POR'" if dorsal == 1 else "'CEN'"
-        w(f"  if not exists (select 1 from public.players where team_id = t and lower(nombre) = lower({sql_str(nom)}) and lower(apellidos) = lower({sql_str(ape)})) then")
-        w(f"    insert into public.players (team_id, nombre, apellidos, dorsal, demarcacion) values (t, {sql_str(nom)}, {sql_str(ape)}, {dorsal}, {dem});")
-        w("    function_creados := function_creados + 1;")
-        w("  else")
-        w(f"    update public.players set dorsal = coalesce(dorsal, {dorsal}) where team_id = t and lower(nombre) = lower({sql_str(nom)}) and lower(apellidos) = lower({sql_str(ape)});")
-        w("  end if;")
-    w(f"  raise notice 'Plantilla: % jugadores nuevos ({len(plantilla)} en las actas).', function_creados;")
-    w("")
+    if plantilla:
+        w("  -- ---- plantilla: los que salen en las actas (se crean si no están) ----")
+        w("  create temp table j (nombre text, apellidos text, dorsal int, dem text) on commit drop;")
+        w("  insert into j values")
+        filas = [v(nom, ape, d, "POR" if d == 1 else "CEN") for (nom, ape), d in sorted(plantilla.items(), key=lambda x: x[1])]
+        w("    " + ",\n    ".join(filas) + ";")
+        w("  insert into public.players (team_id, nombre, apellidos, dorsal, demarcacion)")
+        w("  select t, j.nombre, j.apellidos, j.dorsal, j.dem::public.position_group from j")
+        w("  where not exists (select 1 from public.players p where p.team_id = t and lower(p.nombre) = lower(j.nombre) and lower(p.apellidos) = lower(j.apellidos));")
+        w("  get diagnostics n = row_count;")
+        w("  update public.players p set dorsal = j.dorsal from j where p.team_id = t and p.dorsal is null and lower(p.nombre) = lower(j.nombre) and lower(p.apellidos) = lower(j.apellidos);")
+        w(f"  raise notice 'Plantilla: % jugadores nuevos ({len(plantilla)} en las actas).', n;")
+        w("")
     # calendario
-    w("  -- ---- calendario: un partido por jornada ----")
-    for f in calendario:
-        rival = rival_bonito(f["rival"])
-        fecha = f"('{f['fecha']} 12:00'::timestamp at time zone 'Europe/Madrid')"
-        lugar = "'Miquel Nadal'" if f["es_local"] else "null"
-        w(f"  if not exists (select 1 from public.matches where team_id = t and tipo = 'liga' and jornada = {f['jornada']}) then")
-        w(f"    insert into public.matches (team_id, tipo, rival, fecha, es_local, lugar, jornada, estado) values (t, 'liga', {sql_str(rival)}, {fecha}, {str(f['es_local']).lower()}, {lugar}, {f['jornada']}, 'programado');")
-        w("  end if;")
-    w("")
+    if calendario:
+        w("  -- ---- calendario: un partido por jornada (solo se crean los que faltan) ----")
+        w("  create temp table c (jornada int, rival text, fecha timestamptz, es_local boolean, lugar text) on commit drop;")
+        w("  insert into c values")
+        filas = []
+        for f in calendario:
+            filas.append(f"({f['jornada']}, {sql_str(rival_bonito(f['rival']))}, '{f['fecha']} 12:00'::timestamp at time zone 'Europe/Madrid', {str(f['es_local']).lower()}, {sql_str('Miquel Nadal') if f['es_local'] else 'null'})")
+        w("    " + ",\n    ".join(filas) + ";")
+        w("  insert into public.matches (team_id, tipo, rival, fecha, es_local, lugar, jornada, estado)")
+        w("  select t, 'liga', c.rival, c.fecha, c.es_local, c.lugar, c.jornada, 'programado' from c")
+        w("  where not exists (select 1 from public.matches x where x.team_id = t and x.tipo = 'liga' and x.jornada = c.jornada);")
+        w("  get diagnostics n = row_count;")
+        w(f"  raise notice 'Calendario: % partidos nuevos ({len(calendario)} jornadas).', n;")
+        w("")
     # actas
     for a in actas:
         nuestro = a["equipos"][a["nuestro"]]
         rival_eq = a["equipos"][a["rival_nombre"]]
-        w(f"  -- ---- jornada {a['jornada']}: {a['local']} {a['goles_favor'] if a['es_local'] else a['goles_contra']}-{a['goles_contra'] if a['es_local'] else a['goles_favor']} {a['visitante']} ----")
+        gl = a["goles_favor"] if a["es_local"] else a["goles_contra"]
+        gv = a["goles_contra"] if a["es_local"] else a["goles_favor"]
+        w(f"  -- ---- jornada {a['jornada']}: {a['local']} {gl}-{gv} {a['visitante']} ----")
         w(f"  select id into m from public.matches where team_id = t and tipo = 'liga' and jornada = {a['jornada']};")
         w(f"  if m is null then raise exception 'Falta el partido de la jornada {a['jornada']}.'; end if;")
-        fecha = f"('{a['fecha']}'::timestamp at time zone 'Europe/Madrid')" if a["fecha"] else "fecha"
+        fecha = f"'{a['fecha']}'::timestamp at time zone 'Europe/Madrid'" if a["fecha"] else "fecha"
         lugar = sql_str(titulo(a["estadio"]) if a["estadio"] else None)
         w(f"  update public.matches set fecha = {fecha}, lugar = coalesce({lugar}, lugar), es_local = {str(a['es_local']).lower()}, estado = 'finalizado', goles_favor = {a['goles_favor']}, goles_contra = {a['goles_contra']}, duracion_min = 90 where id = m;")
         w("  insert into public.lineups (match_id, formacion, published_at) values (m, '4-3-3', now()) on conflict (match_id) do update set published_at = coalesce(public.lineups.published_at, now()) returning id into l;")
         w("  delete from public.lineup_players where lineup_id = l;")
+        w("  insert into public.lineup_players (lineup_id, player_id, titular)")
+        w("  select l, p.id, a.titular from (values")
+        filas = []
         for j in nuestro["titulares"]:
-            nom, ape = nombre_persona(j["nombre"])
-            w(f"  insert into public.lineup_players (lineup_id, player_id, titular) select l, id, true from public.players where team_id = t and lower(nombre) = lower({sql_str(nom)}) and lower(apellidos) = lower({sql_str(ape)});")
+            nom, ape = nombre_persona(j["nombre"]); filas.append(v(nom, ape, True))
         for j in nuestro["suplentes"]:
-            nom, ape = nombre_persona(j["nombre"])
-            w(f"  insert into public.lineup_players (lineup_id, player_id, titular) select l, id, false from public.players where team_id = t and lower(nombre) = lower({sql_str(nom)}) and lower(apellidos) = lower({sql_str(ape)});")
+            nom, ape = nombre_persona(j["nombre"]); filas.append(v(nom, ape, False))
+        w("    " + ",\n    ".join(filas))
+        w("  ) a(nombre, apellidos, titular)")
+        w("  join public.players p on p.team_id = t and lower(p.nombre) = lower(a.nombre) and lower(p.apellidos) = lower(a.apellidos);")
         w("  delete from public.match_events where match_id = m;")
-        seq = 0
-        def pid(nombre):
-            nom, ape = nombre_persona(nombre)
-            return f"(select id from public.players where team_id = t and lower(nombre) = lower({sql_str(nom)}) and lower(apellidos) = lower({sql_str(ape)}) limit 1)"
+        # eventos: (orden, minuto, equipo, tipo, nombre, apellidos, nombre2, apellidos2, dorsal_rival, dorsal_rival2, penalti, propia, en_descanso)
+        ev = []
         for c in nuestro["cambios"]:
-            seq += 1
-            w(f"  insert into public.match_events (match_id, minuto, equipo, tipo, player_id, player2_id, en_descanso, created_at) values (m, {c['minuto']}, 'favor', 'cambio', {pid(c['sale'])}, {pid(c['entra'])}, {str(c['minuto'] in (45, 46)).lower()}, now() + interval '{seq} seconds');")
+            n1, a1 = nombre_persona(c["sale"]); n2, a2 = nombre_persona(c["entra"])
+            ev.append((c["minuto"], "favor", "cambio", n1, a1, n2, a2, None, None, False, False, c["minuto"] in (45, 46)))
         for c in rival_eq["cambios"]:
-            seq += 1
-            w(f"  insert into public.match_events (match_id, minuto, equipo, tipo, dorsal_rival, dorsal_rival2, en_descanso, created_at) values (m, {c['minuto']}, 'contra', 'cambio', {c['sale_dorsal']}, {c['entra_dorsal']}, {str(c['minuto'] in (45, 46)).lower()}, now() + interval '{seq} seconds');")
+            ev.append((c["minuto"], "contra", "cambio", None, None, None, None, c["sale_dorsal"], c["entra_dorsal"], False, False, c["minuto"] in (45, 46)))
         for g in a["goles"]:
-            seq += 1
-            nuestro_jugador = es_de(g["jugador"], nuestro)
-            a_favor = nuestro_jugador != g["propia"]
-            if nuestro_jugador:
-                w(f"  insert into public.match_events (match_id, minuto, equipo, tipo, player_id, penalti, propia, created_at) values (m, {g['minuto']}, {sql_str('favor' if a_favor else 'contra')}, 'gol', {pid(g['jugador'])}, {str(g['penalti']).lower()}, {str(g['propia']).lower()}, now() + interval '{seq} seconds');")
+            mio = es_de(g["jugador"], nuestro)
+            eq = "favor" if mio != g["propia"] else "contra"
+            if mio:
+                n1, a1 = nombre_persona(g["jugador"])
+                ev.append((g["minuto"], eq, "gol", n1, a1, None, None, None, None, g["penalti"], g["propia"], False))
             else:
-                d = dorsal_de(g["jugador"], rival_eq)
-                w(f"  insert into public.match_events (match_id, minuto, equipo, tipo, dorsal_rival, penalti, propia, created_at) values (m, {g['minuto']}, {sql_str('favor' if a_favor else 'contra')}, 'gol', {d if d is not None else 'null'}, {str(g['penalti']).lower()}, {str(g['propia']).lower()}, now() + interval '{seq} seconds');")
+                ev.append((g["minuto"], eq, "gol", None, None, None, None, dorsal_de(g["jugador"], rival_eq), None, g["penalti"], g["propia"], False))
         for tj in nuestro["tarjetas"]:
-            seq += 1
-            w(f"  insert into public.match_events (match_id, minuto, equipo, tipo, player_id, created_at) values (m, {tj['minuto']}, 'favor', {sql_str(tj['tipo'])}, {pid(tj['jugador'])}, now() + interval '{seq} seconds');")
+            n1, a1 = nombre_persona(tj["jugador"])
+            ev.append((tj["minuto"], "favor", tj["tipo"], n1, a1, None, None, None, None, False, False, False))
         for tj in rival_eq["tarjetas"]:
-            seq += 1
-            d = dorsal_de(tj["jugador"], rival_eq)
-            w(f"  insert into public.match_events (match_id, minuto, equipo, tipo, dorsal_rival, created_at) values (m, {tj['minuto']}, 'contra', {sql_str(tj['tipo'])}, {d if d is not None else 'null'}, now() + interval '{seq} seconds');")
+            ev.append((tj["minuto"], "contra", tj["tipo"], None, None, None, None, dorsal_de(tj["jugador"], rival_eq), None, False, False, False))
+        if ev:
+            w("  insert into public.match_events (match_id, minuto, equipo, tipo, player_id, player2_id, dorsal_rival, dorsal_rival2, penalti, propia, en_descanso, created_at)")
+            w("  select m, e.minuto, e.equipo::public.event_team, e.tipo::public.event_type, p.id, p2.id, e.dorsal_rival, e.dorsal_rival2, e.penalti, e.propia, e.en_descanso, now() + make_interval(secs => e.orden)")
+            w("  from (values")
+            filas = []
+            for i, e in enumerate(ev, 1):
+                filas.append(v(i, *e))
+            # primera fila con tipos explícitos para las columnas que pueden ir a null
+            filas[0] = filas[0].replace("(", "(", 1)
+            w("    " + ",\n    ".join(filas))
+            w("  ) e(orden, minuto, equipo, tipo, nombre, apellidos, nombre2, apellidos2, dorsal_rival, dorsal_rival2, penalti, propia, en_descanso)")
+            w("  left join public.players p on p.team_id = t and lower(p.nombre) = lower(e.nombre) and lower(p.apellidos) = lower(e.apellidos)")
+            w("  left join public.players p2 on p2.team_id = t and lower(p2.nombre) = lower(e.nombre2) and lower(p2.apellidos) = lower(e.apellidos2);")
         w(f"  raise notice 'Jornada {a['jornada']} grabada: {a['goles_favor']}-{a['goles_contra']}, % eventos.', (select count(*) from public.match_events where match_id = m);")
         w("")
     w("end $$;")
     w("")
     w("-- Comprobación: partidos del equipo")
-    w(f"select m.jornada, to_char(m.fecha at time zone 'Europe/Madrid', 'DD/MM HH24:MI') as fecha, case when m.es_local then 'casa' else 'fuera' end as donde, m.rival, m.estado, m.goles_favor || '-' || m.goles_contra as resultado")
+    w("select m.jornada, to_char(m.fecha at time zone 'Europe/Madrid', 'DD/MM HH24:MI') as fecha, case when m.es_local then 'casa' else 'fuera' end as donde, m.rival, m.estado, m.goles_favor || '-' || m.goles_contra as resultado")
     w(f"from public.matches m join public.teams t on t.id = m.team_id where lower(coalesce(t.liga,'') || ' ' || coalesce(t.categoria,'') || ' ' || t.corto || ' ' || t.nombre) like '%{equipo_patron.lower()}%' order by m.jornada;")
     return "\n".join(out) + "\n"
 
