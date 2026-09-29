@@ -4,6 +4,7 @@ on:
   push:
     paths:
       - 'scripts/clasificacion.py'
+      - 'competiciones.json'
       - '.github/workflows/clasificacion.yml'
   schedule:
     # Hora española: sábado 23:30, domingo 15:00 y domingo 23:30. GitHub
@@ -47,16 +48,42 @@ jobs:
       - name: Instalar dependencias
         run: pip install --quiet requests beautifulsoup4
 
-      - name: Descargar clasificación y escudos
+      # Una clasificación por competición, según competiciones.json: el slug
+      # vacío publica en data/clasificacion.json (el Juvenil de siempre) y el
+      # resto en data/<slug>/clasificacion.json. Si una falla, las demás
+      # siguen y el job acaba en rojo para que se vea.
+      - name: Descargar clasificaciones y escudos
         env:
           INPUT_URL: ${{ inputs.url }}
           VAR_URL: ${{ vars.CLASIFICACION_URL }}
         run: |
-          URL="${INPUT_URL:-${VAR_URL:-$DEFAULT_URL}}"
-          echo "URL: $URL"
-          python3 scripts/clasificacion.py --url "$URL" --out data/clasificacion.json --escudos data/escudos
+          set +e
+          fallos=0
+          if [ -n "$INPUT_URL" ]; then
+            # Lanzado a mano con una URL: solo esa, en la ruta principal
+            python3 scripts/clasificacion.py --url "$INPUT_URL" --out data/clasificacion.json --escudos data/escudos || fallos=1
+          else
+            n=$(jq length competiciones.json)
+            for i in $(seq 0 $((n - 1))); do
+              slug=$(jq -r ".[$i].slug" competiciones.json)
+              nombre=$(jq -r ".[$i].nombre" competiciones.json)
+              url=$(jq -r ".[$i].url" competiciones.json)
+              if [ -z "$slug" ]; then
+                url="${VAR_URL:-$url}"
+                out="data/clasificacion.json"; esc="data/escudos"
+              else
+                out="data/$slug/clasificacion.json"; esc="data/$slug/escudos"
+              fi
+              echo "::group::$nombre → $out"
+              echo "URL: $url"
+              python3 scripts/clasificacion.py --url "$url" --out "$out" --escudos "$esc" || { echo "::error::Falló $nombre"; fallos=$((fallos + 1)); }
+              echo "::endgroup::"
+            done
+          fi
+          echo "fallos=$fallos" >> "$GITHUB_ENV"
 
       - name: Publicar cambios
+        # Se publica lo que haya salido bien aunque alguna competición fallara
         run: |
           git config user.name  'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
@@ -67,3 +94,9 @@ jobs:
           fi
           git commit -m "Actualizar clasificación FFIB ($(date -u +'%Y-%m-%d %H:%M UTC'))"
           git push
+
+      - name: Avisar si alguna competición falló
+        if: env.fallos != '0'
+        run: |
+          echo "::error::${fallos} competición(es) sin actualizar; mira los grupos de arriba"
+          exit 1
