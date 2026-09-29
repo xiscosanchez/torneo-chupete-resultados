@@ -14,6 +14,7 @@ on:
     - cron: '30 21,22 * * 6'   # sábado 23:30
     - cron: '0 13,14 * * 0'    # domingo 15:00
     - cron: '30 21,22 * * 0'   # domingo 23:30
+    - cron: '0 8,9 * * 1'      # lunes 10:00 (por si la Federación corrige algo)
   workflow_dispatch:
     inputs:
       url:
