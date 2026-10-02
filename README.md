@@ -33,3 +33,18 @@ Ejecución local:
 pip install requests beautifulsoup4
 python3 scripts/clasificacion.py --url "https://www.ffib.es/Fed/NPcd/NFG_VisClasificacion?...&codcompeticion=...&codgrupo=..."
 ```
+
+## Robot de GesDep
+
+`gesdep/convocatoria.js` crea en [GesDep](https://www.gesdep.net) (la web del
+club) la convocatoria de un partido con los datos que ya están en la app del
+equipo. Lo lanza la app por `repository_dispatch` (`gesdep-convocatoria`) y
+también se puede lanzar a mano desde Actions pegando el JSON. Reglas: Motivo =
+"JORNADA N", fecha y hora de inicio = la citación, fin = 15 minutos después,
+lugar = el campo, vestimenta = "Primera Equipacion"; los jugadores y el
+cuerpo técnico se emparejan por nombre con las listas de GesDep y los que no
+casan se avisan. En modo `prueba` rellena y hace captura sin guardar; en
+`real` pulsa "Guardar y salir" y comprueba que aparece en la lista. Si ya hay
+una del mismo día y motivo, no la duplica. Secretos: `GESDEP_USER`,
+`GESDEP_PASS`, `GESDEP_CALLBACK_SECRET`. Pruebas: `cd gesdep && npm test`
+(GesDep de mentira en `gesdep/test/fake`).
