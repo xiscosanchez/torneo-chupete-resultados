@@ -45,6 +45,9 @@ lugar = el campo, vestimenta = "Primera Equipacion"; los jugadores y el
 cuerpo técnico se emparejan por nombre con las listas de GesDep y los que no
 casan se avisan. En modo `prueba` rellena y hace captura sin guardar; en
 `real` pulsa "Guardar y salir" y comprueba que aparece en la lista. Si ya hay
-una del mismo día y motivo, no la duplica. Secretos: `GESDEP_USER`,
+una del mismo día, motivo y equipo, la abre y la actualiza: convoca a los que
+faltan, quita a los que sobran (solo si el payload trae jugadores) y repasa
+la cabecera. El payload puede ser una convocatoria o `{ convocatorias: [...] }`
+para hacer varias en la misma sesión (p. ej. todo el calendario). Secretos: `GESDEP_USER`,
 `GESDEP_PASS`, `GESDEP_CALLBACK_SECRET`. Pruebas: `cd gesdep && npm test`
 (GesDep de mentira en `gesdep/test/fake`).

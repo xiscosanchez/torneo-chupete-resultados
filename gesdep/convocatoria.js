@@ -2,7 +2,10 @@
 // Crea en GesDep la convocatoria de un partido con lo que ya hay en la app.
 //
 // Entrada: JSON en la variable GESDEP_PAYLOAD (o ruta a un fichero como
-// primer argumento). Campos:
+// primer argumento). Puede ser UNA convocatoria o { convocatorias: [...] }
+// (se hacen en orden con la misma sesión). Si ya existe una del mismo día,
+// motivo y equipo, se abre y se actualiza (jugadores que faltan se convocan,
+// los que sobran se quitan, cabecera repasada). Campos de cada una:
 //   modo            "prueba" (rellena, hace captura y NO guarda) | "real"
 //   match_id        id del partido en la app (para el aviso de vuelta)
 //   callback_url    adónde avisar al terminar (opcional)
@@ -13,8 +16,7 @@
 //   vestimenta      "Primera Equipacion"
 //   observaciones   texto libre (opcional)
 //   publicar        true para marcar "Publicar la convocatoria en acceso padres/jugadores"
-//   forzar          true para crearla aunque ya exista una igual
-//   jugadores       [{ nombre, apellidos, apodo }]
+//   jugadores       [{ nombre, apellidos, apodo }] (vacío = solo la cabecera, no se quita a nadie)
 //   personal        [{ nombre, apellidos }]
 //
 // Entorno: GESDEP_USER, GESDEP_PASS, GESDEP_CALLBACK_SECRET; para pruebas
@@ -36,14 +38,22 @@ const log = (m) => console.log(`[gesdep] ${m}`);
 function leerPayload() {
   const crudo = process.argv[2] ? fs.readFileSync(process.argv[2], "utf8") : process.env.GESDEP_PAYLOAD;
   if (!crudo) throw new Error("Falta el payload (GESDEP_PAYLOAD o fichero)");
-  const p = JSON.parse(crudo);
-  for (const k of ["equipo_gesdep", "motivo", "citacion_iso", "jugadores"]) {
-    if (p[k] == null) throw new Error(`El payload no trae "${k}"`);
-  }
-  p.modo = p.modo === "real" ? "real" : "prueba";
-  p.personal ??= [];
-  p.vestimenta ??= "Primera Equipacion";
-  return p;
+  const raiz = JSON.parse(crudo);
+  const lista = Array.isArray(raiz.convocatorias) ? raiz.convocatorias : [raiz];
+  if (lista.length === 0) throw new Error("El payload no trae ninguna convocatoria");
+  return lista.map((p, i) => {
+    for (const k of ["equipo_gesdep", "motivo", "citacion_iso"]) {
+      if (p[k] == null) throw new Error(`La convocatoria ${i + 1} no trae "${k}"`);
+    }
+    return {
+      ...p,
+      modo: (p.modo ?? raiz.modo) === "real" ? "real" : "prueba",
+      callback_url: p.callback_url ?? raiz.callback_url,
+      jugadores: p.jugadores ?? [],
+      personal: p.personal ?? [],
+      vestimenta: p.vestimenta ?? "Primera Equipacion",
+    };
+  });
 }
 
 /** Campo (input/textarea) que sigue a una etiqueta con ese texto exacto. */
@@ -133,122 +143,180 @@ async function marcar(page, idx) {
   if (!(await cb.isChecked())) await cb.check();
 }
 
-async function main() {
-  const p = leerPayload();
-  fs.mkdirSync(SALIDA, { recursive: true });
+/** Abre una convocatoria ya existente desde la lista (fila con ese texto). */
+async function abrirFila(page, inicio, p) {
+  const fila = page
+    .locator("table tr")
+    .filter({ hasText: inicio.fecha })
+    .filter({ hasText: new RegExp(p.motivo.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"), "i") })
+    .first();
+  const enlace = fila.locator("a").first();
+  if ((await enlace.count()) > 0) await enlace.click();
+  else await fila.locator("td").first().click();
+  await page.waitForLoadState("networkidle");
+  if ((await campo(page, "Motivo").count()) === 0) {
+    throw new Error("He pulsado en la convocatoria existente pero no se ha abierto el formulario");
+  }
+}
+
+/** Una convocatoria: crear o actualizar. Devuelve el resumen para la app. */
+async function procesar(page, p, captura) {
   const resumen = { match_id: p.match_id, tipo: "convocatoria", modo: p.modo, estado: "error", mensaje: "", sin_pareja: [], personal_sin_pareja: [] };
+  const inicio = fechaHoraES(p.citacion_iso);
+  const fin = fechaHoraES(new Date(new Date(p.citacion_iso).getTime() + MINUTOS_FIN * 60_000).toISOString());
+  log(`convocatoria ${p.equipo_gesdep} · ${p.motivo} · ${inicio.fecha} ${inicio.hora}-${fin.hora} · ${p.lugar ?? "sin lugar"} · ${p.jugadores.length} jugadores`);
+
+  // 1) Lista: ¿ya existe? → se abre y se actualiza; si no → Nueva
+  await page.goto(`${BASE}${RUTA_LISTA}`, { waitUntil: "networkidle" });
+  const filas = await page.locator("table tr").allTextContents();
+  const existe = filas.some((f) => f.includes(inicio.fecha) && norm(f).includes(norm(p.motivo)) && norm(f).includes(norm(p.equipo_gesdep)));
+  if (existe) {
+    log("ya existe: la abro para actualizarla");
+    await abrirFila(page, inicio, p);
+  } else {
+    const nueva = page.getByRole("button", { name: /^Nueva$/i }).or(page.getByRole("link", { name: /^Nueva$/i })).first();
+    if ((await nueva.count()) === 0) throw new Error('No encuentro el botón "Nueva"');
+    await nueva.click();
+    await page.waitForLoadState("networkidle");
+    await elegirEquipo(page, desplegable(page, "Equipo"), p.equipo_gesdep);
+  }
+
+  // 2) Cabecera (en una existente se repasa: los valores son los mismos siempre)
+  await rellenar(page, "Motivo", p.motivo);
+  await rellenar(page, "Fecha Inicio", inicio.fecha);
+  await rellenar(page, "Hora inicio", inicio.hora);
+  await rellenar(page, "Fecha fin", fin.fecha);
+  await rellenar(page, "Hora fin", fin.hora);
+  if (p.lugar) {
+    await rellenar(page, "Lugar de la convocatoria", p.lugar);
+    await rellenar(page, "Lugar dónde se desarrolla", p.lugar);
+  }
+  await rellenar(page, "Vestimenta", p.vestimenta);
+  if (p.observaciones) await rellenar(page, "Observaciones", p.observaciones, "textarea");
+  const publicar = page.locator("xpath=//label[contains(normalize-space(.),'Publicar la convocatoria')]//input[@type='checkbox'] | //input[@type='checkbox'][following::*[contains(normalize-space(.),'Publicar la convocatoria')]][last()]").first();
+  if ((await publicar.count()) > 0 && p.publicar != null) {
+    if (p.publicar) await publicar.check(); else await publicar.uncheck();
+  }
+
+  // 3) Jugadores: los que faltan se convocan; los que sobran se quitan
+  await elegirEquipo(page, desplegable(page, "Equipo -"), p.equipo_gesdep);
+  let columnas = await casillasPorColumna(page);
+  let convocadosGes = columnas.convocados.map((c) => ({ ...parseDeportista(c.texto), idx: c.idx }));
+  const disponibles = columnas.disponibles.map((c) => ({ ...parseDeportista(c.texto), idx: c.idx }));
+  const yaEstan = emparejar(p.jugadores, convocadosGes);
+  const { emparejados, sinPareja } = emparejar(yaEstan.sinPareja, disponibles);
+  resumen.sin_pareja = sinPareja.map((j) => `${j.nombre} ${j.apellidos}`.trim());
+  const sobran = p.jugadores.length > 0 ? convocadosGes.filter((c) => ![...yaEstan.emparejados.values()].includes(c)) : [];
+  log(`jugadores: ${p.jugadores.length} en la app · ${yaEstan.emparejados.size} ya convocados · ${emparejados.size} a convocar · ${sobran.length} a quitar · ${sinPareja.length} sin pareja`);
+
+  if (sobran.length > 0) {
+    for (const c of sobran) await marcar(page, c.idx);
+    const quitar = page.getByRole("button", { name: /Quitar de la convocatoria/i }).first();
+    if ((await quitar.count()) === 0) throw new Error('No encuentro el botón "Quitar de la convocatoria"');
+    await quitar.click();
+    await page.waitForLoadState("networkidle");
+    columnas = await casillasPorColumna(page);
+  }
+  if (emparejados.size > 0) {
+    // Tras quitar, los índices han cambiado: se vuelven a localizar por texto
+    const disponiblesAhora = columnas.disponibles.map((c) => ({ ...parseDeportista(c.texto), idx: c.idx }));
+    for (const e of emparejados.values()) {
+      const d = disponiblesAhora.find((x) => norm(x.texto) === norm(e.texto));
+      if (!d) throw new Error(`"${e.texto}" ha desaparecido de disponibles`);
+      await marcar(page, d.idx);
+    }
+    const convocar = page.getByRole("button", { name: /Convocar/i }).first();
+    if ((await convocar.count()) === 0) throw new Error('No encuentro el botón "Convocar ->"');
+    await convocar.click();
+    await page.waitForLoadState("networkidle");
+    columnas = await casillasPorColumna(page);
+    const ahora = columnas.convocados.map((c) => parseDeportista(c.texto));
+    const noPasaron = [...emparejados.values()].filter((e) => !ahora.some((a) => norm(a.texto.replace(/^[^:]{1,12}:\s*/, "")) === norm(e.texto)));
+    if (noPasaron.length > 0) throw new Error(`Tras "Convocar" no aparecen en convocados: ${noPasaron.map((e) => e.texto).join(", ")}`);
+  }
+  const totalConvocados = columnas.convocados.length;
+
+  // 4) Personal que acompaña (se marcan los nuestros; no se desmarca a nadie)
+  const personal = columnas.personal.map((c) => ({ ...parsePersonal(c.texto), idx: c.idx }));
+  const emp = emparejar(p.personal.map((s) => ({ ...s, apodo: null })), personal);
+  resumen.personal_sin_pareja = emp.sinPareja.map((s) => `${s.nombre} ${s.apellidos}`.trim());
+  for (const e of emp.emparejados.values()) await marcar(page, e.idx);
+  log(`personal: ${emp.emparejados.size} marcados · ${emp.sinPareja.length} sin pareja`);
+
+  await captura(`convocatoria-${p.match_id ?? "sin-id"}-formulario`);
+
+  // 5) Guardar (solo en modo real)
+  const accion = existe ? "actualizada" : "creada";
+  if (p.modo === "real") {
+    const guardar = page.getByRole("button", { name: /^Guardar y salir$/i }).first();
+    if ((await guardar.count()) === 0) throw new Error('No encuentro el botón "Guardar y salir"');
+    await guardar.click();
+    await page.waitForLoadState("networkidle");
+    const filasDespues = await page.locator("table tr").allTextContents();
+    const guardada = filasDespues.find((f) => f.includes(inicio.fecha) && norm(f).includes(norm(p.motivo)));
+    await captura(`convocatoria-${p.match_id ?? "sin-id"}-lista`);
+    if (!guardada) throw new Error("He pulsado Guardar pero la convocatoria no aparece en la lista");
+    resumen.estado = "ok";
+    resumen.mensaje = `Convocatoria ${accion} en GesDep (${inicio.fecha} ${inicio.hora}, ${totalConvocados} jugadores, ${emp.emparejados.size} del cuerpo técnico)`;
+  } else {
+    resumen.estado = "prueba_ok";
+    resumen.mensaje = `Prueba correcta: sería ${accion} (${inicio.fecha} ${inicio.hora}, ${totalConvocados} jugadores, ${emp.emparejados.size} del cuerpo técnico), sin guardar`;
+  }
+  if (resumen.sin_pareja.length > 0) resumen.mensaje += ` · sin pareja en GesDep: ${resumen.sin_pareja.join(", ")}`;
+  if (resumen.personal_sin_pareja.length > 0) resumen.mensaje += ` · cuerpo técnico sin pareja: ${resumen.personal_sin_pareja.join(", ")}`;
+  log(resumen.mensaje);
+  return resumen;
+}
+
+async function main() {
+  const lista = leerPayload();
+  fs.mkdirSync(SALIDA, { recursive: true });
   const browser = await chromium.launch();
   const page = await browser.newPage({ viewport: { width: 1400, height: 1800 }, locale: "es-ES" });
-  const captura = (nombre) => page.screenshot({ path: path.join(SALIDA, `${nombre}.png`), fullPage: true });
+  const captura = (nombre) => page.screenshot({ path: path.join(SALIDA, `${nombre}.png`), fullPage: true }).catch(() => {});
+  const runUrl = process.env.GITHUB_SERVER_URL && process.env.GITHUB_RUN_ID
+    ? `${process.env.GITHUB_SERVER_URL}/${process.env.GITHUB_REPOSITORY}/actions/runs/${process.env.GITHUB_RUN_ID}`
+    : undefined;
+  const resumenes = [];
 
   try {
     if (!process.env.GESDEP_SIN_LOGIN) {
       if (!process.env.GESDEP_USER || !process.env.GESDEP_PASS) throw new Error("Faltan GESDEP_USER / GESDEP_PASS");
       await login(page, BASE, process.env.GESDEP_USER, process.env.GESDEP_PASS, log);
     }
-
-    const inicio = fechaHoraES(p.citacion_iso);
-    const fin = fechaHoraES(new Date(new Date(p.citacion_iso).getTime() + MINUTOS_FIN * 60_000).toISOString());
-    log(`convocatoria ${p.equipo_gesdep} · ${p.motivo} · ${inicio.fecha} ${inicio.hora}-${fin.hora} · ${p.lugar ?? "sin lugar"}`);
-
-    // 1) Lista: ¿ya existe una igual?
-    await page.goto(`${BASE}${RUTA_LISTA}`, { waitUntil: "networkidle" });
-    const filas = await page.locator("table tr").allTextContents();
-    const repetida = filas.find((f) => f.includes(inicio.fecha) && norm(f).includes(norm(p.motivo)) && norm(f).includes(norm(p.equipo_gesdep)));
-    if (repetida && !p.forzar) {
-      resumen.estado = "repetida";
-      resumen.mensaje = `Ya hay una convocatoria del ${inicio.fecha} con motivo "${p.motivo}" para ${p.equipo_gesdep}`;
-      log(resumen.mensaje);
-      return;
-    }
-
-    // 2) Nueva
-    const nueva = page.getByRole("button", { name: /^Nueva$/i }).or(page.getByRole("link", { name: /^Nueva$/i })).first();
-    if ((await nueva.count()) === 0) throw new Error('No encuentro el botón "Nueva"');
-    await nueva.click();
-    await page.waitForLoadState("networkidle");
-
-    // 3) Cabecera
-    await elegirEquipo(page, desplegable(page, "Equipo"), p.equipo_gesdep);
-    await rellenar(page, "Motivo", p.motivo);
-    await rellenar(page, "Fecha Inicio", inicio.fecha);
-    await rellenar(page, "Hora inicio", inicio.hora);
-    await rellenar(page, "Fecha fin", fin.fecha);
-    await rellenar(page, "Hora fin", fin.hora);
-    if (p.lugar) {
-      await rellenar(page, "Lugar de la convocatoria", p.lugar);
-      await rellenar(page, "Lugar dónde se desarrolla", p.lugar);
-    }
-    await rellenar(page, "Vestimenta", p.vestimenta);
-    if (p.observaciones) await rellenar(page, "Observaciones", p.observaciones, "textarea");
-    const publicar = page.locator("xpath=//label[contains(normalize-space(.),'Publicar la convocatoria')]//input[@type='checkbox'] | //input[@type='checkbox'][following::*[contains(normalize-space(.),'Publicar la convocatoria')]][last()]").first();
-    if ((await publicar.count()) > 0) {
-      if (p.publicar) await publicar.check(); else await publicar.uncheck();
-    }
-
-    // 4) Jugadores: equipo del panel de disponibles y casillas
-    await elegirEquipo(page, desplegable(page, "Equipo -"), p.equipo_gesdep);
-    let columnas = await casillasPorColumna(page);
-    const yaConvocados = columnas.convocados.map((c) => parseDeportista(c.texto));
-    const disponibles = columnas.disponibles.map((c) => ({ ...parseDeportista(c.texto), idx: c.idx }));
-    const faltan = p.jugadores.filter((j) => emparejar([j], yaConvocados).emparejados.size === 0);
-    const { emparejados, sinPareja } = emparejar(faltan, disponibles);
-    resumen.sin_pareja = sinPareja.map((j) => `${j.nombre} ${j.apellidos}`.trim());
-    log(`jugadores: ${p.jugadores.length} en la app · ${yaConvocados.length} ya convocados · ${emparejados.size} a convocar · ${sinPareja.length} sin pareja`);
-    for (const e of emparejados.values()) await marcar(page, e.idx);
-    if (emparejados.size > 0) {
-      const convocar = page.getByRole("button", { name: /Convocar/i }).first();
-      if ((await convocar.count()) === 0) throw new Error('No encuentro el botón "Convocar ->"');
-      await convocar.click();
-      await page.waitForLoadState("networkidle");
-      columnas = await casillasPorColumna(page);
-      const ahora = columnas.convocados.map((c) => parseDeportista(c.texto));
-      const noPasaron = [...emparejados.values()].filter((e) => !ahora.some((a) => norm(a.texto.replace(/^[^:]{1,12}:\s*/, "")) === norm(e.texto)));
-      if (noPasaron.length > 0) throw new Error(`Tras "Convocar" no aparecen en convocados: ${noPasaron.map((e) => e.texto).join(", ")}`);
-    }
-
-    // 5) Personal que acompaña
-    const personal = columnas.personal.map((c) => ({ ...parsePersonal(c.texto), idx: c.idx }));
-    const emp = emparejar(p.personal.map((s) => ({ ...s, apodo: null })), personal);
-    resumen.personal_sin_pareja = emp.sinPareja.map((s) => `${s.nombre} ${s.apellidos}`.trim());
-    for (const e of emp.emparejados.values()) await marcar(page, e.idx);
-    log(`personal: ${emp.emparejados.size} marcados · ${emp.sinPareja.length} sin pareja`);
-
-    await captura(`convocatoria-${p.match_id ?? "sin-id"}-formulario`);
-
-    // 6) Guardar (solo en modo real)
-    if (p.modo === "real") {
-      const guardar = page.getByRole("button", { name: /^Guardar y salir$/i }).first();
-      if ((await guardar.count()) === 0) throw new Error('No encuentro el botón "Guardar y salir"');
-      await guardar.click();
-      await page.waitForLoadState("networkidle");
-      const filasDespues = await page.locator("table tr").allTextContents();
-      const creada = filasDespues.find((f) => f.includes(inicio.fecha) && norm(f).includes(norm(p.motivo)));
-      await captura(`convocatoria-${p.match_id ?? "sin-id"}-lista`);
-      if (!creada) throw new Error("He pulsado Guardar pero la convocatoria no aparece en la lista");
-      resumen.estado = "ok";
-      resumen.mensaje = `Convocatoria creada en GesDep (${inicio.fecha} ${inicio.hora}, ${emparejados.size + yaConvocados.length} jugadores, ${emp.emparejados.size} del cuerpo técnico)`;
-    } else {
-      resumen.estado = "prueba_ok";
-      resumen.mensaje = `Prueba correcta: formulario relleno sin guardar (${emparejados.size + yaConvocados.length} jugadores, ${emp.emparejados.size} del cuerpo técnico)`;
-    }
-    if (resumen.sin_pareja.length > 0) resumen.mensaje += ` · sin pareja en GesDep: ${resumen.sin_pareja.join(", ")}`;
-    if (resumen.personal_sin_pareja.length > 0) resumen.mensaje += ` · cuerpo técnico sin pareja: ${resumen.personal_sin_pareja.join(", ")}`;
-    log(resumen.mensaje);
   } catch (e) {
-    resumen.estado = "error";
-    resumen.mensaje = e.message;
+    // Sin sesión no hay nada que hacer: se avisa de todas y se sale
     log(`ERROR: ${e.message}`);
-    await captura(`convocatoria-${p.match_id ?? "sin-id"}-error`).catch(() => {});
-    process.exitCode = 1;
-  } finally {
-    await browser.close();
-    fs.writeFileSync(path.join(SALIDA, "resumen.json"), JSON.stringify(resumen, null, 2));
-    if (process.env.GITHUB_SERVER_URL && process.env.GITHUB_RUN_ID) {
-      resumen.run_url = `${process.env.GITHUB_SERVER_URL}/${process.env.GITHUB_REPOSITORY}/actions/runs/${process.env.GITHUB_RUN_ID}`;
+    await captura("login-error");
+    for (const p of lista) {
+      const r = { match_id: p.match_id, tipo: "convocatoria", modo: p.modo, estado: "error", mensaje: e.message, run_url: runUrl };
+      resumenes.push(r);
+      await avisarApp(p, r, log).catch((err) => log(`no se pudo avisar a la app: ${err.message}`));
     }
-    await avisarApp(p, resumen, log).catch((e) => log(`no se pudo avisar a la app: ${e.message}`));
+    await browser.close();
+    fs.writeFileSync(path.join(SALIDA, "resumen.json"), JSON.stringify(resumenes.length === 1 ? resumenes[0] : resumenes, null, 2));
+    process.exit(1);
   }
+
+  let fallos = 0;
+  for (const p of lista) {
+    let resumen;
+    try {
+      resumen = await procesar(page, p, captura);
+    } catch (e) {
+      fallos++;
+      resumen = { match_id: p.match_id, tipo: "convocatoria", modo: p.modo, estado: "error", mensaje: e.message, sin_pareja: [], personal_sin_pareja: [] };
+      log(`ERROR: ${e.message}`);
+      await captura(`convocatoria-${p.match_id ?? "sin-id"}-error`);
+    }
+    resumen.run_url = runUrl;
+    resumenes.push(resumen);
+    await avisarApp(p, resumen, log).catch((err) => log(`no se pudo avisar a la app: ${err.message}`));
+  }
+  await browser.close();
+  fs.writeFileSync(path.join(SALIDA, "resumen.json"), JSON.stringify(resumenes.length === 1 ? resumenes[0] : resumenes, null, 2));
+  log(`${lista.length - fallos}/${lista.length} convocatorias bien`);
+  if (fallos > 0) process.exitCode = 1;
 }
 
 main().catch((e) => {

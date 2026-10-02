@@ -97,11 +97,35 @@ function ejecutar(payload, puerto) {
     assert.strictEqual(d.transporte, undefined, "no toca el transporte");
     console.log("✓ modo real: guarda cabecera, 5 jugadores y 1 del cuerpo técnico");
 
-    // repetida: no la duplica
-    ({ r, resumen } = await ejecutar({ ...payloadBase, modo: "real" }, puerto));
-    assert.strictEqual(resumen.estado, "repetida", resumen.mensaje);
-    assert.strictEqual(estado.recibido.length, 1, "no duplica");
-    console.log("✓ repetida: avisa y no duplica —", resumen.mensaje);
+    // ya existe: se actualiza (entra Aarón, sale Luis), sin duplicar
+    const jugadores2 = payloadBase.jugadores.filter((j) => j.nombre !== "Luis").concat([{ nombre: "Aaron", apellidos: "Ferragut Lopez", apodo: null }]);
+    ({ r, resumen } = await ejecutar({ ...payloadBase, modo: "real", jugadores: jugadores2 }, puerto));
+    assert.strictEqual(r.status, 0, r.stdout);
+    assert.strictEqual(resumen.estado, "ok", resumen.mensaje);
+    assert.match(resumen.mensaje, /actualizada/);
+    assert.strictEqual(estado.filas.length, 1, "no duplica");
+    assert.deepStrictEqual(
+      estado.filas[0].convocados.sort(),
+      ["AARON - FERRAGUT LOPEZ, AARON", "CONDE - Conde, Alejandro", "KARLO - JIMÉNEZ JARAMILLO, KARLO ANDREU", "PETER - BADASERAYE MUNAR, PETER", "RICA - GOMEZ BARBOSA , RICARDO ADRIAN"].sort()
+    );
+    console.log("✓ existente: entra Aarón, sale Luis, sin duplicar —", resumen.mensaje);
+
+    // solo cabecera (sin jugadores): no quita a nadie
+    ({ r, resumen } = await ejecutar({ ...payloadBase, modo: "real", jugadores: [] }, puerto));
+    assert.strictEqual(resumen.estado, "ok", resumen.mensaje);
+    assert.strictEqual(estado.filas[0].convocados.length, 5, "sin jugadores en el payload no se quita a nadie");
+    console.log("✓ solo cabecera: respeta a los convocados");
+
+    // lote: dos convocatorias en una sola sesión (una nueva, una existente)
+    const jornada6 = { ...payloadBase, match_id: "m-100", motivo: "JORNADA 6", citacion_iso: "2026-10-10T15:30:00.000Z", jugadores: payloadBase.jugadores.slice(0, 2) };
+    ({ r, resumen } = await ejecutar({ modo: "real", convocatorias: [payloadBase, jornada6] }, puerto));
+    assert.strictEqual(r.status, 0, r.stdout);
+    assert.ok(Array.isArray(resumen) && resumen.length === 2, "un resumen por convocatoria");
+    assert.deepStrictEqual(resumen.map((x) => x.estado), ["ok", "ok"]);
+    assert.strictEqual(estado.filas.length, 2);
+    const j6 = estado.filas.find((f) => f.motivo === "JORNADA 6");
+    assert.deepStrictEqual({ fecha: j6.fecha, hora: j6.hora, n: j6.convocados.length }, { fecha: "10/10/2026", hora: "17:30", n: 2 });
+    console.log("✓ lote: dos convocatorias en una sesión —", resumen.map((x) => x.mensaje).join(" | "));
     console.log("TODO OK");
   } finally {
     server.close();
