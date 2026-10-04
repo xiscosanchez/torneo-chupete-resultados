@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-10-03T23:59:55+00:00",
+  "actualizado": "2026-10-04T17:10:10+00:00",
   "fuente": "https://www.ffib.es/Fed/NPcd/NFG_VisClasificacion?cod_primaria=1000110&codcompeticion=23348375&codgrupo=23348376&codjornada=3",
   "competicion": "JUVENIL PREFERENTE MALLORCA",
   "grupo": "GRUPO A",
@@ -175,16 +175,49 @@
     },
     {
       "pos": 6,
-      "equipo": "PLA DE NA TESA \"A\"",
-      "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=101733&codgrupo=23348376",
-      "codequipo": "101733",
+      "equipo": "ALGAIDA \"A\"",
+      "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=202473&codgrupo=23348376",
+      "codequipo": "202473",
       "pts": 4,
-      "pj": 2,
+      "pj": 3,
       "pg": 1,
       "pe": 1,
-      "pp": 0,
-      "gf": 2,
-      "gc": 1,
+      "pp": 1,
+      "gf": 7,
+      "gc": 8,
+      "casa": {
+        "pj": 2,
+        "pg": 1,
+        "pe": 1,
+        "pp": 0
+      },
+      "fuera": {
+        "pj": 1,
+        "pg": 0,
+        "pe": 0,
+        "pp": 1
+      },
+      "dg": -1,
+      "forma": [
+        "G",
+        "P",
+        "E"
+      ],
+      "sancion": 0,
+      "escudo": "data/juvenil-b/escudos/202473.jpg"
+    },
+    {
+      "pos": 7,
+      "equipo": "SON CLADERA \"A\"",
+      "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=102602&codgrupo=23348376",
+      "codequipo": "102602",
+      "pts": 4,
+      "pj": 3,
+      "pg": 1,
+      "pe": 1,
+      "pp": 1,
+      "gf": 6,
+      "gc": 7,
       "casa": {
         "pj": 1,
         "pg": 1,
@@ -192,21 +225,22 @@
         "pp": 0
       },
       "fuera": {
-        "pj": 1,
+        "pj": 2,
         "pg": 0,
         "pe": 1,
-        "pp": 0
+        "pp": 1
       },
-      "dg": 1,
+      "dg": -1,
       "forma": [
-        "E",
-        "G"
+        "P",
+        "G",
+        "E"
       ],
       "sancion": 0,
-      "escudo": "data/juvenil-b/escudos/101733.jpg"
+      "escudo": "data/juvenil-b/escudos/102602.png"
     },
     {
-      "pos": 7,
+      "pos": 8,
       "equipo": "CARDASSAR \"A\"",
       "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=102331&codgrupo=23348376",
       "codequipo": "102331",
@@ -239,7 +273,72 @@
       "escudo": "data/juvenil-b/escudos/102331.png"
     },
     {
-      "pos": 8,
+      "pos": 9,
+      "equipo": "PLA DE NA TESA \"A\"",
+      "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=101733&codgrupo=23348376",
+      "codequipo": "101733",
+      "pts": 4,
+      "pj": 3,
+      "pg": 1,
+      "pe": 1,
+      "pp": 1,
+      "gf": 3,
+      "gc": 7,
+      "casa": {
+        "pj": 2,
+        "pg": 1,
+        "pe": 0,
+        "pp": 1
+      },
+      "fuera": {
+        "pj": 1,
+        "pg": 0,
+        "pe": 1,
+        "pp": 0
+      },
+      "dg": -4,
+      "forma": [
+        "E",
+        "G",
+        "P"
+      ],
+      "sancion": 0,
+      "escudo": "data/juvenil-b/escudos/101733.jpg"
+    },
+    {
+      "pos": 10,
+      "equipo": "LLOSETENSE \"A\"",
+      "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=102572&codgrupo=23348376",
+      "codequipo": "102572",
+      "pts": 3,
+      "pj": 2,
+      "pg": 1,
+      "pe": 0,
+      "pp": 1,
+      "gf": 7,
+      "gc": 3,
+      "casa": {
+        "pj": 1,
+        "pg": 0,
+        "pe": 0,
+        "pp": 1
+      },
+      "fuera": {
+        "pj": 1,
+        "pg": 1,
+        "pe": 0,
+        "pp": 0
+      },
+      "dg": 4,
+      "forma": [
+        "P",
+        "G"
+      ],
+      "sancion": 0,
+      "escudo": "data/juvenil-b/escudos/102572.jpg"
+    },
+    {
+      "pos": 11,
       "equipo": "JOVENTUT MALLORCA",
       "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=102698&codgrupo=23348376",
       "codequipo": "102698",
@@ -271,7 +370,7 @@
       "escudo": "data/juvenil-b/escudos/102698.jpg"
     },
     {
-      "pos": 9,
+      "pos": 12,
       "equipo": "SD LA SALLE \"B\"",
       "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=102216&codgrupo=23348376",
       "codequipo": "102216",
@@ -303,7 +402,7 @@
       "escudo": "data/juvenil-b/escudos/102216.jpg"
     },
     {
-      "pos": 10,
+      "pos": 13,
       "equipo": "SP. ATº CIUTAT DE PALMA \"B\"",
       "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=7014451&codgrupo=23348376",
       "codequipo": "7014451",
@@ -336,7 +435,7 @@
       "escudo": "data/juvenil-b/escudos/7014451.jpg"
     },
     {
-      "pos": 11,
+      "pos": 14,
       "equipo": "CALVIA ATº DEL C. \"A\"",
       "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=202488&codgrupo=23348376",
       "codequipo": "202488",
@@ -369,71 +468,7 @@
       "escudo": "data/juvenil-b/escudos/202488.jpg"
     },
     {
-      "pos": 12,
-      "equipo": "ALGAIDA \"A\"",
-      "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=202473&codgrupo=23348376",
-      "codequipo": "202473",
-      "pts": 3,
-      "pj": 2,
-      "pg": 1,
-      "pe": 0,
-      "pp": 1,
-      "gf": 5,
-      "gc": 6,
-      "casa": {
-        "pj": 1,
-        "pg": 1,
-        "pe": 0,
-        "pp": 0
-      },
-      "fuera": {
-        "pj": 1,
-        "pg": 0,
-        "pe": 0,
-        "pp": 1
-      },
-      "dg": -1,
-      "forma": [
-        "G",
-        "P"
-      ],
-      "sancion": 0,
-      "escudo": "data/juvenil-b/escudos/202473.jpg"
-    },
-    {
-      "pos": 13,
-      "equipo": "SON CLADERA \"A\"",
-      "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=102602&codgrupo=23348376",
-      "codequipo": "102602",
-      "pts": 3,
-      "pj": 2,
-      "pg": 1,
-      "pe": 0,
-      "pp": 1,
-      "gf": 4,
-      "gc": 5,
-      "casa": {
-        "pj": 1,
-        "pg": 1,
-        "pe": 0,
-        "pp": 0
-      },
-      "fuera": {
-        "pj": 1,
-        "pg": 0,
-        "pe": 0,
-        "pp": 1
-      },
-      "dg": -1,
-      "forma": [
-        "P",
-        "G"
-      ],
-      "sancion": 0,
-      "escudo": "data/juvenil-b/escudos/102602.png"
-    },
-    {
-      "pos": 14,
+      "pos": 15,
       "equipo": "SON SARDINA \"A\"",
       "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=106479&codgrupo=23348376",
       "codequipo": "106479",
@@ -464,37 +499,6 @@
       ],
       "sancion": 0,
       "escudo": "data/juvenil-b/escudos/106479.jpg"
-    },
-    {
-      "pos": 15,
-      "equipo": "LLOSETENSE \"A\"",
-      "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=102572&codgrupo=23348376",
-      "codequipo": "102572",
-      "pts": 0,
-      "pj": 1,
-      "pg": 0,
-      "pe": 0,
-      "pp": 1,
-      "gf": 1,
-      "gc": 2,
-      "casa": {
-        "pj": 1,
-        "pg": 0,
-        "pe": 0,
-        "pp": 1
-      },
-      "fuera": {
-        "pj": 0,
-        "pg": 0,
-        "pe": 0,
-        "pp": 0
-      },
-      "dg": -1,
-      "forma": [
-        "P"
-      ],
-      "sancion": 0,
-      "escudo": "data/juvenil-b/escudos/102572.jpg"
     },
     {
       "pos": 16,
@@ -533,6 +537,8 @@
     {
       "local": "PLA DE NA TESA \"A\"",
       "visitante": "LLOSETENSE \"A\"",
+      "goles_local": 1,
+      "goles_visitante": 6,
       "cod_local": "101733",
       "cod_visitante": "102572"
     },
@@ -569,6 +575,8 @@
     {
       "local": "ALGAIDA \"A\"",
       "visitante": "SON CLADERA \"A\"",
+      "goles_local": 2,
+      "goles_visitante": 2,
       "cod_local": "202473",
       "cod_visitante": "102602"
     },

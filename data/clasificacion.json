@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-10-03T23:59:48+00:00",
+  "actualizado": "2026-10-04T17:10:03+00:00",
   "fuente": "https://www.ffib.es/Fed/NPcd/NFG_VisClasificacion?cod_primaria=1000110&codcompeticion=23348373&codgrupo=23348374&codjornada=5",
   "competicion": "LIGA NACIONAL JUVENIL",
   "grupo": "LIGA",
@@ -496,6 +496,41 @@
     },
     {
       "pos": 15,
+      "equipo": "SD LA SALLE \"A\"",
+      "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=111456&codgrupo=23348374",
+      "codequipo": "111456",
+      "pts": 4,
+      "pj": 5,
+      "pg": 1,
+      "pe": 1,
+      "pp": 3,
+      "gf": 5,
+      "gc": 8,
+      "casa": {
+        "pj": 2,
+        "pg": 0,
+        "pe": 1,
+        "pp": 1
+      },
+      "fuera": {
+        "pj": 3,
+        "pg": 1,
+        "pe": 0,
+        "pp": 2
+      },
+      "dg": -3,
+      "forma": [
+        "P",
+        "E",
+        "P",
+        "P",
+        "G"
+      ],
+      "sancion": 0,
+      "escudo": "data/escudos/111456.jpg"
+    },
+    {
+      "pos": 16,
       "equipo": "PEÑA DEPORTIVA \"A\"",
       "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=108710&codgrupo=23348374",
       "codequipo": "108710",
@@ -530,56 +565,22 @@
       "escudo": "data/escudos/108710.jpg"
     },
     {
-      "pos": 16,
-      "equipo": "SD LA SALLE \"A\"",
-      "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=111456&codgrupo=23348374",
-      "codequipo": "111456",
-      "pts": 1,
-      "pj": 4,
-      "pg": 0,
-      "pe": 1,
-      "pp": 3,
-      "gf": 3,
-      "gc": 7,
-      "casa": {
-        "pj": 2,
-        "pg": 0,
-        "pe": 1,
-        "pp": 1
-      },
-      "fuera": {
-        "pj": 2,
-        "pg": 0,
-        "pe": 0,
-        "pp": 2
-      },
-      "dg": -4,
-      "forma": [
-        "P",
-        "E",
-        "P",
-        "P"
-      ],
-      "sancion": 0,
-      "escudo": "data/escudos/111456.jpg"
-    },
-    {
       "pos": 17,
       "equipo": "ANDRATX \"A\"",
       "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=843912&codgrupo=23348374",
       "codequipo": "843912",
       "pts": 1,
-      "pj": 4,
+      "pj": 5,
       "pg": 0,
       "pe": 1,
-      "pp": 3,
-      "gf": 7,
-      "gc": 12,
+      "pp": 4,
+      "gf": 8,
+      "gc": 14,
       "casa": {
-        "pj": 2,
+        "pj": 3,
         "pg": 0,
         "pe": 0,
-        "pp": 2
+        "pp": 3
       },
       "fuera": {
         "pj": 2,
@@ -587,12 +588,13 @@
         "pe": 1,
         "pp": 1
       },
-      "dg": -5,
+      "dg": -6,
       "forma": [
         "P",
         "P",
         "P",
-        "E"
+        "E",
+        "P"
       ],
       "sancion": 0,
       "escudo": "data/escudos/843912.jpg"
@@ -675,6 +677,8 @@
     {
       "local": "ANDRATX \"A\"",
       "visitante": "SD LA SALLE \"A\"",
+      "goles_local": 1,
+      "goles_visitante": 2,
       "cod_local": "843912",
       "cod_visitante": "111456"
     },
