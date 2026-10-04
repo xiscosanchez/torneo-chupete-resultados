@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-09-29T19:15:15+00:00",
+  "actualizado": "2026-10-04T00:00:00+00:00",
   "fuente": "https://www.ffib.es/Fed/NPcd/NFG_VisClasificacion?cod_primaria=1000110&codjornada=1&codcompeticion=23348419&codgrupo=23460647&codjornada=1",
   "competicion": "INFANTIL DIVISIÓN DE HONOR MALLORCA",
   "grupo": "LIGA",
@@ -316,7 +316,6 @@
         "P"
       ],
       "sancion": 0,
-      "escudo_url": "https://www.ffib.es/Fed/pimg/Clubes/00100_0000199852_23604025_IMG_20230814_WA0003__2_.jpg",
       "escudo": "data/infantil-dh/escudos/104009.jpg"
     },
     {
@@ -348,7 +347,6 @@
         "P"
       ],
       "sancion": 0,
-      "escudo_url": "https://www.ffib.es/Fed/pimg/Clubes/00100_0000285884_Constancia.png",
       "escudo": "data/infantil-dh/escudos/738884.png"
     },
     {
@@ -380,7 +378,6 @@
         "P"
       ],
       "sancion": 0,
-      "escudo_url": "https://www.ffib.es/Fed/pimg/Clubes/00100_0000028538_sanca.png",
       "escudo": "data/infantil-dh/escudos/22600602.png"
     },
     {
