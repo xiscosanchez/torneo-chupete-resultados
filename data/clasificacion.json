@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-10-04T17:10:03+00:00",
+  "actualizado": "2026-10-05T00:02:49+00:00",
   "fuente": "https://www.ffib.es/Fed/NPcd/NFG_VisClasificacion?cod_primaria=1000110&codcompeticion=23348373&codgrupo=23348374&codjornada=5",
   "competicion": "LIGA NACIONAL JUVENIL",
   "grupo": "LIGA",
@@ -79,6 +79,41 @@
     },
     {
       "pos": 3,
+      "equipo": "MANACOR",
+      "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=102089&codgrupo=23348374",
+      "codequipo": "102089",
+      "pts": 11,
+      "pj": 5,
+      "pg": 3,
+      "pe": 2,
+      "pp": 0,
+      "gf": 15,
+      "gc": 7,
+      "casa": {
+        "pj": 3,
+        "pg": 1,
+        "pe": 2,
+        "pp": 0
+      },
+      "fuera": {
+        "pj": 2,
+        "pg": 2,
+        "pe": 0,
+        "pp": 0
+      },
+      "dg": 8,
+      "forma": [
+        "E",
+        "G",
+        "E",
+        "G",
+        "G"
+      ],
+      "sancion": 0,
+      "escudo": "data/escudos/102089.jpg"
+    },
+    {
+      "pos": 4,
       "equipo": "ALCUDIA \"A\"",
       "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=102304&codgrupo=23348374",
       "codequipo": "102304",
@@ -113,7 +148,7 @@
       "escudo": "data/escudos/102304.jpg"
     },
     {
-      "pos": 4,
+      "pos": 5,
       "equipo": "FERRERIES \"A\"",
       "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=789575&codgrupo=23348374",
       "codequipo": "789575",
@@ -148,7 +183,7 @@
       "escudo": "data/escudos/789575.jpg"
     },
     {
-      "pos": 5,
+      "pos": 6,
       "equipo": "RTVº PENYA ARRABAL",
       "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=250822&codgrupo=23348374",
       "codequipo": "250822",
@@ -181,40 +216,6 @@
       ],
       "sancion": 0,
       "escudo": "data/escudos/250822.jpg"
-    },
-    {
-      "pos": 6,
-      "equipo": "MANACOR",
-      "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=102089&codgrupo=23348374",
-      "codequipo": "102089",
-      "pts": 8,
-      "pj": 4,
-      "pg": 2,
-      "pe": 2,
-      "pp": 0,
-      "gf": 13,
-      "gc": 6,
-      "casa": {
-        "pj": 2,
-        "pg": 0,
-        "pe": 2,
-        "pp": 0
-      },
-      "fuera": {
-        "pj": 2,
-        "pg": 2,
-        "pe": 0,
-        "pp": 0
-      },
-      "dg": 7,
-      "forma": [
-        "E",
-        "G",
-        "E",
-        "G"
-      ],
-      "sancion": 0,
-      "escudo": "data/escudos/102089.jpg"
     },
     {
       "pos": 7,
@@ -361,12 +362,12 @@
       "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=102093&codgrupo=23348374",
       "codequipo": "102093",
       "pts": 6,
-      "pj": 4,
+      "pj": 5,
       "pg": 2,
       "pe": 0,
-      "pp": 2,
-      "gf": 8,
-      "gc": 6,
+      "pp": 3,
+      "gf": 9,
+      "gc": 8,
       "casa": {
         "pj": 2,
         "pg": 2,
@@ -374,17 +375,18 @@
         "pp": 0
       },
       "fuera": {
-        "pj": 2,
+        "pj": 3,
         "pg": 0,
         "pe": 0,
-        "pp": 2
+        "pp": 3
       },
-      "dg": 2,
+      "dg": 1,
       "forma": [
         "P",
         "G",
         "P",
-        "G"
+        "G",
+        "P"
       ],
       "sancion": 0,
       "escudo": "data/escudos/102093.jpg"
@@ -655,6 +657,8 @@
     {
       "local": "MANACOR",
       "visitante": "POBLENSE \"A\"",
+      "goles_local": 2,
+      "goles_visitante": 1,
       "cod_local": "102089",
       "cod_visitante": "102093"
     },

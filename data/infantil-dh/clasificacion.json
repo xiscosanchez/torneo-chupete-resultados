@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-10-04T17:10:18+00:00",
+  "actualizado": "2026-10-05T00:03:02+00:00",
   "fuente": "https://www.ffib.es/Fed/NPcd/NFG_VisClasificacion?cod_primaria=1000110&codcompeticion=23348419&codgrupo=23460647&codjornada=2",
   "competicion": "INFANTIL DIVISIÓN DE HONOR MALLORCA",
   "grupo": "LIGA",
@@ -74,6 +74,38 @@
     },
     {
       "pos": 3,
+      "equipo": "ATº BALEARES \"A\"",
+      "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=130629&codgrupo=23460647",
+      "codequipo": "130629",
+      "pts": 6,
+      "pj": 2,
+      "pg": 2,
+      "pe": 0,
+      "pp": 0,
+      "gf": 8,
+      "gc": 2,
+      "casa": {
+        "pj": 1,
+        "pg": 1,
+        "pe": 0,
+        "pp": 0
+      },
+      "fuera": {
+        "pj": 1,
+        "pg": 1,
+        "pe": 0,
+        "pp": 0
+      },
+      "dg": 6,
+      "forma": [
+        "G",
+        "G"
+      ],
+      "sancion": 0,
+      "escudo": "data/infantil-dh/escudos/130629.jpg"
+    },
+    {
+      "pos": 4,
       "equipo": "FERRIOLENSE \"A\"",
       "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=104073&codgrupo=23460647",
       "codequipo": "104073",
@@ -105,7 +137,7 @@
       "escudo": "data/infantil-dh/escudos/104073.jpg"
     },
     {
-      "pos": 4,
+      "pos": 5,
       "equipo": "PENYA ARRABAL \"A\"",
       "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=104291&codgrupo=23460647",
       "codequipo": "104291",
@@ -135,37 +167,6 @@
       ],
       "sancion": 0,
       "escudo": "data/infantil-dh/escudos/104291.png"
-    },
-    {
-      "pos": 5,
-      "equipo": "ATº BALEARES \"A\"",
-      "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=130629&codgrupo=23460647",
-      "codequipo": "130629",
-      "pts": 3,
-      "pj": 1,
-      "pg": 1,
-      "pe": 0,
-      "pp": 0,
-      "gf": 5,
-      "gc": 1,
-      "casa": {
-        "pj": 1,
-        "pg": 1,
-        "pe": 0,
-        "pp": 0
-      },
-      "fuera": {
-        "pj": 0,
-        "pg": 0,
-        "pe": 0,
-        "pp": 0
-      },
-      "dg": 4,
-      "forma": [
-        "G"
-      ],
-      "sancion": 0,
-      "escudo": "data/infantil-dh/escudos/130629.jpg"
     },
     {
       "pos": 6,
@@ -329,37 +330,6 @@
     },
     {
       "pos": 11,
-      "equipo": "MADRE ALBERTA",
-      "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=250738&codgrupo=23460647",
-      "codequipo": "250738",
-      "pts": 0,
-      "pj": 1,
-      "pg": 0,
-      "pe": 0,
-      "pp": 1,
-      "gf": 3,
-      "gc": 4,
-      "casa": {
-        "pj": 0,
-        "pg": 0,
-        "pe": 0,
-        "pp": 0
-      },
-      "fuera": {
-        "pj": 1,
-        "pg": 0,
-        "pe": 0,
-        "pp": 1
-      },
-      "dg": -1,
-      "forma": [
-        "P"
-      ],
-      "sancion": 0,
-      "escudo": "data/infantil-dh/escudos/250738.jpg"
-    },
-    {
-      "pos": 12,
       "equipo": "MANACOR \"A\"",
       "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=104009&codgrupo=23460647",
       "codequipo": "104009",
@@ -389,6 +359,38 @@
       ],
       "sancion": 0,
       "escudo": "data/infantil-dh/escudos/104009.jpg"
+    },
+    {
+      "pos": 12,
+      "equipo": "MADRE ALBERTA",
+      "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=250738&codgrupo=23460647",
+      "codequipo": "250738",
+      "pts": 0,
+      "pj": 2,
+      "pg": 0,
+      "pe": 0,
+      "pp": 2,
+      "gf": 4,
+      "gc": 7,
+      "casa": {
+        "pj": 1,
+        "pg": 0,
+        "pe": 0,
+        "pp": 1
+      },
+      "fuera": {
+        "pj": 1,
+        "pg": 0,
+        "pe": 0,
+        "pp": 1
+      },
+      "dg": -3,
+      "forma": [
+        "P",
+        "P"
+      ],
+      "sancion": 0,
+      "escudo": "data/infantil-dh/escudos/250738.jpg"
     },
     {
       "pos": 13,
@@ -467,6 +469,8 @@
     {
       "local": "MADRE ALBERTA",
       "visitante": "ATº BALEARES \"A\"",
+      "goles_local": 1,
+      "goles_visitante": 3,
       "cod_local": "250738",
       "cod_visitante": "130629"
     },

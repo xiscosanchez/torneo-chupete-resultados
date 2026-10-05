@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-10-04T17:10:10+00:00",
+  "actualizado": "2026-10-05T00:02:55+00:00",
   "fuente": "https://www.ffib.es/Fed/NPcd/NFG_VisClasificacion?cod_primaria=1000110&codcompeticion=23348375&codgrupo=23348376&codjornada=3",
   "competicion": "JUVENIL PREFERENTE MALLORCA",
   "grupo": "GRUPO A",
@@ -76,6 +76,39 @@
     },
     {
       "pos": 3,
+      "equipo": "JOVENTUT MALLORCA",
+      "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=102698&codgrupo=23348376",
+      "codequipo": "102698",
+      "pts": 6,
+      "pj": 3,
+      "pg": 2,
+      "pe": 0,
+      "pp": 1,
+      "gf": 10,
+      "gc": 4,
+      "casa": {
+        "pj": 1,
+        "pg": 1,
+        "pe": 0,
+        "pp": 0
+      },
+      "fuera": {
+        "pj": 2,
+        "pg": 1,
+        "pe": 0,
+        "pp": 1
+      },
+      "dg": 6,
+      "forma": [
+        "P",
+        "G",
+        "G"
+      ],
+      "sancion": 0,
+      "escudo": "data/juvenil-b/escudos/102698.jpg"
+    },
+    {
+      "pos": 4,
       "equipo": "CAMPOS \"A\"",
       "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=102259&codgrupo=23348376",
       "codequipo": "102259",
@@ -108,7 +141,7 @@
       "escudo": "data/juvenil-b/escudos/102259.jpg"
     },
     {
-      "pos": 4,
+      "pos": 5,
       "equipo": "ALARO \"A\"",
       "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=102610&codgrupo=23348376",
       "codequipo": "102610",
@@ -141,7 +174,7 @@
       "escudo": "data/juvenil-b/escudos/102610.png"
     },
     {
-      "pos": 5,
+      "pos": 6,
       "equipo": "ARENAL \"A\"",
       "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=102277&codgrupo=23348376",
       "codequipo": "102277",
@@ -174,7 +207,7 @@
       "escudo": "data/juvenil-b/escudos/102277.jpg"
     },
     {
-      "pos": 6,
+      "pos": 7,
       "equipo": "ALGAIDA \"A\"",
       "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=202473&codgrupo=23348376",
       "codequipo": "202473",
@@ -207,7 +240,7 @@
       "escudo": "data/juvenil-b/escudos/202473.jpg"
     },
     {
-      "pos": 7,
+      "pos": 8,
       "equipo": "SON CLADERA \"A\"",
       "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=102602&codgrupo=23348376",
       "codequipo": "102602",
@@ -240,7 +273,7 @@
       "escudo": "data/juvenil-b/escudos/102602.png"
     },
     {
-      "pos": 8,
+      "pos": 9,
       "equipo": "CARDASSAR \"A\"",
       "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=102331&codgrupo=23348376",
       "codequipo": "102331",
@@ -273,7 +306,7 @@
       "escudo": "data/juvenil-b/escudos/102331.png"
     },
     {
-      "pos": 9,
+      "pos": 10,
       "equipo": "PLA DE NA TESA \"A\"",
       "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=101733&codgrupo=23348376",
       "codequipo": "101733",
@@ -306,7 +339,7 @@
       "escudo": "data/juvenil-b/escudos/101733.jpg"
     },
     {
-      "pos": 10,
+      "pos": 11,
       "equipo": "LLOSETENSE \"A\"",
       "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=102572&codgrupo=23348376",
       "codequipo": "102572",
@@ -336,38 +369,6 @@
       ],
       "sancion": 0,
       "escudo": "data/juvenil-b/escudos/102572.jpg"
-    },
-    {
-      "pos": 11,
-      "equipo": "JOVENTUT MALLORCA",
-      "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=102698&codgrupo=23348376",
-      "codequipo": "102698",
-      "pts": 3,
-      "pj": 2,
-      "pg": 1,
-      "pe": 0,
-      "pp": 1,
-      "gf": 5,
-      "gc": 3,
-      "casa": {
-        "pj": 1,
-        "pg": 1,
-        "pe": 0,
-        "pp": 0
-      },
-      "fuera": {
-        "pj": 1,
-        "pg": 0,
-        "pe": 0,
-        "pp": 1
-      },
-      "dg": 2,
-      "forma": [
-        "P",
-        "G"
-      ],
-      "sancion": 0,
-      "escudo": "data/juvenil-b/escudos/102698.jpg"
     },
     {
       "pos": 12,
@@ -506,17 +507,17 @@
       "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=102349&codgrupo=23348376",
       "codequipo": "102349",
       "pts": 0,
-      "pj": 2,
+      "pj": 3,
       "pg": 0,
       "pe": 0,
-      "pp": 2,
-      "gf": 0,
-      "gc": 8,
+      "pp": 3,
+      "gf": 1,
+      "gc": 13,
       "casa": {
-        "pj": 1,
+        "pj": 2,
         "pg": 0,
         "pe": 0,
-        "pp": 1
+        "pp": 2
       },
       "fuera": {
         "pj": 1,
@@ -524,8 +525,9 @@
         "pe": 0,
         "pp": 1
       },
-      "dg": -8,
+      "dg": -12,
       "forma": [
+        "P",
         "P",
         "P"
       ],
@@ -561,6 +563,8 @@
     {
       "local": "SERVERENSE",
       "visitante": "JOVENTUT MALLORCA",
+      "goles_local": 1,
+      "goles_visitante": 5,
       "cod_local": "102349",
       "cod_visitante": "102698"
     },
