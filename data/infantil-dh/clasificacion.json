@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-10-05T00:03:02+00:00",
+  "actualizado": "2026-10-05T16:59:11+00:00",
   "fuente": "https://www.ffib.es/Fed/NPcd/NFG_VisClasificacion?cod_primaria=1000110&codcompeticion=23348419&codgrupo=23460647&codjornada=2",
   "competicion": "INFANTIL DIVISIÓN DE HONOR MALLORCA",
   "grupo": "LIGA",
@@ -10,38 +10,6 @@
   "equipos": [
     {
       "pos": 1,
-      "equipo": "S D LA SALLE ATº \"A\"",
-      "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=104155&codgrupo=23460647",
-      "codequipo": "104155",
-      "pts": 6,
-      "pj": 2,
-      "pg": 2,
-      "pe": 0,
-      "pp": 0,
-      "gf": 11,
-      "gc": 3,
-      "casa": {
-        "pj": 1,
-        "pg": 1,
-        "pe": 0,
-        "pp": 0
-      },
-      "fuera": {
-        "pj": 1,
-        "pg": 1,
-        "pe": 0,
-        "pp": 0
-      },
-      "dg": 8,
-      "forma": [
-        "G",
-        "G"
-      ],
-      "sancion": 0,
-      "escudo": "data/infantil-dh/escudos/104155.png"
-    },
-    {
-      "pos": 2,
       "equipo": "R C D MALLORCA SAD \"A\"",
       "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=104019&codgrupo=23460647",
       "codequipo": "104019",
@@ -71,6 +39,38 @@
       ],
       "sancion": 0,
       "escudo": "data/infantil-dh/escudos/104019.png"
+    },
+    {
+      "pos": 2,
+      "equipo": "S D LA SALLE ATº \"A\"",
+      "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=104155&codgrupo=23460647",
+      "codequipo": "104155",
+      "pts": 6,
+      "pj": 2,
+      "pg": 2,
+      "pe": 0,
+      "pp": 0,
+      "gf": 11,
+      "gc": 4,
+      "casa": {
+        "pj": 1,
+        "pg": 1,
+        "pe": 0,
+        "pp": 0
+      },
+      "fuera": {
+        "pj": 1,
+        "pg": 1,
+        "pe": 0,
+        "pp": 0
+      },
+      "dg": 7,
+      "forma": [
+        "G",
+        "G"
+      ],
+      "sancion": 0,
+      "escudo": "data/infantil-dh/escudos/104155.png"
     },
     {
       "pos": 3,
@@ -434,7 +434,7 @@
       "pg": 0,
       "pe": 0,
       "pp": 2,
-      "gf": 0,
+      "gf": 1,
       "gc": 12,
       "casa": {
         "pj": 1,
@@ -448,7 +448,7 @@
         "pe": 0,
         "pp": 1
       },
-      "dg": -12,
+      "dg": -11,
       "forma": [
         "P",
         "P"
@@ -477,7 +477,7 @@
     {
       "local": "PALMA F.C. \"A\"",
       "visitante": "S D LA SALLE ATº \"A\"",
-      "goles_local": 0,
+      "goles_local": 1,
       "goles_visitante": 7,
       "cod_local": "738873",
       "cod_visitante": "104155"
