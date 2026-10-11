@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-10-07T10:46:37+00:00",
+  "actualizado": "2026-10-11T00:24:16+00:00",
   "fuente": "https://www.ffib.es/Fed/NPcd/NFG_VisClasificacion?cod_primaria=1000110&codcompeticion=23730490&codgrupo=23730503&codjornada=1",
   "competicion": "FASE DE CLASIFICACIÓN PRE BENJAMIN SUB-7 DIVISIÓN DE HONOR Y PREFERENTE MALLORCA",
   "grupo": "GRUPO A",
@@ -34,7 +34,6 @@
       },
       "dg": 0,
       "sancion": 0,
-      "escudo_url": "https://www.ffib.es/Fed/pimg/Clubes/00100_0000196192_00100_0000000203_Son_Cladera.jpg",
       "escudo": "data/prebenjamin/escudos/23401357.jpg"
     },
     {
@@ -63,7 +62,6 @@
       },
       "dg": 0,
       "sancion": 0,
-      "escudo_url": "https://www.ffib.es/Fed/pimg/Clubes/00100_0000001067_Agora-Sports-Club.jpg",
       "escudo": "data/prebenjamin/escudos/23377229.jpg"
     },
     {
@@ -92,7 +90,6 @@
       },
       "dg": 0,
       "sancion": 0,
-      "escudo_url": "https://www.ffib.es/Fed/pimg/Clubes/00100_0000184423_Logo_Blanco.png",
       "escudo": "data/prebenjamin/escudos/6115974.png"
     },
     {
@@ -121,7 +118,6 @@
       },
       "dg": 0,
       "sancion": 0,
-      "escudo_url": "https://www.ffib.es/Fed/pimg/Clubes/00100_0000305506_ESCUDO_CLUB.jpg",
       "escudo": "data/prebenjamin/escudos/354950.jpg"
     },
     {
@@ -150,7 +146,6 @@
       },
       "dg": 0,
       "sancion": 0,
-      "escudo_url": "https://www.ffib.es/Fed/pimg/Clubes/00100_0000196453_LOGO_CIDE_CF.jpg",
       "escudo": "data/prebenjamin/escudos/6109536.jpg"
     },
     {
@@ -179,7 +174,6 @@
       },
       "dg": 0,
       "sancion": 0,
-      "escudo_url": "https://www.ffib.es/Fed/pimg/Clubes/00100_0000064266_jv.jpg",
       "escudo": "data/prebenjamin/escudos/6101142.jpg"
     },
     {
@@ -208,7 +202,6 @@
       },
       "dg": 0,
       "sancion": 0,
-      "escudo_url": "https://www.ffib.es/Fed/pimg/Clubes/00100_0000400889_Escudo_nuevo__2_.png",
       "escudo": "data/prebenjamin/escudos/738950.png"
     },
     {
@@ -237,7 +230,6 @@
       },
       "dg": 0,
       "sancion": 0,
-      "escudo_url": "https://www.ffib.es/Fed/pimg/Clubes/00100_0000124534_1717.jpg",
       "escudo": "data/prebenjamin/escudos/4482416.jpg"
     },
     {
@@ -266,7 +258,6 @@
       },
       "dg": 0,
       "sancion": 0,
-      "escudo_url": "https://www.ffib.es/Fed/pimg/Clubes/00100_0000303806_escudo_c.d._atl._rafal.jpg",
       "escudo": "data/prebenjamin/escudos/108385.jpg"
     },
     {
@@ -294,7 +285,9 @@
         "pp": 0
       },
       "dg": 0,
-      "sancion": 0
+      "sancion": 0,
+      "escudo_url": "https://www.ffib.es/Fed/pimg/Clubes/00100_0000020390_ESCUDOSINDIOTERIA-Model.jpg",
+      "escudo": "data/prebenjamin/escudos/3156762.jpg"
     },
     {
       "pos": 11,
@@ -321,7 +314,9 @@
         "pp": 0
       },
       "dg": 0,
-      "sancion": 0
+      "sancion": 0,
+      "escudo_url": "https://www.ffib.es/Fed/pimg/Clubes/00100_0000000489_Esdo%20San%20Pedro%20bis.jpg",
+      "escudo": "data/prebenjamin/escudos/1345938.jpg"
     },
     {
       "pos": 12,
@@ -348,7 +343,9 @@
         "pp": 0
       },
       "dg": 0,
-      "sancion": 0
+      "sancion": 0,
+      "escudo_url": "https://www.ffib.es/Fed/pimg/Clubes/00100_0000400544_Screenshot_20260707_102853_Gallery.jpg",
+      "escudo": "data/prebenjamin/escudos/1584680.jpg"
     },
     {
       "pos": 13,
@@ -376,7 +373,6 @@
       },
       "dg": 0,
       "sancion": 0,
-      "escudo_url": "https://www.ffib.es/Fed/pimg/Clubes/00100_0000000507_1-%20SPORTING.jpg",
       "escudo": "data/prebenjamin/escudos/2487235.jpg"
     }
   ],
