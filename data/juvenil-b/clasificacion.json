@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-10-11T00:23:59+00:00",
+  "actualizado": "2026-10-11T17:50:29+00:00",
   "fuente": "https://www.ffib.es/Fed/NPcd/NFG_VisClasificacion?cod_primaria=1000110&codcompeticion=23348375&codgrupo=23348376&codjornada=4",
   "competicion": "JUVENIL PREFERENTE MALLORCA",
   "grupo": "GRUPO A",
@@ -180,6 +180,39 @@
     },
     {
       "pos": 6,
+      "equipo": "LLOSETENSE \"A\"",
+      "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=102572&codgrupo=23348376",
+      "codequipo": "102572",
+      "pts": 6,
+      "pj": 3,
+      "pg": 2,
+      "pe": 0,
+      "pp": 1,
+      "gf": 8,
+      "gc": 3,
+      "casa": {
+        "pj": 2,
+        "pg": 1,
+        "pe": 0,
+        "pp": 1
+      },
+      "fuera": {
+        "pj": 1,
+        "pg": 1,
+        "pe": 0,
+        "pp": 0
+      },
+      "dg": 5,
+      "forma": [
+        "P",
+        "G",
+        "G"
+      ],
+      "sancion": 0,
+      "escudo": "data/juvenil-b/escudos/102572.jpg"
+    },
+    {
+      "pos": 7,
       "equipo": "SP. ATº CIUTAT DE PALMA \"B\"",
       "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=7014451&codgrupo=23348376",
       "codequipo": "7014451",
@@ -213,7 +246,7 @@
       "escudo": "data/juvenil-b/escudos/7014451.jpg"
     },
     {
-      "pos": 7,
+      "pos": 8,
       "equipo": "CALVIA ATº DEL C. \"A\"",
       "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=202488&codgrupo=23348376",
       "codequipo": "202488",
@@ -247,7 +280,7 @@
       "escudo": "data/juvenil-b/escudos/202488.jpg"
     },
     {
-      "pos": 8,
+      "pos": 9,
       "equipo": "CAMPOS \"A\"",
       "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=102259&codgrupo=23348376",
       "codequipo": "102259",
@@ -281,7 +314,75 @@
       "escudo": "data/juvenil-b/escudos/102259.jpg"
     },
     {
-      "pos": 9,
+      "pos": 10,
+      "equipo": "SON CLADERA \"A\"",
+      "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=102602&codgrupo=23348376",
+      "codequipo": "102602",
+      "pts": 5,
+      "pj": 4,
+      "pg": 1,
+      "pe": 2,
+      "pp": 1,
+      "gf": 6,
+      "gc": 7,
+      "casa": {
+        "pj": 2,
+        "pg": 1,
+        "pe": 1,
+        "pp": 0
+      },
+      "fuera": {
+        "pj": 2,
+        "pg": 0,
+        "pe": 1,
+        "pp": 1
+      },
+      "dg": -1,
+      "forma": [
+        "P",
+        "G",
+        "E",
+        "E"
+      ],
+      "sancion": 0,
+      "escudo": "data/juvenil-b/escudos/102602.png"
+    },
+    {
+      "pos": 11,
+      "equipo": "CARDASSAR \"A\"",
+      "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=102331&codgrupo=23348376",
+      "codequipo": "102331",
+      "pts": 5,
+      "pj": 4,
+      "pg": 1,
+      "pe": 2,
+      "pp": 1,
+      "gf": 4,
+      "gc": 6,
+      "casa": {
+        "pj": 2,
+        "pg": 1,
+        "pe": 1,
+        "pp": 0
+      },
+      "fuera": {
+        "pj": 2,
+        "pg": 0,
+        "pe": 1,
+        "pp": 1
+      },
+      "dg": -2,
+      "forma": [
+        "E",
+        "P",
+        "G",
+        "E"
+      ],
+      "sancion": 0,
+      "escudo": "data/juvenil-b/escudos/102331.png"
+    },
+    {
+      "pos": 12,
       "equipo": "ARENAL \"A\"",
       "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=102277&codgrupo=23348376",
       "codequipo": "102277",
@@ -315,73 +416,7 @@
       "escudo": "data/juvenil-b/escudos/102277.jpg"
     },
     {
-      "pos": 10,
-      "equipo": "SON CLADERA \"A\"",
-      "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=102602&codgrupo=23348376",
-      "codequipo": "102602",
-      "pts": 4,
-      "pj": 3,
-      "pg": 1,
-      "pe": 1,
-      "pp": 1,
-      "gf": 6,
-      "gc": 7,
-      "casa": {
-        "pj": 1,
-        "pg": 1,
-        "pe": 0,
-        "pp": 0
-      },
-      "fuera": {
-        "pj": 2,
-        "pg": 0,
-        "pe": 1,
-        "pp": 1
-      },
-      "dg": -1,
-      "forma": [
-        "P",
-        "G",
-        "E"
-      ],
-      "sancion": 0,
-      "escudo": "data/juvenil-b/escudos/102602.png"
-    },
-    {
-      "pos": 11,
-      "equipo": "CARDASSAR \"A\"",
-      "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=102331&codgrupo=23348376",
-      "codequipo": "102331",
-      "pts": 4,
-      "pj": 3,
-      "pg": 1,
-      "pe": 1,
-      "pp": 1,
-      "gf": 4,
-      "gc": 6,
-      "casa": {
-        "pj": 2,
-        "pg": 1,
-        "pe": 1,
-        "pp": 0
-      },
-      "fuera": {
-        "pj": 1,
-        "pg": 0,
-        "pe": 0,
-        "pp": 1
-      },
-      "dg": -2,
-      "forma": [
-        "E",
-        "P",
-        "G"
-      ],
-      "sancion": 0,
-      "escudo": "data/juvenil-b/escudos/102331.png"
-    },
-    {
-      "pos": 12,
+      "pos": 13,
       "equipo": "PLA DE NA TESA \"A\"",
       "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=101733&codgrupo=23348376",
       "codequipo": "101733",
@@ -413,38 +448,6 @@
       ],
       "sancion": 0,
       "escudo": "data/juvenil-b/escudos/101733.jpg"
-    },
-    {
-      "pos": 13,
-      "equipo": "LLOSETENSE \"A\"",
-      "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=102572&codgrupo=23348376",
-      "codequipo": "102572",
-      "pts": 3,
-      "pj": 2,
-      "pg": 1,
-      "pe": 0,
-      "pp": 1,
-      "gf": 7,
-      "gc": 3,
-      "casa": {
-        "pj": 1,
-        "pg": 0,
-        "pe": 0,
-        "pp": 1
-      },
-      "fuera": {
-        "pj": 1,
-        "pg": 1,
-        "pe": 0,
-        "pp": 0
-      },
-      "dg": 4,
-      "forma": [
-        "P",
-        "G"
-      ],
-      "sancion": 0,
-      "escudo": "data/juvenil-b/escudos/102572.jpg"
     },
     {
       "pos": 14,
@@ -485,12 +488,12 @@
       "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=106479&codgrupo=23348376",
       "codequipo": "106479",
       "pts": 3,
-      "pj": 3,
+      "pj": 4,
       "pg": 1,
       "pe": 0,
-      "pp": 2,
+      "pp": 3,
       "gf": 3,
-      "gc": 7,
+      "gc": 8,
       "casa": {
         "pj": 2,
         "pg": 1,
@@ -498,16 +501,17 @@
         "pp": 1
       },
       "fuera": {
-        "pj": 1,
+        "pj": 2,
         "pg": 0,
         "pe": 0,
-        "pp": 1
+        "pp": 2
       },
-      "dg": -4,
+      "dg": -5,
       "forma": [
         "P",
         "P",
-        "G"
+        "G",
+        "P"
       ],
       "sancion": 0,
       "escudo": "data/juvenil-b/escudos/106479.jpg"
