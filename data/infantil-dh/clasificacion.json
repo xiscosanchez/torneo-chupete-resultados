@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-10-12T00:40:58+00:00",
+  "actualizado": "2026-10-12T17:37:04+00:00",
   "fuente": "https://www.ffib.es/Fed/NPcd/NFG_VisClasificacion?cod_primaria=1000110&codcompeticion=23348419&codgrupo=23460647&codjornada=3",
   "competicion": "INFANTIL DIVISIÓN DE HONOR MALLORCA",
   "grupo": "LIGA",
@@ -109,6 +109,39 @@
     },
     {
       "pos": 4,
+      "equipo": "FERRIOLENSE \"A\"",
+      "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=104073&codgrupo=23460647",
+      "codequipo": "104073",
+      "pts": 7,
+      "pj": 3,
+      "pg": 2,
+      "pe": 1,
+      "pp": 0,
+      "gf": 10,
+      "gc": 5,
+      "casa": {
+        "pj": 1,
+        "pg": 1,
+        "pe": 0,
+        "pp": 0
+      },
+      "fuera": {
+        "pj": 2,
+        "pg": 1,
+        "pe": 1,
+        "pp": 0
+      },
+      "dg": 5,
+      "forma": [
+        "G",
+        "G",
+        "E"
+      ],
+      "sancion": 0,
+      "escudo": "data/infantil-dh/escudos/104073.jpg"
+    },
+    {
+      "pos": 5,
       "equipo": "PENYA ARRABAL \"A\"",
       "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=104291&codgrupo=23460647",
       "codequipo": "104291",
@@ -117,8 +150,8 @@
       "pg": 2,
       "pe": 1,
       "pp": 0,
-      "gf": 5,
-      "gc": 1,
+      "gf": 6,
+      "gc": 3,
       "casa": {
         "pj": 2,
         "pg": 1,
@@ -131,7 +164,7 @@
         "pe": 0,
         "pp": 0
       },
-      "dg": 4,
+      "dg": 3,
       "forma": [
         "E",
         "G",
@@ -141,39 +174,40 @@
       "escudo": "data/infantil-dh/escudos/104291.png"
     },
     {
-      "pos": 5,
-      "equipo": "FERRIOLENSE \"A\"",
-      "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=104073&codgrupo=23460647",
-      "codequipo": "104073",
-      "pts": 6,
-      "pj": 2,
-      "pg": 2,
-      "pe": 0,
-      "pp": 0,
+      "pos": 6,
+      "equipo": "SP. CIUTAT DE PALMA \"A\"",
+      "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=202607&codgrupo=23460647",
+      "codequipo": "202607",
+      "pts": 4,
+      "pj": 3,
+      "pg": 1,
+      "pe": 1,
+      "pp": 1,
       "gf": 7,
-      "gc": 2,
+      "gc": 7,
       "casa": {
-        "pj": 1,
+        "pj": 2,
         "pg": 1,
-        "pe": 0,
+        "pe": 1,
         "pp": 0
       },
       "fuera": {
         "pj": 1,
-        "pg": 1,
+        "pg": 0,
         "pe": 0,
-        "pp": 0
+        "pp": 1
       },
-      "dg": 5,
+      "dg": 0,
       "forma": [
         "G",
-        "G"
+        "P",
+        "E"
       ],
       "sancion": 0,
-      "escudo": "data/infantil-dh/escudos/104073.jpg"
+      "escudo": "data/infantil-dh/escudos/202607.jpg"
     },
     {
-      "pos": 6,
+      "pos": 7,
       "equipo": "MANACOR \"A\"",
       "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=104009&codgrupo=23460647",
       "codequipo": "104009",
@@ -204,38 +238,6 @@
       ],
       "sancion": 0,
       "escudo": "data/infantil-dh/escudos/104009.jpg"
-    },
-    {
-      "pos": 7,
-      "equipo": "SP. CIUTAT DE PALMA \"A\"",
-      "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=202607&codgrupo=23460647",
-      "codequipo": "202607",
-      "pts": 3,
-      "pj": 2,
-      "pg": 1,
-      "pe": 0,
-      "pp": 1,
-      "gf": 4,
-      "gc": 4,
-      "casa": {
-        "pj": 1,
-        "pg": 1,
-        "pe": 0,
-        "pp": 0
-      },
-      "fuera": {
-        "pj": 1,
-        "pg": 0,
-        "pe": 0,
-        "pp": 1
-      },
-      "dg": 0,
-      "forma": [
-        "G",
-        "P"
-      ],
-      "sancion": 0,
-      "escudo": "data/infantil-dh/escudos/202607.jpg"
     },
     {
       "pos": 8,
@@ -272,6 +274,39 @@
     },
     {
       "pos": 9,
+      "equipo": "SAN CAYETANO \"A\"",
+      "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=22600602&codgrupo=23460647",
+      "codequipo": "22600602",
+      "pts": 3,
+      "pj": 3,
+      "pg": 1,
+      "pe": 0,
+      "pp": 2,
+      "gf": 5,
+      "gc": 8,
+      "casa": {
+        "pj": 1,
+        "pg": 1,
+        "pe": 0,
+        "pp": 0
+      },
+      "fuera": {
+        "pj": 2,
+        "pg": 0,
+        "pe": 0,
+        "pp": 2
+      },
+      "dg": -3,
+      "forma": [
+        "P",
+        "G",
+        "P"
+      ],
+      "sancion": 0,
+      "escudo": "data/infantil-dh/escudos/22600602.png"
+    },
+    {
+      "pos": 10,
       "equipo": "RTVº LA VICTORIA \"A\"",
       "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=104076&codgrupo=23460647",
       "codequipo": "104076",
@@ -304,7 +339,7 @@
       "escudo": "data/infantil-dh/escudos/104076.jpg"
     },
     {
-      "pos": 10,
+      "pos": 11,
       "equipo": "ESTUDIANTES DEL CIDE \"A\"",
       "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=103124&codgrupo=23460647",
       "codequipo": "103124",
@@ -335,39 +370,6 @@
       ],
       "sancion": 0,
       "escudo": "data/infantil-dh/escudos/103124.jpg"
-    },
-    {
-      "pos": 11,
-      "equipo": "SAN CAYETANO \"A\"",
-      "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=22600602&codgrupo=23460647",
-      "codequipo": "22600602",
-      "pts": 3,
-      "pj": 3,
-      "pg": 1,
-      "pe": 0,
-      "pp": 2,
-      "gf": 3,
-      "gc": 7,
-      "casa": {
-        "pj": 1,
-        "pg": 1,
-        "pe": 0,
-        "pp": 0
-      },
-      "fuera": {
-        "pj": 2,
-        "pg": 0,
-        "pe": 0,
-        "pp": 2
-      },
-      "dg": -4,
-      "forma": [
-        "P",
-        "G",
-        "P"
-      ],
-      "sancion": 0,
-      "escudo": "data/infantil-dh/escudos/22600602.png"
     },
     {
       "pos": 12,
@@ -505,6 +507,8 @@
     {
       "local": "PENYA ARRABAL \"A\"",
       "visitante": "SAN CAYETANO \"A\"",
+      "goles_local": 3,
+      "goles_visitante": 2,
       "cod_local": "104291",
       "cod_visitante": "22600602"
     },
@@ -519,6 +523,8 @@
     {
       "local": "SP. CIUTAT DE PALMA \"A\"",
       "visitante": "FERRIOLENSE \"A\"",
+      "goles_local": 3,
+      "goles_visitante": 3,
       "cod_local": "202607",
       "cod_visitante": "104073"
     }
