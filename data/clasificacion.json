@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-10-11T17:50:21+00:00",
+  "actualizado": "2026-10-12T00:40:38+00:00",
   "fuente": "https://www.ffib.es/Fed/NPcd/NFG_VisClasificacion?cod_primaria=1000110&codcompeticion=23348373&codgrupo=23348374&codjornada=6",
   "competicion": "LIGA NACIONAL JUVENIL",
   "grupo": "LIGA",
@@ -13,12 +13,12 @@
       "equipo": "ATº BALEARES \"A\"",
       "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=102322&codgrupo=23348374",
       "codequipo": "102322",
-      "pts": 16,
+      "pts": 18,
       "pj": 6,
-      "pg": 5,
-      "pe": 1,
+      "pg": 6,
+      "pe": 0,
       "pp": 0,
-      "gf": 10,
+      "gf": 12,
       "gc": 1,
       "casa": {
         "pj": 3,
@@ -28,17 +28,17 @@
       },
       "fuera": {
         "pj": 3,
-        "pg": 2,
-        "pe": 1,
+        "pg": 3,
+        "pe": 0,
         "pp": 0
       },
-      "dg": 9,
+      "dg": 11,
       "forma": [
         "G",
         "G",
         "G",
         "G",
-        "E"
+        "G"
       ],
       "sancion": 0,
       "escudo": "data/escudos/102322.jpg"
@@ -433,18 +433,18 @@
       "equipo": "PLATGES DE CALVIA \"A\"",
       "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=102430&codgrupo=23348374",
       "codequipo": "102430",
-      "pts": 7,
+      "pts": 6,
       "pj": 6,
       "pg": 2,
-      "pe": 1,
-      "pp": 3,
+      "pe": 0,
+      "pp": 4,
       "gf": 5,
-      "gc": 8,
+      "gc": 10,
       "casa": {
         "pj": 3,
         "pg": 2,
-        "pe": 1,
-        "pp": 0
+        "pe": 0,
+        "pp": 1
       },
       "fuera": {
         "pj": 3,
@@ -452,13 +452,13 @@
         "pe": 0,
         "pp": 3
       },
-      "dg": -3,
+      "dg": -5,
       "forma": [
         "P",
         "P",
         "G",
         "P",
-        "E"
+        "P"
       ],
       "sancion": 0,
       "escudo": "data/escudos/102430.jpg"
@@ -699,6 +699,8 @@
     {
       "local": "PLATGES DE CALVIA \"A\"",
       "visitante": "ATº BALEARES \"A\"",
+      "goles_local": 0,
+      "goles_visitante": 2,
       "cod_local": "102430",
       "cod_visitante": "102322"
     },
