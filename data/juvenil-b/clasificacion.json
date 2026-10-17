@@ -1,10 +1,10 @@
 {
-  "actualizado": "2026-10-12T17:36:54+00:00",
-  "fuente": "https://www.ffib.es/Fed/NPcd/NFG_VisClasificacion?cod_primaria=1000110&codcompeticion=23348375&codgrupo=23348376&codjornada=4",
+  "actualizado": "2026-10-17T23:20:18+00:00",
+  "fuente": "https://www.ffib.es/Fed/NPcd/NFG_VisClasificacion?cod_primaria=1000110&codcompeticion=23348375&codgrupo=23348376&codjornada=5",
   "competicion": "JUVENIL PREFERENTE MALLORCA",
   "grupo": "GRUPO A",
-  "jornada": 4,
-  "fecha_jornada": "11-10-2026",
+  "jornada": 5,
+  "fecha_jornada": "18-10-2026",
   "codcompeticion": "23348375",
   "codgrupo": "23348376",
   "equipos": [
@@ -13,13 +13,13 @@
       "equipo": "SANTA MONICA \"A\"",
       "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=102819&codgrupo=23348376",
       "codequipo": "102819",
-      "pts": 10,
-      "pj": 4,
-      "pg": 3,
+      "pts": 13,
+      "pj": 5,
+      "pg": 4,
       "pe": 1,
       "pp": 0,
-      "gf": 10,
-      "gc": 4,
+      "gf": 14,
+      "gc": 5,
       "casa": {
         "pj": 2,
         "pg": 2,
@@ -27,16 +27,17 @@
         "pp": 0
       },
       "fuera": {
-        "pj": 2,
-        "pg": 1,
+        "pj": 3,
+        "pg": 2,
         "pe": 1,
         "pp": 0
       },
-      "dg": 6,
+      "dg": 9,
       "forma": [
         "G",
         "G",
         "E",
+        "G",
         "G"
       ],
       "sancion": 0,
@@ -47,12 +48,12 @@
       "equipo": "JOVENTUT MALLORCA",
       "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=102698&codgrupo=23348376",
       "codequipo": "102698",
-      "pts": 9,
-      "pj": 4,
-      "pg": 3,
+      "pts": 12,
+      "pj": 5,
+      "pg": 4,
       "pe": 0,
       "pp": 1,
-      "gf": 14,
+      "gf": 15,
       "gc": 7,
       "casa": {
         "pj": 2,
@@ -61,14 +62,15 @@
         "pp": 0
       },
       "fuera": {
-        "pj": 2,
-        "pg": 1,
+        "pj": 3,
+        "pg": 2,
         "pe": 0,
         "pp": 1
       },
-      "dg": 7,
+      "dg": 8,
       "forma": [
         "P",
+        "G",
         "G",
         "G",
         "G"
@@ -78,6 +80,111 @@
     },
     {
       "pos": 3,
+      "equipo": "ALGAIDA \"A\"",
+      "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=202473&codgrupo=23348376",
+      "codequipo": "202473",
+      "pts": 10,
+      "pj": 5,
+      "pg": 3,
+      "pe": 1,
+      "pp": 1,
+      "gf": 14,
+      "gc": 9,
+      "casa": {
+        "pj": 3,
+        "pg": 2,
+        "pe": 1,
+        "pp": 0
+      },
+      "fuera": {
+        "pj": 2,
+        "pg": 1,
+        "pe": 0,
+        "pp": 1
+      },
+      "dg": 5,
+      "forma": [
+        "G",
+        "P",
+        "E",
+        "G",
+        "G"
+      ],
+      "sancion": 0,
+      "escudo": "data/juvenil-b/escudos/202473.jpg"
+    },
+    {
+      "pos": 4,
+      "equipo": "CALVIA ATº DEL C. \"A\"",
+      "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=202488&codgrupo=23348376",
+      "codequipo": "202488",
+      "pts": 9,
+      "pj": 5,
+      "pg": 3,
+      "pe": 0,
+      "pp": 2,
+      "gf": 14,
+      "gc": 9,
+      "casa": {
+        "pj": 2,
+        "pg": 1,
+        "pe": 0,
+        "pp": 1
+      },
+      "fuera": {
+        "pj": 3,
+        "pg": 2,
+        "pe": 0,
+        "pp": 1
+      },
+      "dg": 5,
+      "forma": [
+        "G",
+        "P",
+        "P",
+        "G",
+        "G"
+      ],
+      "sancion": 0,
+      "escudo": "data/juvenil-b/escudos/202488.jpg"
+    },
+    {
+      "pos": 5,
+      "equipo": "PALMA F.C. \"B\"",
+      "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=7017755&codgrupo=23348376",
+      "codequipo": "7017755",
+      "pts": 8,
+      "pj": 5,
+      "pg": 2,
+      "pe": 2,
+      "pp": 1,
+      "gf": 12,
+      "gc": 9,
+      "casa": {
+        "pj": 2,
+        "pg": 0,
+        "pe": 1,
+        "pp": 1
+      },
+      "fuera": {
+        "pj": 3,
+        "pg": 2,
+        "pe": 1,
+        "pp": 0
+      },
+      "dg": 3,
+      "forma": [
+        "G",
+        "E",
+        "G",
+        "P",
+        "E"
+      ],
+      "sancion": 0,
+      "escudo": "data/juvenil-b/escudos/7017755.jpg"
+    },
+    {
+      "pos": 6,
       "equipo": "ALARO \"A\"",
       "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=102610&codgrupo=23348376",
       "codequipo": "102610",
@@ -111,75 +218,7 @@
       "escudo": "data/juvenil-b/escudos/102610.png"
     },
     {
-      "pos": 4,
-      "equipo": "PALMA F.C. \"B\"",
-      "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=7017755&codgrupo=23348376",
-      "codequipo": "7017755",
-      "pts": 7,
-      "pj": 4,
-      "pg": 2,
-      "pe": 1,
-      "pp": 1,
-      "gf": 10,
-      "gc": 7,
-      "casa": {
-        "pj": 2,
-        "pg": 0,
-        "pe": 1,
-        "pp": 1
-      },
-      "fuera": {
-        "pj": 2,
-        "pg": 2,
-        "pe": 0,
-        "pp": 0
-      },
-      "dg": 3,
-      "forma": [
-        "G",
-        "E",
-        "G",
-        "P"
-      ],
-      "sancion": 0,
-      "escudo": "data/juvenil-b/escudos/7017755.jpg"
-    },
-    {
-      "pos": 5,
-      "equipo": "ALGAIDA \"A\"",
-      "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=202473&codgrupo=23348376",
-      "codequipo": "202473",
-      "pts": 7,
-      "pj": 4,
-      "pg": 2,
-      "pe": 1,
-      "pp": 1,
-      "gf": 10,
-      "gc": 8,
-      "casa": {
-        "pj": 2,
-        "pg": 1,
-        "pe": 1,
-        "pp": 0
-      },
-      "fuera": {
-        "pj": 2,
-        "pg": 1,
-        "pe": 0,
-        "pp": 1
-      },
-      "dg": 2,
-      "forma": [
-        "G",
-        "P",
-        "E",
-        "G"
-      ],
-      "sancion": 0,
-      "escudo": "data/juvenil-b/escudos/202473.jpg"
-    },
-    {
-      "pos": 6,
+      "pos": 7,
       "equipo": "SON CLADERA \"A\"",
       "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=102602&codgrupo=23348376",
       "codequipo": "102602",
@@ -211,39 +250,6 @@
       ],
       "sancion": 0,
       "escudo": "data/juvenil-b/escudos/102602.png"
-    },
-    {
-      "pos": 7,
-      "equipo": "LLOSETENSE \"A\"",
-      "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=102572&codgrupo=23348376",
-      "codequipo": "102572",
-      "pts": 6,
-      "pj": 3,
-      "pg": 2,
-      "pe": 0,
-      "pp": 1,
-      "gf": 8,
-      "gc": 3,
-      "casa": {
-        "pj": 2,
-        "pg": 1,
-        "pe": 0,
-        "pp": 1
-      },
-      "fuera": {
-        "pj": 1,
-        "pg": 1,
-        "pe": 0,
-        "pp": 0
-      },
-      "dg": 5,
-      "forma": [
-        "P",
-        "G",
-        "G"
-      ],
-      "sancion": 0,
-      "escudo": "data/juvenil-b/escudos/102572.jpg"
     },
     {
       "pos": 8,
@@ -281,37 +287,37 @@
     },
     {
       "pos": 9,
-      "equipo": "CALVIA ATº DEL C. \"A\"",
-      "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=202488&codgrupo=23348376",
-      "codequipo": "202488",
+      "equipo": "LLOSETENSE \"A\"",
+      "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=102572&codgrupo=23348376",
+      "codequipo": "102572",
       "pts": 6,
       "pj": 4,
       "pg": 2,
       "pe": 0,
       "pp": 2,
-      "gf": 10,
-      "gc": 9,
+      "gf": 9,
+      "gc": 7,
       "casa": {
-        "pj": 2,
+        "pj": 3,
         "pg": 1,
         "pe": 0,
-        "pp": 1
+        "pp": 2
       },
       "fuera": {
-        "pj": 2,
+        "pj": 1,
         "pg": 1,
         "pe": 0,
-        "pp": 1
+        "pp": 0
       },
-      "dg": 1,
+      "dg": 2,
       "forma": [
+        "P",
         "G",
-        "P",
-        "P",
-        "G"
+        "G",
+        "P"
       ],
       "sancion": 0,
-      "escudo": "data/juvenil-b/escudos/202488.jpg"
+      "escudo": "data/juvenil-b/escudos/102572.jpg"
     },
     {
       "pos": 10,
@@ -319,17 +325,17 @@
       "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=102259&codgrupo=23348376",
       "codequipo": "102259",
       "pts": 5,
-      "pj": 4,
+      "pj": 5,
       "pg": 1,
       "pe": 2,
-      "pp": 1,
+      "pp": 2,
       "gf": 6,
-      "gc": 6,
+      "gc": 7,
       "casa": {
-        "pj": 2,
+        "pj": 3,
         "pg": 0,
         "pe": 2,
-        "pp": 0
+        "pp": 1
       },
       "fuera": {
         "pj": 2,
@@ -337,11 +343,12 @@
         "pe": 0,
         "pp": 1
       },
-      "dg": 0,
+      "dg": -1,
       "forma": [
         "E",
         "G",
         "E",
+        "P",
         "P"
       ],
       "sancion": 0,
@@ -349,54 +356,20 @@
     },
     {
       "pos": 11,
-      "equipo": "ARENAL \"A\"",
-      "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=102277&codgrupo=23348376",
-      "codequipo": "102277",
-      "pts": 4,
-      "pj": 4,
-      "pg": 1,
-      "pe": 1,
-      "pp": 2,
-      "gf": 7,
-      "gc": 8,
-      "casa": {
-        "pj": 2,
-        "pg": 1,
-        "pe": 0,
-        "pp": 1
-      },
-      "fuera": {
-        "pj": 2,
-        "pg": 0,
-        "pe": 1,
-        "pp": 1
-      },
-      "dg": -1,
-      "forma": [
-        "G",
-        "E",
-        "P",
-        "P"
-      ],
-      "sancion": 0,
-      "escudo": "data/juvenil-b/escudos/102277.jpg"
-    },
-    {
-      "pos": 12,
       "equipo": "CARDASSAR \"A\"",
       "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=102331&codgrupo=23348376",
       "codequipo": "102331",
-      "pts": 4,
-      "pj": 4,
+      "pts": 5,
+      "pj": 5,
       "pg": 1,
-      "pe": 1,
+      "pe": 2,
       "pp": 2,
-      "gf": 6,
-      "gc": 10,
+      "gf": 8,
+      "gc": 12,
       "casa": {
-        "pj": 2,
+        "pj": 3,
         "pg": 1,
-        "pe": 1,
+        "pe": 2,
         "pp": 0
       },
       "fuera": {
@@ -410,10 +383,46 @@
         "E",
         "P",
         "G",
-        "P"
+        "P",
+        "E"
       ],
       "sancion": 0,
       "escudo": "data/juvenil-b/escudos/102331.png"
+    },
+    {
+      "pos": 12,
+      "equipo": "ARENAL \"A\"",
+      "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=102277&codgrupo=23348376",
+      "codequipo": "102277",
+      "pts": 4,
+      "pj": 5,
+      "pg": 1,
+      "pe": 1,
+      "pp": 3,
+      "gf": 8,
+      "gc": 12,
+      "casa": {
+        "pj": 2,
+        "pg": 1,
+        "pe": 0,
+        "pp": 1
+      },
+      "fuera": {
+        "pj": 3,
+        "pg": 0,
+        "pe": 1,
+        "pp": 2
+      },
+      "dg": -4,
+      "forma": [
+        "G",
+        "E",
+        "P",
+        "P",
+        "P"
+      ],
+      "sancion": 0,
+      "escudo": "data/juvenil-b/escudos/102277.jpg"
     },
     {
       "pos": 13,
@@ -488,17 +497,17 @@
       "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=106479&codgrupo=23348376",
       "codequipo": "106479",
       "pts": 3,
-      "pj": 4,
+      "pj": 5,
       "pg": 1,
       "pe": 0,
-      "pp": 3,
+      "pp": 4,
       "gf": 3,
-      "gc": 8,
+      "gc": 12,
       "casa": {
-        "pj": 2,
+        "pj": 3,
         "pg": 1,
         "pe": 0,
-        "pp": 1
+        "pp": 2
       },
       "fuera": {
         "pj": 2,
@@ -506,11 +515,12 @@
         "pe": 0,
         "pp": 2
       },
-      "dg": -5,
+      "dg": -9,
       "forma": [
         "P",
         "P",
         "G",
+        "P",
         "P"
       ],
       "sancion": 0,
@@ -554,66 +564,60 @@
   "resultados": [
     {
       "local": "LLOSETENSE \"A\"",
-      "visitante": "SON SARDINA \"A\"",
+      "visitante": "SANTA MONICA \"A\"",
       "goles_local": 1,
-      "goles_visitante": 0,
-      "cod_local": "102572",
-      "cod_visitante": "106479"
-    },
-    {
-      "local": "SANTA MONICA \"A\"",
-      "visitante": "PLA DE NA TESA \"A\"",
-      "goles_local": 3,
-      "goles_visitante": 1,
-      "cod_local": "102819",
-      "cod_visitante": "101733"
-    },
-    {
-      "local": "ALARO \"A\"",
-      "visitante": "CAMPOS \"A\"",
-      "goles_local": 3,
-      "goles_visitante": 2,
-      "cod_local": "102610",
-      "cod_visitante": "102259"
-    },
-    {
-      "local": "JOVENTUT MALLORCA",
-      "visitante": "SD LA SALLE \"B\"",
-      "goles_local": 4,
-      "goles_visitante": 3,
-      "cod_local": "102698",
-      "cod_visitante": "102216"
-    },
-    {
-      "local": "SP. ATº CIUTAT DE PALMA \"B\"",
-      "visitante": "SERVERENSE",
-      "goles_local": 5,
-      "goles_visitante": 0,
-      "cod_local": "7014451",
-      "cod_visitante": "102349"
-    },
-    {
-      "local": "SON CLADERA \"A\"",
-      "visitante": "CARDASSAR \"A\"",
-      "goles_local": 4,
-      "goles_visitante": 2,
-      "cod_local": "102602",
-      "cod_visitante": "102331"
-    },
-    {
-      "local": "PALMA F.C. \"B\"",
-      "visitante": "ALGAIDA \"A\"",
-      "goles_local": 0,
-      "goles_visitante": 3,
-      "cod_local": "7017755",
-      "cod_visitante": "202473"
-    },
-    {
-      "local": "ARENAL \"A\"",
-      "visitante": "CALVIA ATº DEL C. \"A\"",
-      "goles_local": 2,
       "goles_visitante": 4,
-      "cod_local": "102277",
+      "cod_local": "102572",
+      "cod_visitante": "102819"
+    },
+    {
+      "local": "PLA DE NA TESA \"A\"",
+      "visitante": "ALARO \"A\"",
+      "cod_local": "101733",
+      "cod_visitante": "102610"
+    },
+    {
+      "local": "CAMPOS \"A\"",
+      "visitante": "JOVENTUT MALLORCA",
+      "goles_local": 0,
+      "goles_visitante": 1,
+      "cod_local": "102259",
+      "cod_visitante": "102698"
+    },
+    {
+      "local": "SD LA SALLE \"B\"",
+      "visitante": "SP. ATº CIUTAT DE PALMA \"B\"",
+      "cod_local": "102216",
+      "cod_visitante": "7014451"
+    },
+    {
+      "local": "SERVERENSE",
+      "visitante": "SON CLADERA \"A\"",
+      "cod_local": "102349",
+      "cod_visitante": "102602"
+    },
+    {
+      "local": "CARDASSAR \"A\"",
+      "visitante": "PALMA F.C. \"B\"",
+      "goles_local": 2,
+      "goles_visitante": 2,
+      "cod_local": "102331",
+      "cod_visitante": "7017755"
+    },
+    {
+      "local": "ALGAIDA \"A\"",
+      "visitante": "ARENAL \"A\"",
+      "goles_local": 4,
+      "goles_visitante": 1,
+      "cod_local": "202473",
+      "cod_visitante": "102277"
+    },
+    {
+      "local": "SON SARDINA \"A\"",
+      "visitante": "CALVIA ATº DEL C. \"A\"",
+      "goles_local": 0,
+      "goles_visitante": 4,
+      "cod_local": "106479",
       "cod_visitante": "202488"
     }
   ]
