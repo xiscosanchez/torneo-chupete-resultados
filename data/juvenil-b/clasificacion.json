@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-10-17T23:20:18+00:00",
+  "actualizado": "2026-10-18T16:12:24+00:00",
   "fuente": "https://www.ffib.es/Fed/NPcd/NFG_VisClasificacion?cod_primaria=1000110&codcompeticion=23348375&codgrupo=23348376&codjornada=5",
   "competicion": "JUVENIL PREFERENTE MALLORCA",
   "grupo": "GRUPO A",
@@ -253,9 +253,9 @@
     },
     {
       "pos": 8,
-      "equipo": "SP. ATº CIUTAT DE PALMA \"B\"",
-      "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=7014451&codgrupo=23348376",
-      "codequipo": "7014451",
+      "equipo": "SD LA SALLE \"B\"",
+      "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=102216&codgrupo=23348376",
+      "codequipo": "102216",
       "pts": 6,
       "pj": 4,
       "pg": 2,
@@ -283,7 +283,7 @@
         "G"
       ],
       "sancion": 0,
-      "escudo": "data/juvenil-b/escudos/7014451.jpg"
+      "escudo": "data/juvenil-b/escudos/102216.jpg"
     },
     {
       "pos": 9,
@@ -321,6 +321,41 @@
     },
     {
       "pos": 10,
+      "equipo": "SP. ATº CIUTAT DE PALMA \"B\"",
+      "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=7014451&codgrupo=23348376",
+      "codequipo": "7014451",
+      "pts": 6,
+      "pj": 5,
+      "pg": 2,
+      "pe": 0,
+      "pp": 3,
+      "gf": 13,
+      "gc": 13,
+      "casa": {
+        "pj": 2,
+        "pg": 2,
+        "pe": 0,
+        "pp": 0
+      },
+      "fuera": {
+        "pj": 3,
+        "pg": 0,
+        "pe": 0,
+        "pp": 3
+      },
+      "dg": 0,
+      "forma": [
+        "P",
+        "G",
+        "P",
+        "G",
+        "P"
+      ],
+      "sancion": 0,
+      "escudo": "data/juvenil-b/escudos/7014451.jpg"
+    },
+    {
+      "pos": 11,
       "equipo": "CAMPOS \"A\"",
       "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=102259&codgrupo=23348376",
       "codequipo": "102259",
@@ -355,7 +390,7 @@
       "escudo": "data/juvenil-b/escudos/102259.jpg"
     },
     {
-      "pos": 11,
+      "pos": 12,
       "equipo": "CARDASSAR \"A\"",
       "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=102331&codgrupo=23348376",
       "codequipo": "102331",
@@ -390,7 +425,7 @@
       "escudo": "data/juvenil-b/escudos/102331.png"
     },
     {
-      "pos": 12,
+      "pos": 13,
       "equipo": "ARENAL \"A\"",
       "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=102277&codgrupo=23348376",
       "codequipo": "102277",
@@ -425,7 +460,7 @@
       "escudo": "data/juvenil-b/escudos/102277.jpg"
     },
     {
-      "pos": 13,
+      "pos": 14,
       "equipo": "PLA DE NA TESA \"A\"",
       "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=101733&codgrupo=23348376",
       "codequipo": "101733",
@@ -457,39 +492,6 @@
       ],
       "sancion": 0,
       "escudo": "data/juvenil-b/escudos/101733.jpg"
-    },
-    {
-      "pos": 14,
-      "equipo": "SD LA SALLE \"B\"",
-      "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=102216&codgrupo=23348376",
-      "codequipo": "102216",
-      "pts": 3,
-      "pj": 3,
-      "pg": 1,
-      "pe": 0,
-      "pp": 2,
-      "gf": 7,
-      "gc": 7,
-      "casa": {
-        "pj": 1,
-        "pg": 1,
-        "pe": 0,
-        "pp": 0
-      },
-      "fuera": {
-        "pj": 2,
-        "pg": 0,
-        "pe": 0,
-        "pp": 2
-      },
-      "dg": 0,
-      "forma": [
-        "P",
-        "G",
-        "P"
-      ],
-      "sancion": 0,
-      "escudo": "data/juvenil-b/escudos/102216.jpg"
     },
     {
       "pos": 15,
@@ -587,6 +589,8 @@
     {
       "local": "SD LA SALLE \"B\"",
       "visitante": "SP. ATº CIUTAT DE PALMA \"B\"",
+      "goles_local": 5,
+      "goles_visitante": 1,
       "cod_local": "102216",
       "cod_visitante": "7014451"
     },
