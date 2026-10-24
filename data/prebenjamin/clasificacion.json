@@ -1,90 +1,28 @@
 {
-  "actualizado": "2026-10-19T15:24:47+00:00",
-  "fuente": "https://www.ffib.es/Fed/NPcd/NFG_VisClasificacion?cod_primaria=1000110&codcompeticion=23730490&codgrupo=23730503&codjornada=1",
+  "actualizado": "2026-10-24T23:35:48+00:00",
+  "fuente": "https://www.ffib.es/Fed/NPcd/NFG_VisClasificacion?cod_primaria=1000110&codcompeticion=23730490&codgrupo=23730503&codjornada=2",
   "competicion": "FASE DE CLASIFICACIÓN PRE BENJAMIN SUB-7 DIVISIÓN DE HONOR Y PREFERENTE MALLORCA",
   "grupo": "GRUPO A",
-  "jornada": 1,
-  "fecha_jornada": "17-10-2026",
+  "jornada": 2,
+  "fecha_jornada": "24-10-2026",
   "codcompeticion": "23730490",
   "codgrupo": "23730503",
   "equipos": [
     {
       "pos": 1,
-      "equipo": "C.F. SON CALIU",
-      "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=354950&codgrupo=23730503",
-      "codequipo": "354950",
-      "pts": 3,
-      "pj": 1,
-      "pg": 1,
-      "pe": 0,
-      "pp": 0,
-      "gf": 10,
-      "gc": 0,
-      "casa": {
-        "pj": 1,
-        "pg": 1,
-        "pe": 0,
-        "pp": 0
-      },
-      "fuera": {
-        "pj": 0,
-        "pg": 0,
-        "pe": 0,
-        "pp": 0
-      },
-      "dg": 10,
-      "forma": [
-        "G"
-      ],
-      "sancion": 0,
-      "escudo": "data/prebenjamin/escudos/354950.jpg"
-    },
-    {
-      "pos": 2,
-      "equipo": "RTVº RAFAL DEL AT.R.",
-      "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=108385&codgrupo=23730503",
-      "codequipo": "108385",
-      "pts": 3,
-      "pj": 1,
-      "pg": 1,
-      "pe": 0,
-      "pp": 0,
-      "gf": 4,
-      "gc": 2,
-      "casa": {
-        "pj": 1,
-        "pg": 1,
-        "pe": 0,
-        "pp": 0
-      },
-      "fuera": {
-        "pj": 0,
-        "pg": 0,
-        "pe": 0,
-        "pp": 0
-      },
-      "dg": 2,
-      "forma": [
-        "G"
-      ],
-      "sancion": 0,
-      "escudo": "data/prebenjamin/escudos/108385.jpg"
-    },
-    {
-      "pos": 3,
       "equipo": "SP. ATº CIUTAT DE PALMA",
       "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=2487235&codgrupo=23730503",
       "codequipo": "2487235",
-      "pts": 3,
-      "pj": 1,
-      "pg": 1,
+      "pts": 6,
+      "pj": 2,
+      "pg": 2,
       "pe": 0,
       "pp": 0,
-      "gf": 4,
+      "gf": 11,
       "gc": 2,
       "casa": {
-        "pj": 0,
-        "pg": 0,
+        "pj": 1,
+        "pg": 1,
         "pe": 0,
         "pp": 0
       },
@@ -94,29 +32,157 @@
         "pe": 0,
         "pp": 0
       },
-      "dg": 2,
+      "dg": 9,
       "forma": [
+        "G",
         "G"
       ],
       "sancion": 0,
       "escudo": "data/prebenjamin/escudos/2487235.jpg"
     },
     {
-      "pos": 4,
-      "equipo": "CIDE C.F. \"B\"",
-      "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=6109536&codgrupo=23730503",
-      "codequipo": "6109536",
-      "pts": 1,
-      "pj": 1,
-      "pg": 0,
+      "pos": 2,
+      "equipo": "C.F. SON CALIU",
+      "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=354950&codgrupo=23730503",
+      "codequipo": "354950",
+      "pts": 4,
+      "pj": 2,
+      "pg": 1,
       "pe": 1,
       "pp": 0,
-      "gf": 2,
+      "gf": 11,
+      "gc": 1,
+      "casa": {
+        "pj": 1,
+        "pg": 1,
+        "pe": 0,
+        "pp": 0
+      },
+      "fuera": {
+        "pj": 1,
+        "pg": 0,
+        "pe": 1,
+        "pp": 0
+      },
+      "dg": 10,
+      "forma": [
+        "G",
+        "E"
+      ],
+      "sancion": 0,
+      "escudo": "data/prebenjamin/escudos/354950.jpg"
+    },
+    {
+      "pos": 3,
+      "equipo": "RTVº RAFAL DEL AT.R.",
+      "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=108385&codgrupo=23730503",
+      "codequipo": "108385",
+      "pts": 4,
+      "pj": 2,
+      "pg": 1,
+      "pe": 1,
+      "pp": 0,
+      "gf": 5,
+      "gc": 3,
+      "casa": {
+        "pj": 1,
+        "pg": 1,
+        "pe": 0,
+        "pp": 0
+      },
+      "fuera": {
+        "pj": 1,
+        "pg": 0,
+        "pe": 1,
+        "pp": 0
+      },
+      "dg": 2,
+      "forma": [
+        "G",
+        "E"
+      ],
+      "sancion": 0,
+      "escudo": "data/prebenjamin/escudos/108385.jpg"
+    },
+    {
+      "pos": 4,
+      "equipo": "SAN PEDRO ATº D.C.S.P.",
+      "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=1345938&codgrupo=23730503",
+      "codequipo": "1345938",
+      "pts": 3,
+      "pj": 2,
+      "pg": 1,
+      "pe": 0,
+      "pp": 1,
+      "gf": 6,
+      "gc": 5,
+      "casa": {
+        "pj": 1,
+        "pg": 0,
+        "pe": 0,
+        "pp": 1
+      },
+      "fuera": {
+        "pj": 1,
+        "pg": 1,
+        "pe": 0,
+        "pp": 0
+      },
+      "dg": 1,
+      "forma": [
+        "P",
+        "G"
+      ],
+      "sancion": 0,
+      "escudo": "data/prebenjamin/escudos/1345938.jpg"
+    },
+    {
+      "pos": 5,
+      "equipo": "LA UNIÓN",
+      "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=738950&codgrupo=23730503",
+      "codequipo": "738950",
+      "pts": 3,
+      "pj": 1,
+      "pg": 1,
+      "pe": 0,
+      "pp": 0,
+      "gf": 3,
       "gc": 2,
       "casa": {
         "pj": 0,
         "pg": 0,
         "pe": 0,
+        "pp": 0
+      },
+      "fuera": {
+        "pj": 1,
+        "pg": 1,
+        "pe": 0,
+        "pp": 0
+      },
+      "dg": 1,
+      "forma": [
+        "G"
+      ],
+      "sancion": 0,
+      "escudo": "data/prebenjamin/escudos/738950.png"
+    },
+    {
+      "pos": 6,
+      "equipo": "CIDE C.F. \"B\"",
+      "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=6109536&codgrupo=23730503",
+      "codequipo": "6109536",
+      "pts": 2,
+      "pj": 2,
+      "pg": 0,
+      "pe": 2,
+      "pp": 0,
+      "gf": 3,
+      "gc": 3,
+      "casa": {
+        "pj": 1,
+        "pg": 0,
+        "pe": 1,
         "pp": 0
       },
       "fuera": {
@@ -127,23 +193,24 @@
       },
       "dg": 0,
       "forma": [
+        "E",
         "E"
       ],
       "sancion": 0,
       "escudo": "data/prebenjamin/escudos/6109536.jpg"
     },
     {
-      "pos": 5,
-      "equipo": "MADRE ALBERTA ATº D.M.A.",
-      "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=4482416&codgrupo=23730503",
-      "codequipo": "4482416",
+      "pos": 7,
+      "equipo": "RTVº S'INDIOTERIA D.R.L.V.",
+      "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=3156762&codgrupo=23730503",
+      "codequipo": "3156762",
       "pts": 1,
-      "pj": 1,
+      "pj": 2,
       "pg": 0,
       "pe": 1,
-      "pp": 0,
-      "gf": 2,
-      "gc": 2,
+      "pp": 1,
+      "gf": 3,
+      "gc": 5,
       "casa": {
         "pj": 1,
         "pg": 0,
@@ -151,76 +218,53 @@
         "pp": 0
       },
       "fuera": {
-        "pj": 0,
+        "pj": 1,
         "pg": 0,
         "pe": 0,
+        "pp": 1
+      },
+      "dg": -2,
+      "forma": [
+        "P",
+        "E"
+      ],
+      "sancion": 0,
+      "escudo": "data/prebenjamin/escudos/3156762.jpg"
+    },
+    {
+      "pos": 8,
+      "equipo": "MADRE ALBERTA ATº D.M.A.",
+      "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=4482416&codgrupo=23730503",
+      "codequipo": "4482416",
+      "pts": 1,
+      "pj": 2,
+      "pg": 0,
+      "pe": 1,
+      "pp": 1,
+      "gf": 2,
+      "gc": 9,
+      "casa": {
+        "pj": 1,
+        "pg": 0,
+        "pe": 1,
         "pp": 0
       },
-      "dg": 0,
+      "fuera": {
+        "pj": 1,
+        "pg": 0,
+        "pe": 0,
+        "pp": 1
+      },
+      "dg": -7,
       "forma": [
-        "E"
+        "E",
+        "P"
       ],
       "sancion": 0,
       "escudo": "data/prebenjamin/escudos/4482416.jpg"
     },
     {
-      "pos": 6,
-      "equipo": "A.C.SON CLADERA ATº DEL S.C",
-      "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=23401357&codgrupo=23730503",
-      "codequipo": "23401357",
-      "pts": 0,
-      "pj": 0,
-      "pg": 0,
-      "pe": 0,
-      "pp": 0,
-      "gf": 0,
-      "gc": 0,
-      "casa": {
-        "pj": 0,
-        "pg": 0,
-        "pe": 0,
-        "pp": 0
-      },
-      "fuera": {
-        "pj": 0,
-        "pg": 0,
-        "pe": 0,
-        "pp": 0
-      },
-      "dg": 0,
-      "sancion": 0,
-      "escudo": "data/prebenjamin/escudos/23401357.jpg"
-    },
-    {
-      "pos": 7,
-      "equipo": "ÀGORA PORTALS",
-      "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=23377229&codgrupo=23730503",
-      "codequipo": "23377229",
-      "pts": 0,
-      "pj": 0,
-      "pg": 0,
-      "pe": 0,
-      "pp": 0,
-      "gf": 0,
-      "gc": 0,
-      "casa": {
-        "pj": 0,
-        "pg": 0,
-        "pe": 0,
-        "pp": 0
-      },
-      "fuera": {
-        "pj": 0,
-        "pg": 0,
-        "pe": 0,
-        "pp": 0
-      },
-      "dg": 0,
-      "sancion": 0,
-      "escudo": "data/prebenjamin/escudos/23377229.jpg"
-    },
-    {
-      "pos": 8,
+      "pos": 9,
       "equipo": "C.A. DE PAGUERA",
       "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=6115974&codgrupo=23730503",
       "codequipo": "6115974",
@@ -246,34 +290,6 @@
       "dg": 0,
       "sancion": 0,
       "escudo": "data/prebenjamin/escudos/6115974.png"
-    },
-    {
-      "pos": 9,
-      "equipo": "LA UNIÓN",
-      "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=738950&codgrupo=23730503",
-      "codequipo": "738950",
-      "pts": 0,
-      "pj": 0,
-      "pg": 0,
-      "pe": 0,
-      "pp": 0,
-      "gf": 0,
-      "gc": 0,
-      "casa": {
-        "pj": 0,
-        "pg": 0,
-        "pe": 0,
-        "pp": 0
-      },
-      "fuera": {
-        "pj": 0,
-        "pg": 0,
-        "pe": 0,
-        "pp": 0
-      },
-      "dg": 0,
-      "sancion": 0,
-      "escudo": "data/prebenjamin/escudos/738950.png"
     },
     {
       "pos": 10,
@@ -305,46 +321,46 @@
     },
     {
       "pos": 11,
-      "equipo": "RTVº S'INDIOTERIA D.R.L.V.",
-      "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=3156762&codgrupo=23730503",
-      "codequipo": "3156762",
+      "equipo": "A.C.SON CLADERA ATº DEL S.C",
+      "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=23401357&codgrupo=23730503",
+      "codequipo": "23401357",
       "pts": 0,
       "pj": 1,
       "pg": 0,
       "pe": 0,
       "pp": 1,
       "gf": 2,
-      "gc": 4,
+      "gc": 3,
       "casa": {
-        "pj": 0,
-        "pg": 0,
-        "pe": 0,
-        "pp": 0
-      },
-      "fuera": {
         "pj": 1,
         "pg": 0,
         "pe": 0,
         "pp": 1
       },
-      "dg": -2,
+      "fuera": {
+        "pj": 0,
+        "pg": 0,
+        "pe": 0,
+        "pp": 0
+      },
+      "dg": -1,
       "forma": [
         "P"
       ],
       "sancion": 0,
-      "escudo": "data/prebenjamin/escudos/3156762.jpg"
+      "escudo": "data/prebenjamin/escudos/23401357.jpg"
     },
     {
       "pos": 12,
-      "equipo": "SAN PEDRO ATº D.C.S.P.",
-      "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=1345938&codgrupo=23730503",
-      "codequipo": "1345938",
+      "equipo": "ÀGORA PORTALS",
+      "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=23377229&codgrupo=23730503",
+      "codequipo": "23377229",
       "pts": 0,
       "pj": 1,
       "pg": 0,
       "pe": 0,
       "pp": 1,
-      "gf": 2,
+      "gf": 1,
       "gc": 4,
       "casa": {
         "pj": 1,
@@ -358,12 +374,12 @@
         "pe": 0,
         "pp": 0
       },
-      "dg": -2,
+      "dg": -3,
       "forma": [
         "P"
       ],
       "sancion": 0,
-      "escudo": "data/prebenjamin/escudos/1345938.jpg"
+      "escudo": "data/prebenjamin/escudos/23377229.jpg"
     },
     {
       "pos": 13,
@@ -399,53 +415,55 @@
   ],
   "resultados": [
     {
-      "local": "LA UNIÓN",
-      "visitante": "SANTA PONSA CF",
-      "cod_local": "738950",
-      "cod_visitante": "1584680"
+      "local": "SANTA PONSA CF",
+      "visitante": "Descansa",
+      "cod_local": "1584680"
     },
     {
-      "local": "C.A. DE PAGUERA",
-      "visitante": "A.C.SON CLADERA ATº DEL S.C",
-      "cod_local": "6115974",
-      "cod_visitante": "23401357"
+      "local": "A.C.SON CLADERA ATº DEL S.C",
+      "visitante": "LA UNIÓN",
+      "goles_local": 2,
+      "goles_visitante": 3,
+      "cod_local": "23401357",
+      "cod_visitante": "738950"
     },
     {
-      "local": "C.F. SON CALIU",
-      "visitante": "JOVENTUT MALLORCA",
-      "goles_local": 10,
+      "local": "JOVENTUT MALLORCA",
+      "visitante": "C.A. DE PAGUERA",
+      "cod_local": "6101142",
+      "cod_visitante": "6115974"
+    },
+    {
+      "local": "RTVº S'INDIOTERIA D.R.L.V.",
+      "visitante": "C.F. SON CALIU",
+      "goles_local": 1,
+      "goles_visitante": 1,
+      "cod_local": "3156762",
+      "cod_visitante": "354950"
+    },
+    {
+      "local": "CIDE C.F. \"B\"",
+      "visitante": "RTVº RAFAL DEL AT.R.",
+      "goles_local": 1,
+      "goles_visitante": 1,
+      "cod_local": "6109536",
+      "cod_visitante": "108385"
+    },
+    {
+      "local": "SP. ATº CIUTAT DE PALMA",
+      "visitante": "MADRE ALBERTA ATº D.M.A.",
+      "goles_local": 7,
       "goles_visitante": 0,
-      "cod_local": "354950",
-      "cod_visitante": "6101142"
+      "cod_local": "2487235",
+      "cod_visitante": "4482416"
     },
     {
-      "local": "RTVº RAFAL DEL AT.R.",
-      "visitante": "RTVº S'INDIOTERIA D.R.L.V.",
-      "goles_local": 4,
-      "goles_visitante": 2,
-      "cod_local": "108385",
-      "cod_visitante": "3156762"
-    },
-    {
-      "local": "MADRE ALBERTA ATº D.M.A.",
-      "visitante": "CIDE C.F. \"B\"",
-      "goles_local": 2,
-      "goles_visitante": 2,
-      "cod_local": "4482416",
-      "cod_visitante": "6109536"
-    },
-    {
-      "local": "SAN PEDRO ATº D.C.S.P.",
-      "visitante": "SP. ATº CIUTAT DE PALMA",
-      "goles_local": 2,
+      "local": "ÀGORA PORTALS",
+      "visitante": "SAN PEDRO ATº D.C.S.P.",
+      "goles_local": 1,
       "goles_visitante": 4,
-      "cod_local": "1345938",
-      "cod_visitante": "2487235"
-    },
-    {
-      "local": "Descansa",
-      "visitante": "ÀGORA PORTALS",
-      "cod_visitante": "23377229"
+      "cod_local": "23377229",
+      "cod_visitante": "1345938"
     }
   ]
 }
