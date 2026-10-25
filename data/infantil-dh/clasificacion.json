@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-10-25T16:54:20+00:00",
+  "actualizado": "2026-10-25T23:25:11+00:00",
   "fuente": "https://www.ffib.es/Fed/NPcd/NFG_VisClasificacion?cod_primaria=1000110&codcompeticion=23348419&codgrupo=23460647&codjornada=5",
   "competicion": "INFANTIL DIVISIÓN DE HONOR MALLORCA",
   "grupo": "LIGA",
@@ -115,21 +115,55 @@
     },
     {
       "pos": 4,
-      "equipo": "PENYA ARRABAL \"A\"",
-      "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=104291&codgrupo=23460647",
-      "codequipo": "104291",
+      "equipo": "FERRIOLENSE \"A\"",
+      "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=104073&codgrupo=23460647",
+      "codequipo": "104073",
       "pts": 10,
       "pj": 4,
       "pg": 3,
       "pe": 1,
       "pp": 0,
-      "gf": 8,
-      "gc": 4,
+      "gf": 11,
+      "gc": 5,
       "casa": {
-        "pj": 2,
+        "pj": 1,
         "pg": 1,
+        "pe": 0,
+        "pp": 0
+      },
+      "fuera": {
+        "pj": 3,
+        "pg": 2,
         "pe": 1,
         "pp": 0
+      },
+      "dg": 6,
+      "forma": [
+        "G",
+        "G",
+        "E",
+        "G"
+      ],
+      "sancion": 0,
+      "escudo": "data/infantil-dh/escudos/104073.jpg"
+    },
+    {
+      "pos": 5,
+      "equipo": "PENYA ARRABAL \"A\"",
+      "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=104291&codgrupo=23460647",
+      "codequipo": "104291",
+      "pts": 10,
+      "pj": 5,
+      "pg": 3,
+      "pe": 1,
+      "pp": 1,
+      "gf": 8,
+      "gc": 5,
+      "casa": {
+        "pj": 3,
+        "pg": 1,
+        "pe": 1,
+        "pp": 1
       },
       "fuera": {
         "pj": 2,
@@ -137,18 +171,19 @@
         "pe": 0,
         "pp": 0
       },
-      "dg": 4,
+      "dg": 3,
       "forma": [
         "E",
         "G",
         "G",
-        "G"
+        "G",
+        "P"
       ],
       "sancion": 0,
       "escudo": "data/infantil-dh/escudos/104291.png"
     },
     {
-      "pos": 5,
+      "pos": 6,
       "equipo": "SP. CIUTAT DE PALMA \"A\"",
       "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=202607&codgrupo=23460647",
       "codequipo": "202607",
@@ -183,39 +218,6 @@
       "escudo": "data/infantil-dh/escudos/202607.jpg"
     },
     {
-      "pos": 6,
-      "equipo": "FERRIOLENSE \"A\"",
-      "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=104073&codgrupo=23460647",
-      "codequipo": "104073",
-      "pts": 7,
-      "pj": 3,
-      "pg": 2,
-      "pe": 1,
-      "pp": 0,
-      "gf": 10,
-      "gc": 5,
-      "casa": {
-        "pj": 1,
-        "pg": 1,
-        "pe": 0,
-        "pp": 0
-      },
-      "fuera": {
-        "pj": 2,
-        "pg": 1,
-        "pe": 1,
-        "pp": 0
-      },
-      "dg": 5,
-      "forma": [
-        "G",
-        "G",
-        "E"
-      ],
-      "sancion": 0,
-      "escudo": "data/infantil-dh/escudos/104073.jpg"
-    },
-    {
       "pos": 7,
       "equipo": "MADRE ALBERTA",
       "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=250738&codgrupo=23460647",
@@ -225,8 +227,8 @@
       "pg": 2,
       "pe": 0,
       "pp": 3,
-      "gf": 11,
-      "gc": 12,
+      "gf": 13,
+      "gc": 14,
       "casa": {
         "pj": 3,
         "pg": 1,
@@ -434,8 +436,8 @@
       "pg": 0,
       "pe": 1,
       "pp": 4,
-      "gf": 2,
-      "gc": 18,
+      "gf": 4,
+      "gc": 20,
       "casa": {
         "pj": 2,
         "pg": 0,
@@ -499,6 +501,8 @@
     {
       "local": "MADRE ALBERTA",
       "visitante": "PALMA F.C. \"A\"",
+      "goles_local": 4,
+      "goles_visitante": 3,
       "cod_local": "250738",
       "cod_visitante": "738873"
     },
@@ -537,6 +541,8 @@
     {
       "local": "PENYA ARRABAL \"A\"",
       "visitante": "FERRIOLENSE \"A\"",
+      "goles_local": 0,
+      "goles_visitante": 1,
       "cod_local": "104291",
       "cod_visitante": "104073"
     },

@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-10-25T16:53:54+00:00",
+  "actualizado": "2026-10-25T23:24:49+00:00",
   "fuente": "https://www.ffib.es/Fed/NPcd/NFG_VisClasificacion?cod_primaria=1000110&codcompeticion=23348373&codgrupo=23348374&codjornada=8",
   "competicion": "LIGA NACIONAL JUVENIL",
   "grupo": "LIGA",
@@ -80,41 +80,6 @@
     },
     {
       "pos": 3,
-      "equipo": "SP. ATº CIUTAT DE PALMA \"A\"",
-      "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=202615&codgrupo=23348374",
-      "codequipo": "202615",
-      "pts": 15,
-      "pj": 8,
-      "pg": 4,
-      "pe": 3,
-      "pp": 1,
-      "gf": 14,
-      "gc": 8,
-      "casa": {
-        "pj": 4,
-        "pg": 1,
-        "pe": 2,
-        "pp": 1
-      },
-      "fuera": {
-        "pj": 4,
-        "pg": 3,
-        "pe": 1,
-        "pp": 0
-      },
-      "dg": 6,
-      "forma": [
-        "E",
-        "P",
-        "G",
-        "E",
-        "G"
-      ],
-      "sancion": 0,
-      "escudo": "data/escudos/202615.png"
-    },
-    {
-      "pos": 4,
       "equipo": "POBLENSE \"A\"",
       "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=102093&codgrupo=23348374",
       "codequipo": "102093",
@@ -147,6 +112,41 @@
       ],
       "sancion": 0,
       "escudo": "data/escudos/102093.jpg"
+    },
+    {
+      "pos": 4,
+      "equipo": "SP. ATº CIUTAT DE PALMA \"A\"",
+      "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=202615&codgrupo=23348374",
+      "codequipo": "202615",
+      "pts": 15,
+      "pj": 8,
+      "pg": 4,
+      "pe": 3,
+      "pp": 1,
+      "gf": 14,
+      "gc": 9,
+      "casa": {
+        "pj": 4,
+        "pg": 1,
+        "pe": 2,
+        "pp": 1
+      },
+      "fuera": {
+        "pj": 4,
+        "pg": 3,
+        "pe": 1,
+        "pp": 0
+      },
+      "dg": 5,
+      "forma": [
+        "E",
+        "P",
+        "G",
+        "E",
+        "G"
+      ],
+      "sancion": 0,
+      "escudo": "data/escudos/202615.png"
     },
     {
       "pos": 5,
@@ -473,7 +473,7 @@
       "pg": 3,
       "pe": 0,
       "pp": 5,
-      "gf": 10,
+      "gf": 11,
       "gc": 19,
       "casa": {
         "pj": 4,
@@ -487,7 +487,7 @@
         "pe": 0,
         "pp": 1
       },
-      "dg": -9,
+      "dg": -8,
       "forma": [
         "P",
         "P",
@@ -643,6 +643,8 @@
     {
       "local": "ARTA \"A\"",
       "visitante": "SP. ATº CIUTAT DE PALMA \"A\"",
+      "goles_local": 1,
+      "goles_visitante": 2,
       "cod_local": "102348",
       "cod_visitante": "202615"
     },
@@ -705,6 +707,8 @@
     {
       "local": "PALMA F.C. \"A\"",
       "visitante": "ATº BALEARES \"A\"",
+      "goles_local": 0,
+      "goles_visitante": 0,
       "cod_local": "1878537",
       "cod_visitante": "102322"
     }
