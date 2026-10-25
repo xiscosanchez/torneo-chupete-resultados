@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-10-24T23:35:19+00:00",
+  "actualizado": "2026-10-25T16:53:54+00:00",
   "fuente": "https://www.ffib.es/Fed/NPcd/NFG_VisClasificacion?cod_primaria=1000110&codcompeticion=23348373&codgrupo=23348374&codjornada=8",
   "competicion": "LIGA NACIONAL JUVENIL",
   "grupo": "LIGA",
@@ -13,10 +13,10 @@
       "equipo": "ATº BALEARES \"A\"",
       "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=102322&codgrupo=23348374",
       "codequipo": "102322",
-      "pts": 19,
-      "pj": 7,
+      "pts": 20,
+      "pj": 8,
       "pg": 6,
-      "pe": 1,
+      "pe": 2,
       "pp": 0,
       "gf": 13,
       "gc": 2,
@@ -27,9 +27,9 @@
         "pp": 0
       },
       "fuera": {
-        "pj": 3,
+        "pj": 4,
         "pg": 3,
-        "pe": 0,
+        "pe": 1,
         "pp": 0
       },
       "dg": 11,
@@ -37,7 +37,7 @@
         "G",
         "G",
         "G",
-        "G",
+        "E",
         "E"
       ],
       "sancion": 0,
@@ -80,6 +80,41 @@
     },
     {
       "pos": 3,
+      "equipo": "SP. ATº CIUTAT DE PALMA \"A\"",
+      "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=202615&codgrupo=23348374",
+      "codequipo": "202615",
+      "pts": 15,
+      "pj": 8,
+      "pg": 4,
+      "pe": 3,
+      "pp": 1,
+      "gf": 14,
+      "gc": 8,
+      "casa": {
+        "pj": 4,
+        "pg": 1,
+        "pe": 2,
+        "pp": 1
+      },
+      "fuera": {
+        "pj": 4,
+        "pg": 3,
+        "pe": 1,
+        "pp": 0
+      },
+      "dg": 6,
+      "forma": [
+        "E",
+        "P",
+        "G",
+        "E",
+        "G"
+      ],
+      "sancion": 0,
+      "escudo": "data/escudos/202615.png"
+    },
+    {
+      "pos": 4,
       "equipo": "POBLENSE \"A\"",
       "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=102093&codgrupo=23348374",
       "codequipo": "102093",
@@ -114,7 +149,42 @@
       "escudo": "data/escudos/102093.jpg"
     },
     {
-      "pos": 4,
+      "pos": 5,
+      "equipo": "PALMA F.C. \"A\"",
+      "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=1878537&codgrupo=23348374",
+      "codequipo": "1878537",
+      "pts": 15,
+      "pj": 8,
+      "pg": 4,
+      "pe": 3,
+      "pp": 1,
+      "gf": 9,
+      "gc": 4,
+      "casa": {
+        "pj": 4,
+        "pg": 3,
+        "pe": 1,
+        "pp": 0
+      },
+      "fuera": {
+        "pj": 4,
+        "pg": 1,
+        "pe": 2,
+        "pp": 1
+      },
+      "dg": 5,
+      "forma": [
+        "G",
+        "G",
+        "E",
+        "E",
+        "E"
+      ],
+      "sancion": 0,
+      "escudo": "data/escudos/1878537.jpg"
+    },
+    {
+      "pos": 6,
       "equipo": "R C D MALLORCA SAD \"B\"",
       "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=102099&codgrupo=23348374",
       "codequipo": "102099",
@@ -149,42 +219,7 @@
       "escudo": "data/escudos/102099.png"
     },
     {
-      "pos": 5,
-      "equipo": "PALMA F.C. \"A\"",
-      "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=1878537&codgrupo=23348374",
-      "codequipo": "1878537",
-      "pts": 14,
-      "pj": 7,
-      "pg": 4,
-      "pe": 2,
-      "pp": 1,
-      "gf": 9,
-      "gc": 4,
-      "casa": {
-        "pj": 3,
-        "pg": 3,
-        "pe": 0,
-        "pp": 0
-      },
-      "fuera": {
-        "pj": 4,
-        "pg": 1,
-        "pe": 2,
-        "pp": 1
-      },
-      "dg": 5,
-      "forma": [
-        "G",
-        "G",
-        "G",
-        "E",
-        "E"
-      ],
-      "sancion": 0,
-      "escudo": "data/escudos/1878537.jpg"
-    },
-    {
-      "pos": 6,
+      "pos": 7,
       "equipo": "MANACOR",
       "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=102089&codgrupo=23348374",
       "codequipo": "102089",
@@ -219,7 +254,7 @@
       "escudo": "data/escudos/102089.jpg"
     },
     {
-      "pos": 7,
+      "pos": 8,
       "equipo": "RTVº PENYA ARRABAL",
       "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=250822&codgrupo=23348374",
       "codequipo": "250822",
@@ -254,56 +289,21 @@
       "escudo": "data/escudos/250822.jpg"
     },
     {
-      "pos": 8,
-      "equipo": "SP. ATº CIUTAT DE PALMA \"A\"",
-      "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=202615&codgrupo=23348374",
-      "codequipo": "202615",
-      "pts": 12,
-      "pj": 7,
-      "pg": 3,
-      "pe": 3,
-      "pp": 1,
-      "gf": 12,
-      "gc": 8,
-      "casa": {
-        "pj": 4,
-        "pg": 1,
-        "pe": 2,
-        "pp": 1
-      },
-      "fuera": {
-        "pj": 3,
-        "pg": 2,
-        "pe": 1,
-        "pp": 0
-      },
-      "dg": 4,
-      "forma": [
-        "G",
-        "E",
-        "P",
-        "G",
-        "E"
-      ],
-      "sancion": 0,
-      "escudo": "data/escudos/202615.png"
-    },
-    {
       "pos": 9,
       "equipo": "U D IBIZA \"A\"",
       "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=5237858&codgrupo=23348374",
       "codequipo": "5237858",
-      "pts": 11,
-      "pj": 7,
+      "pts": 12,
+      "pj": 8,
       "pg": 3,
-      "pe": 2,
+      "pe": 3,
       "pp": 2,
-      "gf": 16,
-      "gc": 13,
+      "gf": 17,
+      "gc": 14,
       "casa": {
-        "pj": 3,
+        "pj": 4,
         "pg": 2,
-        "pe": 1,
+        "pe": 2,
         "pp": 0
       },
       "fuera": {
@@ -314,10 +314,10 @@
       },
       "dg": 3,
       "forma": [
-        "P",
         "E",
         "G",
         "G",
+        "E",
         "E"
       ],
       "sancion": 0,
@@ -469,17 +469,17 @@
       "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=102348&codgrupo=23348374",
       "codequipo": "102348",
       "pts": 9,
-      "pj": 7,
+      "pj": 8,
       "pg": 3,
       "pe": 0,
-      "pp": 4,
+      "pp": 5,
       "gf": 10,
-      "gc": 17,
+      "gc": 19,
       "casa": {
-        "pj": 3,
+        "pj": 4,
         "pg": 0,
         "pe": 0,
-        "pp": 3
+        "pp": 4
       },
       "fuera": {
         "pj": 4,
@@ -487,13 +487,13 @@
         "pe": 0,
         "pp": 1
       },
-      "dg": -7,
+      "dg": -9,
       "forma": [
+        "P",
+        "P",
+        "P",
         "G",
-        "P",
-        "P",
-        "P",
-        "G"
+        "P"
       ],
       "sancion": 0,
       "escudo": "data/escudos/102348.jpg"
@@ -503,13 +503,13 @@
       "equipo": "CONSTANCIA \"A\"",
       "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=738881&codgrupo=23348374",
       "codequipo": "738881",
-      "pts": 7,
-      "pj": 7,
+      "pts": 8,
+      "pj": 8,
       "pg": 2,
-      "pe": 1,
+      "pe": 2,
       "pp": 4,
-      "gf": 14,
-      "gc": 11,
+      "gf": 15,
+      "gc": 12,
       "casa": {
         "pj": 4,
         "pg": 2,
@@ -517,18 +517,18 @@
         "pp": 2
       },
       "fuera": {
-        "pj": 3,
+        "pj": 4,
         "pg": 0,
-        "pe": 1,
+        "pe": 2,
         "pp": 2
       },
       "dg": 3,
       "forma": [
-        "G",
         "P",
         "G",
         "P",
-        "P"
+        "P",
+        "E"
       ],
       "sancion": 0,
       "escudo": "data/escudos/738881.png"
@@ -665,6 +665,8 @@
     {
       "local": "U D IBIZA \"A\"",
       "visitante": "CONSTANCIA \"A\"",
+      "goles_local": 1,
+      "goles_visitante": 1,
       "cod_local": "5237858",
       "cod_visitante": "738881"
     },
