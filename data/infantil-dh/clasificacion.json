@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-10-26T15:00:50+00:00",
+  "actualizado": "2026-11-01T00:22:38+00:00",
   "fuente": "https://www.ffib.es/Fed/NPcd/NFG_VisClasificacion?cod_primaria=1000110&codcompeticion=23348419&codgrupo=23460647&codjornada=5",
   "competicion": "INFANTIL DIVISIÓN DE HONOR MALLORCA",
   "grupo": "LIGA",
@@ -80,6 +80,41 @@
     },
     {
       "pos": 3,
+      "equipo": "FERRIOLENSE \"A\"",
+      "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=104073&codgrupo=23460647",
+      "codequipo": "104073",
+      "pts": 13,
+      "pj": 5,
+      "pg": 4,
+      "pe": 1,
+      "pp": 0,
+      "gf": 12,
+      "gc": 5,
+      "casa": {
+        "pj": 2,
+        "pg": 2,
+        "pe": 0,
+        "pp": 0
+      },
+      "fuera": {
+        "pj": 3,
+        "pg": 2,
+        "pe": 1,
+        "pp": 0
+      },
+      "dg": 7,
+      "forma": [
+        "G",
+        "G",
+        "E",
+        "G",
+        "G"
+      ],
+      "sancion": 0,
+      "escudo": "data/infantil-dh/escudos/104073.jpg"
+    },
+    {
+      "pos": 4,
       "equipo": "S D LA SALLE ATº \"A\"",
       "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=104155&codgrupo=23460647",
       "codequipo": "104155",
@@ -112,40 +147,6 @@
       ],
       "sancion": 0,
       "escudo": "data/infantil-dh/escudos/104155.png"
-    },
-    {
-      "pos": 4,
-      "equipo": "FERRIOLENSE \"A\"",
-      "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=104073&codgrupo=23460647",
-      "codequipo": "104073",
-      "pts": 10,
-      "pj": 4,
-      "pg": 3,
-      "pe": 1,
-      "pp": 0,
-      "gf": 11,
-      "gc": 5,
-      "casa": {
-        "pj": 1,
-        "pg": 1,
-        "pe": 0,
-        "pp": 0
-      },
-      "fuera": {
-        "pj": 3,
-        "pg": 2,
-        "pe": 1,
-        "pp": 0
-      },
-      "dg": 6,
-      "forma": [
-        "G",
-        "G",
-        "E",
-        "G"
-      ],
-      "sancion": 0,
-      "escudo": "data/infantil-dh/escudos/104073.jpg"
     },
     {
       "pos": 5,
@@ -293,12 +294,12 @@
       "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=104009&codgrupo=23460647",
       "codequipo": "104009",
       "pts": 4,
-      "pj": 4,
+      "pj": 5,
       "pg": 1,
       "pe": 1,
-      "pp": 2,
+      "pp": 3,
       "gf": 7,
-      "gc": 6,
+      "gc": 7,
       "casa": {
         "pj": 2,
         "pg": 1,
@@ -306,16 +307,17 @@
         "pp": 1
       },
       "fuera": {
-        "pj": 2,
+        "pj": 3,
         "pg": 0,
         "pe": 1,
-        "pp": 1
+        "pp": 2
       },
-      "dg": 1,
+      "dg": 0,
       "forma": [
         "P",
         "P",
         "G",
+        "P",
         "E"
       ],
       "sancion": 0,
