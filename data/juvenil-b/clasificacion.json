@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-11-01T18:11:12+00:00",
+  "actualizado": "2026-11-02T00:57:19+00:00",
   "fuente": "https://www.ffib.es/Fed/NPcd/NFG_VisClasificacion?cod_primaria=1000110&codcompeticion=23348375&codgrupo=23348376&codjornada=7",
   "competicion": "JUVENIL PREFERENTE MALLORCA",
   "grupo": "GRUPO A",
@@ -118,16 +118,16 @@
       "equipo": "SD LA SALLE \"B\"",
       "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=102216&codgrupo=23348376",
       "codequipo": "102216",
-      "pts": 12,
-      "pj": 6,
-      "pg": 4,
+      "pts": 15,
+      "pj": 7,
+      "pg": 5,
       "pe": 0,
       "pp": 2,
-      "gf": 22,
+      "gf": 26,
       "gc": 11,
       "casa": {
-        "pj": 3,
-        "pg": 3,
+        "pj": 4,
+        "pg": 4,
         "pe": 0,
         "pp": 0
       },
@@ -137,11 +137,11 @@
         "pe": 0,
         "pp": 2
       },
-      "dg": 11,
+      "dg": 15,
       "forma": [
-        "P",
         "G",
         "P",
+        "G",
         "G",
         "G"
       ],
@@ -154,12 +154,12 @@
       "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=7017755&codgrupo=23348376",
       "codequipo": "7017755",
       "pts": 11,
-      "pj": 6,
+      "pj": 7,
       "pg": 3,
       "pe": 2,
-      "pp": 1,
+      "pp": 2,
       "gf": 15,
-      "gc": 10,
+      "gc": 14,
       "casa": {
         "pj": 3,
         "pg": 1,
@@ -167,18 +167,18 @@
         "pp": 1
       },
       "fuera": {
-        "pj": 3,
+        "pj": 4,
         "pg": 2,
         "pe": 1,
-        "pp": 0
+        "pp": 1
       },
-      "dg": 5,
+      "dg": 1,
       "forma": [
-        "E",
         "G",
         "P",
         "E",
-        "G"
+        "G",
+        "P"
       ],
       "sancion": 0,
       "escudo": "data/juvenil-b/escudos/7017755.jpg"
@@ -605,6 +605,8 @@
     {
       "local": "SD LA SALLE \"B\"",
       "visitante": "PALMA F.C. \"B\"",
+      "goles_local": 4,
+      "goles_visitante": 0,
       "cod_local": "102216",
       "cod_visitante": "7017755"
     },
