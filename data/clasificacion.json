@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-11-08T00:52:53+00:00",
+  "actualizado": "2026-11-08T18:08:38+00:00",
   "fuente": "https://www.ffib.es/Fed/NPcd/NFG_VisClasificacion?cod_primaria=1000110&codcompeticion=23348373&codgrupo=23348374&codjornada=10",
   "competicion": "LIGA NACIONAL JUVENIL",
   "grupo": "LIGA",
@@ -13,16 +13,16 @@
       "equipo": "ATº BALEARES \"A\"",
       "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=102322&codgrupo=23348374",
       "codequipo": "102322",
-      "pts": 23,
-      "pj": 9,
-      "pg": 7,
+      "pts": 26,
+      "pj": 10,
+      "pg": 8,
       "pe": 2,
       "pp": 0,
-      "gf": 16,
+      "gf": 22,
       "gc": 4,
       "casa": {
-        "pj": 4,
-        "pg": 3,
+        "pj": 5,
+        "pg": 4,
         "pe": 1,
         "pp": 0
       },
@@ -32,12 +32,12 @@
         "pe": 1,
         "pp": 0
       },
-      "dg": 12,
+      "dg": 18,
       "forma": [
         "G",
+        "E",
+        "E",
         "G",
-        "E",
-        "E",
         "G"
       ],
       "sancion": 0,
@@ -150,6 +150,41 @@
     },
     {
       "pos": 5,
+      "equipo": "RTVº PENYA ARRABAL",
+      "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=250822&codgrupo=23348374",
+      "codequipo": "250822",
+      "pts": 17,
+      "pj": 10,
+      "pg": 5,
+      "pe": 2,
+      "pp": 3,
+      "gf": 16,
+      "gc": 12,
+      "casa": {
+        "pj": 5,
+        "pg": 3,
+        "pe": 1,
+        "pp": 1
+      },
+      "fuera": {
+        "pj": 5,
+        "pg": 2,
+        "pe": 1,
+        "pp": 2
+      },
+      "dg": 4,
+      "forma": [
+        "G",
+        "E",
+        "P",
+        "G",
+        "E"
+      ],
+      "sancion": 0,
+      "escudo": "data/escudos/250822.jpg"
+    },
+    {
+      "pos": 6,
       "equipo": "U D IBIZA \"A\"",
       "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=5237858&codgrupo=23348374",
       "codequipo": "5237858",
@@ -184,42 +219,42 @@
       "escudo": "data/escudos/5237858.png"
     },
     {
-      "pos": 6,
-      "equipo": "RTVº PENYA ARRABAL",
-      "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=250822&codgrupo=23348374",
-      "codequipo": "250822",
+      "pos": 7,
+      "equipo": "PALMA F.C. \"A\"",
+      "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=1878537&codgrupo=23348374",
+      "codequipo": "1878537",
       "pts": 16,
-      "pj": 9,
-      "pg": 5,
-      "pe": 1,
-      "pp": 3,
-      "gf": 15,
-      "gc": 11,
+      "pj": 10,
+      "pg": 4,
+      "pe": 4,
+      "pp": 2,
+      "gf": 11,
+      "gc": 7,
       "casa": {
         "pj": 5,
         "pg": 3,
-        "pe": 1,
-        "pp": 1
+        "pe": 2,
+        "pp": 0
       },
       "fuera": {
-        "pj": 4,
-        "pg": 2,
-        "pe": 0,
+        "pj": 5,
+        "pg": 1,
+        "pe": 2,
         "pp": 2
       },
       "dg": 4,
       "forma": [
-        "P",
-        "G",
+        "E",
+        "E",
         "E",
         "P",
-        "G"
+        "E"
       ],
       "sancion": 0,
-      "escudo": "data/escudos/250822.jpg"
+      "escudo": "data/escudos/1878537.jpg"
     },
     {
-      "pos": 7,
+      "pos": 8,
       "equipo": "SD LA SALLE \"A\"",
       "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=111456&codgrupo=23348374",
       "codequipo": "111456",
@@ -254,7 +289,7 @@
       "escudo": "data/escudos/111456.jpg"
     },
     {
-      "pos": 8,
+      "pos": 9,
       "equipo": "R C D MALLORCA SAD \"B\"",
       "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=102099&codgrupo=23348374",
       "codequipo": "102099",
@@ -287,41 +322,6 @@
       ],
       "sancion": 0,
       "escudo": "data/escudos/102099.png"
-    },
-    {
-      "pos": 9,
-      "equipo": "PALMA F.C. \"A\"",
-      "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=1878537&codgrupo=23348374",
-      "codequipo": "1878537",
-      "pts": 15,
-      "pj": 9,
-      "pg": 4,
-      "pe": 3,
-      "pp": 2,
-      "gf": 10,
-      "gc": 6,
-      "casa": {
-        "pj": 4,
-        "pg": 3,
-        "pe": 1,
-        "pp": 0
-      },
-      "fuera": {
-        "pj": 5,
-        "pg": 1,
-        "pe": 2,
-        "pp": 2
-      },
-      "dg": 4,
-      "forma": [
-        "G",
-        "E",
-        "E",
-        "E",
-        "P"
-      ],
-      "sancion": 0,
-      "escudo": "data/escudos/1878537.jpg"
     },
     {
       "pos": 10,
@@ -574,12 +574,12 @@
       "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=843912&codgrupo=23348374",
       "codequipo": "843912",
       "pts": 4,
-      "pj": 8,
+      "pj": 9,
       "pg": 1,
       "pe": 1,
-      "pp": 6,
+      "pp": 7,
       "gf": 11,
-      "gc": 24,
+      "gc": 30,
       "casa": {
         "pj": 4,
         "pg": 1,
@@ -587,18 +587,18 @@
         "pp": 3
       },
       "fuera": {
-        "pj": 4,
+        "pj": 5,
         "pg": 0,
         "pe": 1,
-        "pp": 3
+        "pp": 4
       },
-      "dg": -13,
+      "dg": -19,
       "forma": [
-        "E",
         "P",
         "P",
         "P",
-        "G"
+        "G",
+        "P"
       ],
       "sancion": 0,
       "escudo": "data/escudos/843912.jpg"
@@ -695,12 +695,16 @@
     {
       "local": "PALMA F.C. \"A\"",
       "visitante": "RTVº PENYA ARRABAL",
+      "goles_local": 1,
+      "goles_visitante": 1,
       "cod_local": "1878537",
       "cod_visitante": "250822"
     },
     {
       "local": "ATº BALEARES \"A\"",
       "visitante": "ANDRATX \"A\"",
+      "goles_local": 6,
+      "goles_visitante": 0,
       "cod_local": "102322",
       "cod_visitante": "843912"
     }

@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-11-08T00:53:07+00:00",
+  "actualizado": "2026-11-08T18:08:53+00:00",
   "fuente": "https://www.ffib.es/Fed/NPcd/NFG_VisClasificacion?cod_primaria=1000110&codcompeticion=23348375&codgrupo=23348376&codjornada=8",
   "competicion": "JUVENIL PREFERENTE MALLORCA",
   "grupo": "GRUPO A",
@@ -13,16 +13,16 @@
       "equipo": "JOVENTUT MALLORCA",
       "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=102698&codgrupo=23348376",
       "codequipo": "102698",
-      "pts": 18,
-      "pj": 7,
-      "pg": 6,
+      "pts": 21,
+      "pj": 8,
+      "pg": 7,
       "pe": 0,
       "pp": 1,
-      "gf": 23,
+      "gf": 27,
       "gc": 8,
       "casa": {
-        "pj": 3,
-        "pg": 3,
+        "pj": 4,
+        "pg": 4,
         "pe": 0,
         "pp": 0
       },
@@ -32,7 +32,7 @@
         "pe": 0,
         "pp": 1
       },
-      "dg": 15,
+      "dg": 19,
       "forma": [
         "G",
         "G",
@@ -49,12 +49,12 @@
       "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=102819&codgrupo=23348376",
       "codequipo": "102819",
       "pts": 17,
-      "pj": 7,
+      "pj": 8,
       "pg": 5,
       "pe": 2,
-      "pp": 0,
+      "pp": 1,
       "gf": 22,
-      "gc": 8,
+      "gc": 12,
       "casa": {
         "pj": 4,
         "pg": 3,
@@ -62,18 +62,18 @@
         "pp": 0
       },
       "fuera": {
-        "pj": 3,
+        "pj": 4,
         "pg": 2,
         "pe": 1,
-        "pp": 0
+        "pp": 1
       },
-      "dg": 14,
+      "dg": 10,
       "forma": [
+        "G",
+        "G",
+        "G",
         "E",
-        "G",
-        "G",
-        "G",
-        "E"
+        "P"
       ],
       "sancion": 0,
       "escudo": "data/juvenil-b/escudos/102819.jpg"
@@ -185,6 +185,41 @@
     },
     {
       "pos": 6,
+      "equipo": "CALVIA ATº DEL C. \"A\"",
+      "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=202488&codgrupo=23348376",
+      "codequipo": "202488",
+      "pts": 12,
+      "pj": 8,
+      "pg": 4,
+      "pe": 0,
+      "pp": 4,
+      "gf": 19,
+      "gc": 12,
+      "casa": {
+        "pj": 4,
+        "pg": 2,
+        "pe": 0,
+        "pp": 2
+      },
+      "fuera": {
+        "pj": 4,
+        "pg": 2,
+        "pe": 0,
+        "pp": 2
+      },
+      "dg": 7,
+      "forma": [
+        "G",
+        "G",
+        "P",
+        "P",
+        "G"
+      ],
+      "sancion": 0,
+      "escudo": "data/juvenil-b/escudos/202488.jpg"
+    },
+    {
+      "pos": 7,
       "equipo": "CAMPOS \"A\"",
       "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=102259&codgrupo=23348376",
       "codequipo": "102259",
@@ -219,7 +254,7 @@
       "escudo": "data/juvenil-b/escudos/102259.jpg"
     },
     {
-      "pos": 7,
+      "pos": 8,
       "equipo": "PALMA F.C. \"B\"",
       "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=7017755&codgrupo=23348376",
       "codequipo": "7017755",
@@ -254,7 +289,7 @@
       "escudo": "data/juvenil-b/escudos/7017755.jpg"
     },
     {
-      "pos": 8,
+      "pos": 9,
       "equipo": "PLA DE NA TESA \"A\"",
       "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=101733&codgrupo=23348376",
       "codequipo": "101733",
@@ -287,41 +322,6 @@
       ],
       "sancion": 0,
       "escudo": "data/juvenil-b/escudos/101733.jpg"
-    },
-    {
-      "pos": 9,
-      "equipo": "CALVIA ATº DEL C. \"A\"",
-      "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=202488&codgrupo=23348376",
-      "codequipo": "202488",
-      "pts": 9,
-      "pj": 7,
-      "pg": 3,
-      "pe": 0,
-      "pp": 4,
-      "gf": 15,
-      "gc": 12,
-      "casa": {
-        "pj": 3,
-        "pg": 1,
-        "pe": 0,
-        "pp": 2
-      },
-      "fuera": {
-        "pj": 4,
-        "pg": 2,
-        "pe": 0,
-        "pp": 2
-      },
-      "dg": 3,
-      "forma": [
-        "P",
-        "G",
-        "G",
-        "P",
-        "P"
-      ],
-      "sancion": 0,
-      "escudo": "data/juvenil-b/escudos/202488.jpg"
     },
     {
       "pos": 10,
@@ -539,12 +539,12 @@
       "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=102349&codgrupo=23348376",
       "codequipo": "102349",
       "pts": 1,
-      "pj": 6,
+      "pj": 7,
       "pg": 0,
       "pe": 1,
-      "pp": 5,
+      "pp": 6,
       "gf": 4,
-      "gc": 23,
+      "gc": 27,
       "casa": {
         "pj": 3,
         "pg": 0,
@@ -552,18 +552,18 @@
         "pp": 2
       },
       "fuera": {
-        "pj": 3,
+        "pj": 4,
         "pg": 0,
         "pe": 0,
-        "pp": 3
+        "pp": 4
       },
-      "dg": -19,
+      "dg": -23,
       "forma": [
         "P",
         "P",
         "P",
-        "P",
-        "E"
+        "E",
+        "P"
       ],
       "sancion": 0,
       "escudo": "data/juvenil-b/escudos/102349.png"
@@ -581,6 +581,8 @@
     {
       "local": "JOVENTUT MALLORCA",
       "visitante": "SANTA MONICA \"A\"",
+      "goles_local": 4,
+      "goles_visitante": 0,
       "cod_local": "102698",
       "cod_visitante": "102819"
     },
@@ -615,6 +617,8 @@
     {
       "local": "CALVIA ATº DEL C. \"A\"",
       "visitante": "SERVERENSE",
+      "goles_local": 4,
+      "goles_visitante": 0,
       "cod_local": "202488",
       "cod_visitante": "102349"
     },
