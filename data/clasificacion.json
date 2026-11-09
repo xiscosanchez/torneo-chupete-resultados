@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-11-08T18:08:38+00:00",
+  "actualizado": "2026-11-09T01:05:01+00:00",
   "fuente": "https://www.ffib.es/Fed/NPcd/NFG_VisClasificacion?cod_primaria=1000110&codcompeticion=23348373&codgrupo=23348374&codjornada=10",
   "competicion": "LIGA NACIONAL JUVENIL",
   "grupo": "LIGA",
@@ -220,6 +220,41 @@
     },
     {
       "pos": 7,
+      "equipo": "MANACOR",
+      "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=102089&codgrupo=23348374",
+      "codequipo": "102089",
+      "pts": 16,
+      "pj": 10,
+      "pg": 4,
+      "pe": 4,
+      "pp": 2,
+      "gf": 23,
+      "gc": 14,
+      "casa": {
+        "pj": 5,
+        "pg": 1,
+        "pe": 3,
+        "pp": 1
+      },
+      "fuera": {
+        "pj": 5,
+        "pg": 3,
+        "pe": 1,
+        "pp": 1
+      },
+      "dg": 9,
+      "forma": [
+        "E",
+        "E",
+        "P",
+        "P",
+        "G"
+      ],
+      "sancion": 0,
+      "escudo": "data/escudos/102089.jpg"
+    },
+    {
+      "pos": 8,
       "equipo": "PALMA F.C. \"A\"",
       "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=1878537&codgrupo=23348374",
       "codequipo": "1878537",
@@ -254,7 +289,7 @@
       "escudo": "data/escudos/1878537.jpg"
     },
     {
-      "pos": 8,
+      "pos": 9,
       "equipo": "SD LA SALLE \"A\"",
       "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=111456&codgrupo=23348374",
       "codequipo": "111456",
@@ -289,7 +324,7 @@
       "escudo": "data/escudos/111456.jpg"
     },
     {
-      "pos": 9,
+      "pos": 10,
       "equipo": "R C D MALLORCA SAD \"B\"",
       "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=102099&codgrupo=23348374",
       "codequipo": "102099",
@@ -324,7 +359,7 @@
       "escudo": "data/escudos/102099.png"
     },
     {
-      "pos": 10,
+      "pos": 11,
       "equipo": "PORTMANY \"A\"",
       "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=130742&codgrupo=23348374",
       "codequipo": "130742",
@@ -357,41 +392,6 @@
       ],
       "sancion": 0,
       "escudo": "data/escudos/130742.jpg"
-    },
-    {
-      "pos": 11,
-      "equipo": "MANACOR",
-      "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=102089&codgrupo=23348374",
-      "codequipo": "102089",
-      "pts": 13,
-      "pj": 9,
-      "pg": 3,
-      "pe": 4,
-      "pp": 2,
-      "gf": 20,
-      "gc": 14,
-      "casa": {
-        "pj": 5,
-        "pg": 1,
-        "pe": 3,
-        "pp": 1
-      },
-      "fuera": {
-        "pj": 4,
-        "pg": 2,
-        "pe": 1,
-        "pp": 1
-      },
-      "dg": 6,
-      "forma": [
-        "G",
-        "E",
-        "E",
-        "P",
-        "P"
-      ],
-      "sancion": 0,
-      "escudo": "data/escudos/102089.jpg"
     },
     {
       "pos": 12,
@@ -469,17 +469,17 @@
       "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=102430&codgrupo=23348374",
       "codequipo": "102430",
       "pts": 9,
-      "pj": 8,
+      "pj": 9,
       "pg": 3,
       "pe": 0,
-      "pp": 5,
+      "pp": 6,
       "gf": 7,
-      "gc": 12,
+      "gc": 15,
       "casa": {
-        "pj": 4,
+        "pj": 5,
         "pg": 3,
         "pe": 0,
-        "pp": 1
+        "pp": 2
       },
       "fuera": {
         "pj": 4,
@@ -487,12 +487,12 @@
         "pe": 0,
         "pp": 4
       },
-      "dg": -5,
+      "dg": -8,
       "forma": [
-        "G",
         "P",
         "P",
         "G",
+        "P",
         "P"
       ],
       "sancion": 0,
@@ -681,6 +681,8 @@
     {
       "local": "PLATGES DE CALVIA \"A\"",
       "visitante": "MANACOR",
+      "goles_local": 0,
+      "goles_visitante": 3,
       "cod_local": "102430",
       "cod_visitante": "102089"
     },

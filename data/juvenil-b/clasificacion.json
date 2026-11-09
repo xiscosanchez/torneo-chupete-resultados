@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-11-08T18:08:53+00:00",
+  "actualizado": "2026-11-09T01:05:17+00:00",
   "fuente": "https://www.ffib.es/Fed/NPcd/NFG_VisClasificacion?cod_primaria=1000110&codcompeticion=23348375&codgrupo=23348376&codjornada=8",
   "competicion": "JUVENIL PREFERENTE MALLORCA",
   "grupo": "GRUPO A",
@@ -45,6 +45,41 @@
     },
     {
       "pos": 2,
+      "equipo": "ALGAIDA \"A\"",
+      "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=202473&codgrupo=23348376",
+      "codequipo": "202473",
+      "pts": 19,
+      "pj": 8,
+      "pg": 6,
+      "pe": 1,
+      "pp": 1,
+      "gf": 26,
+      "gc": 13,
+      "casa": {
+        "pj": 4,
+        "pg": 3,
+        "pe": 1,
+        "pp": 0
+      },
+      "fuera": {
+        "pj": 4,
+        "pg": 3,
+        "pe": 0,
+        "pp": 1
+      },
+      "dg": 13,
+      "forma": [
+        "G",
+        "G",
+        "G",
+        "G",
+        "G"
+      ],
+      "sancion": 0,
+      "escudo": "data/juvenil-b/escudos/202473.jpg"
+    },
+    {
+      "pos": 3,
       "equipo": "SANTA MONICA \"A\"",
       "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=102819&codgrupo=23348376",
       "codequipo": "102819",
@@ -79,52 +114,17 @@
       "escudo": "data/juvenil-b/escudos/102819.jpg"
     },
     {
-      "pos": 3,
-      "equipo": "ALGAIDA \"A\"",
-      "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=202473&codgrupo=23348376",
-      "codequipo": "202473",
-      "pts": 16,
-      "pj": 7,
-      "pg": 5,
-      "pe": 1,
-      "pp": 1,
-      "gf": 21,
-      "gc": 11,
-      "casa": {
-        "pj": 3,
-        "pg": 2,
-        "pe": 1,
-        "pp": 0
-      },
-      "fuera": {
-        "pj": 4,
-        "pg": 3,
-        "pe": 0,
-        "pp": 1
-      },
-      "dg": 10,
-      "forma": [
-        "E",
-        "G",
-        "G",
-        "G",
-        "G"
-      ],
-      "sancion": 0,
-      "escudo": "data/juvenil-b/escudos/202473.jpg"
-    },
-    {
       "pos": 4,
       "equipo": "SD LA SALLE \"B\"",
       "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=102216&codgrupo=23348376",
       "codequipo": "102216",
       "pts": 15,
-      "pj": 7,
+      "pj": 8,
       "pg": 5,
       "pe": 0,
-      "pp": 2,
+      "pp": 3,
       "gf": 26,
-      "gc": 11,
+      "gc": 12,
       "casa": {
         "pj": 4,
         "pg": 4,
@@ -132,18 +132,18 @@
         "pp": 0
       },
       "fuera": {
-        "pj": 3,
+        "pj": 4,
         "pg": 1,
         "pe": 0,
-        "pp": 2
+        "pp": 3
       },
-      "dg": 15,
+      "dg": 14,
       "forma": [
-        "G",
         "P",
         "G",
         "G",
-        "G"
+        "G",
+        "P"
       ],
       "sancion": 0,
       "escudo": "data/juvenil-b/escudos/102216.jpg"
@@ -290,16 +290,16 @@
     },
     {
       "pos": 9,
-      "equipo": "PLA DE NA TESA \"A\"",
-      "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=101733&codgrupo=23348376",
-      "codequipo": "101733",
-      "pts": 10,
-      "pj": 7,
+      "equipo": "ARENAL \"A\"",
+      "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=102277&codgrupo=23348376",
+      "codequipo": "102277",
+      "pts": 11,
+      "pj": 8,
       "pg": 3,
-      "pe": 1,
+      "pe": 2,
       "pp": 3,
-      "gf": 10,
-      "gc": 17,
+      "gf": 14,
+      "gc": 16,
       "casa": {
         "pj": 4,
         "pg": 3,
@@ -307,24 +307,59 @@
         "pp": 1
       },
       "fuera": {
-        "pj": 3,
+        "pj": 4,
         "pg": 0,
-        "pe": 1,
+        "pe": 2,
+        "pp": 2
+      },
+      "dg": -2,
+      "forma": [
+        "P",
+        "P",
+        "G",
+        "E",
+        "G"
+      ],
+      "sancion": 0,
+      "escudo": "data/juvenil-b/escudos/102277.jpg"
+    },
+    {
+      "pos": 10,
+      "equipo": "PLA DE NA TESA \"A\"",
+      "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=101733&codgrupo=23348376",
+      "codequipo": "101733",
+      "pts": 11,
+      "pj": 8,
+      "pg": 3,
+      "pe": 2,
+      "pp": 3,
+      "gf": 13,
+      "gc": 20,
+      "casa": {
+        "pj": 4,
+        "pg": 3,
+        "pe": 0,
+        "pp": 1
+      },
+      "fuera": {
+        "pj": 4,
+        "pg": 0,
+        "pe": 2,
         "pp": 2
       },
       "dg": -7,
       "forma": [
         "P",
-        "P",
         "G",
         "P",
-        "G"
+        "G",
+        "E"
       ],
       "sancion": 0,
       "escudo": "data/juvenil-b/escudos/101733.jpg"
     },
     {
-      "pos": 10,
+      "pos": 11,
       "equipo": "SP. ATº CIUTAT DE PALMA \"B\"",
       "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=7014451&codgrupo=23348376",
       "codequipo": "7014451",
@@ -359,21 +394,21 @@
       "escudo": "data/juvenil-b/escudos/7014451.jpg"
     },
     {
-      "pos": 11,
+      "pos": 12,
       "equipo": "SON CLADERA \"A\"",
       "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=102602&codgrupo=23348376",
       "codequipo": "102602",
-      "pts": 8,
-      "pj": 6,
+      "pts": 9,
+      "pj": 7,
       "pg": 2,
-      "pe": 2,
+      "pe": 3,
       "pp": 2,
-      "gf": 13,
-      "gc": 14,
+      "gf": 16,
+      "gc": 17,
       "casa": {
-        "pj": 3,
+        "pj": 4,
         "pg": 2,
-        "pe": 0,
+        "pe": 1,
         "pp": 1
       },
       "fuera": {
@@ -384,49 +419,14 @@
       },
       "dg": -1,
       "forma": [
-        "G",
         "E",
         "G",
         "P",
+        "E",
         "E"
       ],
       "sancion": 0,
       "escudo": "data/juvenil-b/escudos/102602.png"
-    },
-    {
-      "pos": 12,
-      "equipo": "ARENAL \"A\"",
-      "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=102277&codgrupo=23348376",
-      "codequipo": "102277",
-      "pts": 8,
-      "pj": 7,
-      "pg": 2,
-      "pe": 2,
-      "pp": 3,
-      "gf": 13,
-      "gc": 16,
-      "casa": {
-        "pj": 3,
-        "pg": 2,
-        "pe": 0,
-        "pp": 1
-      },
-      "fuera": {
-        "pj": 4,
-        "pg": 0,
-        "pe": 2,
-        "pp": 2
-      },
-      "dg": -3,
-      "forma": [
-        "P",
-        "P",
-        "P",
-        "G",
-        "E"
-      ],
-      "sancion": 0,
-      "escudo": "data/juvenil-b/escudos/102277.jpg"
     },
     {
       "pos": 13,
@@ -434,12 +434,12 @@
       "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=102331&codgrupo=23348376",
       "codequipo": "102331",
       "pts": 8,
-      "pj": 7,
+      "pj": 8,
       "pg": 2,
       "pe": 2,
-      "pp": 3,
-      "gf": 11,
-      "gc": 15,
+      "pp": 4,
+      "gf": 13,
+      "gc": 20,
       "casa": {
         "pj": 4,
         "pg": 2,
@@ -447,18 +447,18 @@
         "pp": 0
       },
       "fuera": {
-        "pj": 3,
+        "pj": 4,
         "pg": 0,
         "pe": 0,
-        "pp": 3
+        "pp": 4
       },
-      "dg": -4,
+      "dg": -7,
       "forma": [
-        "G",
         "P",
         "E",
         "P",
-        "G"
+        "G",
+        "P"
       ],
       "sancion": 0,
       "escudo": "data/juvenil-b/escudos/102331.png"
@@ -597,6 +597,8 @@
     {
       "local": "SON CLADERA \"A\"",
       "visitante": "PLA DE NA TESA \"A\"",
+      "goles_local": 3,
+      "goles_visitante": 3,
       "cod_local": "102602",
       "cod_visitante": "101733"
     },
@@ -611,6 +613,8 @@
     {
       "local": "ARENAL \"A\"",
       "visitante": "SD LA SALLE \"B\"",
+      "goles_local": 1,
+      "goles_visitante": 0,
       "cod_local": "102277",
       "cod_visitante": "102216"
     },
@@ -625,6 +629,8 @@
     {
       "local": "ALGAIDA \"A\"",
       "visitante": "CARDASSAR \"A\"",
+      "goles_local": 5,
+      "goles_visitante": 2,
       "cod_local": "202473",
       "cod_visitante": "102331"
     }

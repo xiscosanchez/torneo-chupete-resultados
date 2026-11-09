@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-11-08T18:09:07+00:00",
+  "actualizado": "2026-11-09T01:05:33+00:00",
   "fuente": "https://www.ffib.es/Fed/NPcd/NFG_VisClasificacion?cod_primaria=1000110&codcompeticion=23348419&codgrupo=23460647&codjornada=7",
   "competicion": "INFANTIL DIVISIÓN DE HONOR MALLORCA",
   "grupo": "LIGA",
@@ -259,17 +259,17 @@
       "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=250738&codgrupo=23460647",
       "codequipo": "250738",
       "pts": 9,
-      "pj": 6,
+      "pj": 7,
       "pg": 3,
       "pe": 0,
-      "pp": 3,
+      "pp": 4,
       "gf": 17,
-      "gc": 16,
+      "gc": 20,
       "casa": {
-        "pj": 3,
+        "pj": 4,
         "pg": 1,
         "pe": 0,
-        "pp": 2
+        "pp": 3
       },
       "fuera": {
         "pj": 3,
@@ -277,19 +277,54 @@
         "pe": 0,
         "pp": 1
       },
-      "dg": 1,
+      "dg": -3,
       "forma": [
-        "P",
         "G",
         "P",
         "G",
-        "G"
+        "G",
+        "P"
       ],
       "sancion": 0,
       "escudo": "data/infantil-dh/escudos/250738.jpg"
     },
     {
       "pos": 9,
+      "equipo": "RTVº LA VICTORIA \"A\"",
+      "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=104076&codgrupo=23460647",
+      "codequipo": "104076",
+      "pts": 8,
+      "pj": 7,
+      "pg": 2,
+      "pe": 2,
+      "pp": 3,
+      "gf": 8,
+      "gc": 9,
+      "casa": {
+        "pj": 3,
+        "pg": 0,
+        "pe": 2,
+        "pp": 1
+      },
+      "fuera": {
+        "pj": 4,
+        "pg": 2,
+        "pe": 0,
+        "pp": 2
+      },
+      "dg": -1,
+      "forma": [
+        "P",
+        "E",
+        "P",
+        "E",
+        "G"
+      ],
+      "sancion": 0,
+      "escudo": "data/infantil-dh/escudos/104076.jpg"
+    },
+    {
+      "pos": 10,
       "equipo": "MANACOR \"A\"",
       "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=104009&codgrupo=23460647",
       "codequipo": "104009",
@@ -322,41 +357,6 @@
       ],
       "sancion": 0,
       "escudo": "data/infantil-dh/escudos/104009.jpg"
-    },
-    {
-      "pos": 10,
-      "equipo": "RTVº LA VICTORIA \"A\"",
-      "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=104076&codgrupo=23460647",
-      "codequipo": "104076",
-      "pts": 5,
-      "pj": 6,
-      "pg": 1,
-      "pe": 2,
-      "pp": 3,
-      "gf": 4,
-      "gc": 9,
-      "casa": {
-        "pj": 3,
-        "pg": 0,
-        "pe": 2,
-        "pp": 1
-      },
-      "fuera": {
-        "pj": 3,
-        "pg": 1,
-        "pe": 0,
-        "pp": 2
-      },
-      "dg": -5,
-      "forma": [
-        "P",
-        "P",
-        "E",
-        "P",
-        "E"
-      ],
-      "sancion": 0,
-      "escudo": "data/infantil-dh/escudos/104076.jpg"
     },
     {
       "pos": 11,
@@ -511,6 +511,8 @@
     {
       "local": "MADRE ALBERTA",
       "visitante": "RTVº LA VICTORIA \"A\"",
+      "goles_local": 0,
+      "goles_visitante": 4,
       "cod_local": "250738",
       "cod_visitante": "104076"
     },
