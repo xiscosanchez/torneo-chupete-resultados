@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-11-16T18:11:44+00:00",
+  "actualizado": "2026-11-22T01:32:50+00:00",
   "fuente": "https://www.ffib.es/Fed/NPcd/NFG_VisClasificacion?cod_primaria=1000110&codcompeticion=23348373&codgrupo=23348374&codjornada=11",
   "competicion": "LIGA NACIONAL JUVENIL",
   "grupo": "LIGA",
@@ -469,12 +469,12 @@
       "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=102430&codgrupo=23348374",
       "codequipo": "102430",
       "pts": 9,
-      "pj": 10,
+      "pj": 11,
       "pg": 3,
       "pe": 0,
-      "pp": 7,
-      "gf": 7,
-      "gc": 17,
+      "pp": 8,
+      "gf": 8,
+      "gc": 19,
       "casa": {
         "pj": 5,
         "pg": 3,
@@ -482,12 +482,12 @@
         "pp": 2
       },
       "fuera": {
-        "pj": 5,
+        "pj": 6,
         "pg": 0,
         "pe": 0,
-        "pp": 5
+        "pp": 6
       },
-      "dg": -10,
+      "dg": -11,
       "forma": [
         "P",
         "G",
@@ -573,16 +573,16 @@
       "equipo": "ANDRATX \"A\"",
       "url": "https://www.ffib.es/Fed/NPcd/NFG_VisCompeticiones_Grupo?cod_primaria=1000113&codequipo=843912&codgrupo=23348374",
       "codequipo": "843912",
-      "pts": 4,
-      "pj": 10,
-      "pg": 1,
+      "pts": 7,
+      "pj": 11,
+      "pg": 2,
       "pe": 1,
       "pp": 8,
-      "gf": 11,
-      "gc": 34,
+      "gf": 13,
+      "gc": 35,
       "casa": {
-        "pj": 4,
-        "pg": 1,
+        "pj": 5,
+        "pg": 2,
         "pe": 0,
         "pp": 3
       },
@@ -592,9 +592,9 @@
         "pe": 1,
         "pp": 5
       },
-      "dg": -23,
+      "dg": -22,
       "forma": [
-        "P",
+        "G",
         "P",
         "G",
         "P",
